@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS idea_db;
+CREATE DATABASE idea_db;
+USE idea_db;
