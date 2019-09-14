@@ -11,13 +11,21 @@ function Login(props) {
                 <Alert className="animated fadeIn" color="danger">{props.message}</Alert>
             ) : (<></>)}
             <Form>
+            <FormGroup>
+                    <Label for="className">Class Name</Label>
+                    <Input type="text" name="className" id="className" placeholder="Class Name" value={props.className} onChange={props.handleInputChange} />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="fName">Name</Label>
+                    <Input type="text" name="fName" id="fName" placeholder="Name" value={props.fName} onChange={props.handleInputChange} />
+                </FormGroup>
                 <FormGroup>
                     <Label for="username">Username</Label>
-                    <Input type="text" name="username" id="username" placeholder="username" value={props.username} onChange={props.handleInputChange} />
+                    <Input type="text" name="username" id="username" placeholder="Username" value={props.username} onChange={props.handleInputChange} />
                 </FormGroup>
                 <FormGroup>
                     <Label for="password">Password</Label>
-                    <Input type="password" name="password" id="password" placeholder="password" value={props.password} onChange={props.handleInputChange} />
+                    <Input type="password" name="password" id="password" placeholder="Password" value={props.password} onChange={props.handleInputChange} />
                 </FormGroup>
                 <Button id="loginBtn" onClick={props.handleLogin} block>Login</Button>
                 <p className="signupLink">
