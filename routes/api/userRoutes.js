@@ -81,7 +81,7 @@ router.get("/admin", authMiddleware.isAdmin, function(req, res, next) {
 });
 
 router.get("/user", authMiddleware.isLoggedIn, function(req, res, next) {
-  db.User.findByIdAndUpdate(req.user._id).populate('todos').then((user) => {
+  db.User.findByIdAndUpdate(req.user._id).populate('create').then((user) => {
     res.json(user);
   }).catch((err) => {
     res.json(err);
