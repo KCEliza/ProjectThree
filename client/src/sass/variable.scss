@@ -1,4 +1,8 @@
-
+html {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
 // page colors 
 $primary-color: #BAD7F2;
 $background-color: #F5F5F5;
@@ -9,7 +13,9 @@ $light-text: #F5F5F5;
 
 // fonts
 // $title-font: 'Concert One', cursive;
-$text-font:'Chilanka', cursive;
-$title-font:'Chilanka', cursive;
+$text-font:'Manjari', sans-serif;
+$title-font:'Manjari', sans-serif;
+
+
 
 $footer-height: 50px;
