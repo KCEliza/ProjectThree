@@ -3,10 +3,33 @@ const bcrypt = require('bcrypt');
 const Schema = mongoose.Schema;
 
 const usersSchema = new Schema({
+  classCode: {
+    type: String,
+    unique: false,
+    require: [true, "please select your classcode"]
+  },
   username: {
     type: String,
     unique: true,
     required: [true, "username is required"]
+  },
+
+  firstName: {
+    type: String,
+    trim: true,
+    required: "First Name is Required"
+  },
+
+  lastName: {
+    type: String,
+    trim: true,
+    required: "Last Name is Required"
+  },
+
+  email: {
+    type: String,
+    unique: true,
+    match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
   },
   password: {
     type: String,
@@ -19,20 +42,14 @@ const usersSchema = new Schema({
     },
     required: [true, "password is required"]
   },
-  admin: {
-    type: Boolean,
-    unique: false,
-    required: true,
-    default: false
-  },
   createdAt: {
     type: Date,
     default: Date.now()
   },
-  todos: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Todo'
-  }]
+  lastUpdated: Date,
+  // `fullName` must be of type String
+  fullName: String
+
 });
 
 usersSchema.methods.generateHash = function (password) {
@@ -43,6 +60,12 @@ usersSchema.methods.validPassword = function (password, encrypted) {
   return bcrypt.compareSync(password, encrypted);
 }
 
-const User = mongoose.model("User", usersSchema);
+usersSchema.methods.lastUpdatedDate = function() {
+  this.lastUpdated = Date.now();
+  return this.lastUpdated;
+};
 
-module.exports = User;
+
+const Users = mongoose.model("Users", usersSchema);
+
+module.exports = Users;

@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const todosSchema = new Schema({
-  author: {
+const createSchema = new Schema({
+Title: {
     type: Schema.Types.ObjectId,
-    ref: "User"
+    ref: "Users"
   },
-  todo: {
+  Description: {
     type: String,
     unique: false,
     required: [true, "text is required"]
@@ -17,6 +17,6 @@ const todosSchema = new Schema({
   }
 });
 
-const Todo = mongoose.model("Todo", todosSchema);
+const Create = mongoose.model("Create", createSchema);
 
-module.exports = Todo;
+module.exports = Create;
