@@ -11,14 +11,6 @@ function Login(props) {
                 <Alert className="animated fadeIn" color="danger">{props.message}</Alert>
             ) : (<></>)}
             <Form>
-            <FormGroup>
-                    <Label for="className">Class Name</Label>
-                    <Input type="text" name="className" id="className" placeholder="Class Name" value={props.className} onChange={props.handleInputChange} />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="fName">Name</Label>
-                    <Input type="text" name="fName" id="fName" placeholder="Name" value={props.fName} onChange={props.handleInputChange} />
-                </FormGroup>
                 <FormGroup>
                     <Label for="username">Username</Label>
                     <Input type="text" name="username" id="username" placeholder="Username" value={props.username} onChange={props.handleInputChange} />

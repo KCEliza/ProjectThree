@@ -14,13 +14,13 @@ const usersSchema = new Schema({
     required: [true, "username is required"]
   },
 
-  firstName: {
+  fName: {
     type: String,
     trim: true,
     required: "First Name is Required"
   },
 
-  lastName: {
+  lName: {
     type: String,
     trim: true,
     required: "Last Name is Required"
