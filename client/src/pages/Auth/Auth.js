@@ -8,6 +8,10 @@ class Auth extends Component {
 
   state = {
     loggedIn: false,
+    classCode: "",
+    fName: "",
+    lName: "",
+    email: "",
     username: "",
     password: "",
     confirmPassword: "",
@@ -52,6 +56,10 @@ class Auth extends Component {
     event.preventDefault();
     if (this.state.username && this.state.password) {
       API.signup({
+        classCode: this.state.classCode,
+        fName: this.state.fName,
+        lName: this.state.lName,
+        email:this.state.email,
         username: this.state.username,
         password: this.state.password
       }).then(user => {

@@ -21,7 +21,7 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
 
     newTodo.save((err, newTodo) => {
         if (err) throw err;
-        db.User.findByIdAndUpdate(req.user.id, { $push: { todos: newTodo._id } }, (err, user) => {
+        db.Users.findByIdAndUpdate(req.user.id, { $push: { todos: newTodo._id } }, (err, user) => {
             if (err) throw err;
             res.send(newTodo, user);
         });
@@ -33,7 +33,7 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
 router.delete("/remove", authMiddleware.isLoggedIn, function (req, res, next) {
     db.Todo.findByIdAndDelete(req.body.id, (err, todo) => {
         if (err) throw err;
-        db.User.findByIdAndUpdate(todo._id, { $pull: { 'todos': todo._id } }, { new: true }, (err, user) => {
+        db.Users.findByIdAndUpdate(todo._id, { $pull: { 'todos': todo._id } }, { new: true }, (err, user) => {
             if (err) throw err;
             res.send(user);
         });
