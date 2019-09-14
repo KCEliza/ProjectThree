@@ -17,13 +17,13 @@ const usersSchema = new Schema({
   fName: {
     type: String,
     trim: true,
-    required: "First Name is Required"
+    required: [true, "First Name is Required"]
   },
 
   lName: {
     type: String,
     trim: true,
-    required: "Last Name is Required"
+    required: [true, "Last Name is Required"]
   },
 
   email: {
