@@ -70,7 +70,7 @@ class Signup extends Component {
                         <Input type="text" name="classCode" id="classCode" placeholder="Class Code" value={this.props.classCode} onChange={this.props.handleInputChange} valid={this.state.validClassCode} />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="fName">Last Name</Label>
+                        <Label for="fName">First Name</Label>
                         <Input type="text" name="fName" id="fName" placeholder="John" value={this.props.fName} onChange={this.props.handleInputChange} valid={this.state.validFName} />
                     </FormGroup>
                     <FormGroup>
