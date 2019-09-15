@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import "./Profile.scss";
 import { Button } from "reactstrap";
-import { Link } from "react-router-dom"
-import API from "../../utils/API"
+import { Link } from "react-router-dom";
+import API from "../../utils/API";
+import Menu from "../../components/Menu";
 
 class Profile extends Component {
     state = {
@@ -39,11 +40,16 @@ class Profile extends Component {
 
     render() {
         return (
-            <div className="profilePage">
+            <>
                 {this.state.loggedIn ? (
-                    <div className="profileBox">
-                        <h1 id="userTitle">Welcome {this.state.user.username}</h1>
-                    </div>
+                    <>
+                        <Menu />
+                        
+                        {/* <div className="profileBox col-md-10">
+                            <h1 id="userTitle">Welcome {this.state.user.username}</h1>
+                        </div> */}
+                       
+                    </>
                 ) : (
                     <div className="noUser">
                         {!this.state.loading ? (
@@ -56,7 +62,7 @@ class Profile extends Component {
                         )}
                     </div> 
                 )}
-            </div>
+            </>
         )
     }
 }
