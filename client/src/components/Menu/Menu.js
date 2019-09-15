@@ -8,7 +8,7 @@ export default class Menu extends Component {
     render() {
         return (
             <>
-                <nav className="wrapper col-md-2">
+                <nav className="wrapper">
 
                                                
                         
