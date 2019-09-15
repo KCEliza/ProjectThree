@@ -2,14 +2,16 @@
 
 .footer {
     width: 100%;
+    left: 0;
+    bottom:0;
     margin: 0 auto;
-    position: absolute;
-    // bottom: -30px;
+    position: fixed;
     height: $footer-height;
     background: $primary-color;
     box-shadow: 1px 7px 3px 8px $dark-text;
     font-family: $text-font;
     color: $light-text;
+    flex-shrink:0;
     p {
         line-height: $footer-height;
         width: 33%;
@@ -32,12 +34,6 @@
 
 
 }
-
-// #reactLogo {
-//     -webkit-animation:spin 10s linear infinite;
-//     -moz-animation:spin 10s linear infinite;
-//     animation:spin 10s linear infinite;
-// }
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }

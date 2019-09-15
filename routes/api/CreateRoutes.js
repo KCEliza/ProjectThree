@@ -6,32 +6,32 @@ const authMiddleware = require("../../config/middleware/authMiddleware");
 // /api/todos/all
 // get all todos from the signed in user
 router.get("/all", authMiddleware.isLoggedIn, function (req, res, next) {
-    db.Todo.find({ author: req.user.id }, (err, todos) => {
-        res.json(todos);
+    db.Create.find({ author: req.user.id }, (err, create) => {
+        res.json(create);
     });
 });
 
 // /api/todos/new
 // add new todo, update the user to have todo id
 router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
-    const newTodo = new db.Todo({
+    const newCreate = new db.Create({
         author: req.user._id,
-        todo: req.body.todo
+        create: req.body.create
     });
 
-    newTodo.save((err, newTodo) => {
+    newCreate.save((err, newCreate) => {
         if (err) throw err;
         db.Users.findByIdAndUpdate(req.user.id, { $push: { todos: newTodo._id } }, (err, user) => {
             if (err) throw err;
-            res.send(newTodo, user);
+            res.send(newCreate, user);
         });
     });
 });
 
-// /api/todos/remove
+// /apiCreate/remove
 // removed todo based on id, updates user
 router.delete("/remove", authMiddleware.isLoggedIn, function (req, res, next) {
-    db.Todo.findByIdAndDelete(req.body.id, (err, todo) => {
+    db.Create.findByIdAndDelete(req.body.id, (err, todo) => {
         if (err) throw err;
         db.Users.findByIdAndUpdate(todo._id, { $pull: { 'todos': todo._id } }, { new: true }, (err, user) => {
             if (err) throw err;
@@ -40,12 +40,12 @@ router.delete("/remove", authMiddleware.isLoggedIn, function (req, res, next) {
     });
 });
 
-// /api/todos/update
+// /api/create/update
 // update a todo based on id
 router.put("/update", authMiddleware.isLoggedIn, function (req, res, next) {
-    db.Todo.findByIdAndUpdate(req.body.id, { todo: req.body.todo }, { new: true }, (err, todo) => {
+    db.Create.findByIdAndUpdate(req.body.id, { todo: req.body.create }, { new: true }, (err, create) => {
         if (err) throw err;
-        res.json(todo);
+        res.json(create);
     });
 });
 
