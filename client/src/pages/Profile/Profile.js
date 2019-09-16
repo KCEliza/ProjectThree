@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import "./Profile.scss";
 import { Button } from "reactstrap";
-import { Link } from "react-router-dom"
-import API from "../../utils/API"
+import { Link } from "react-router-dom";
+import API from "../../utils/API";
+import Menu from "../../components/Menu";
 
 class Profile extends Component {
     state = {
@@ -39,24 +40,37 @@ class Profile extends Component {
 
     render() {
         return (
-            <div className="profilePage">
+
+            <>
+            
                 {this.state.loggedIn ? (
-                    <div className="profileBox">
-                        <h1 id="userTitle">Welcome {this.state.user.username}</h1>
-                    </div>
+                    <>
+                        <div className="col-md-2">
+                            <Menu />
+                        </div>
+                        <div className="profileBox col-md-10 float-right">
+                            <h1 id="userTitle">Welcome {this.state.user.username}</h1>
+                        </div>
+                       
+                    </>
                 ) : (
                     <div className="noUser">
                         {!this.state.loading ? (
                             <>
-                                <h1>please log in</h1>
-                                <Link className="loginLink" to="/login"><Button className="loginBtn" color="info" block>Login</Button></Link>
+                                <div className="container text-center">
+
+                                    <h1>please log in</h1>
+                                    <Link className="loginLink" to="/login"><Button className="loginBtn btn-large" color="info" >Login</Button></Link>
+
+                                </div>
                             </>
                         ) : (
                             <img id="loadingIcon" src="./assets/images/loading.gif" alt="loading"/>
                         )}
                     </div> 
+                    
                 )}
-            </div>
+            </>
         )
     }
 }
