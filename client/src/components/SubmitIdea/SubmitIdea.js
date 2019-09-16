@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Select} from 'reactstrap';
 import { Link } from "react-router-dom";
 import "./Home.scss";
 import { STATUS_CODES } from "http";
@@ -33,12 +33,40 @@ class IdeaForm extends Component {
             <Form>
                 <FormGroup>
                     <Label for="title">Username</Label>
-                    <Input type="text" name="title" id="title" placeholder="title" value={props.title} onChange={props.handleInputChange} />
+                    <Input 
+                    type="text" 
+                    name="title" 
+                    id="title" 
+                    placeholder="title" 
+                    value={props.title} 
+                    onChange={props.handleInputChange} />
                 </FormGroup>
                 <FormGroup>
                     <Label for="description">Password</Label>
-                    <Input type="description" name="description" id="description" placeholder="description" value={props.description} onChange={props.handleInputChange} />
+                    <Input 
+                    type="description" 
+                    name="description" 
+                    id="description" 
+                    placeholder="description" 
+                    value={props.description} 
+                    onChange={props.handleInputChange} />
                 </FormGroup>
+                <Select className="projectLevel" value={this.state.value} onChange={this.handleChange}>
+                    <option value="project1">Project One</option>
+                    <option value="project2">Project Two</option>
+                    <option selected value="coconut">Coconut</option>
+                    <option value="mango">Mango</option>
+                {
+                        projectTags.map(TimeRanges => {
+                            `<option value=${level}> ${level} </option>`
+                        })
+                    }
+
+                <option value="grapefruit">Grapefruit</option>
+                <option value="lime">Lime</option>
+                <option selected value="coconut">Coconut</option>
+                <option value="mango">Mango</option>
+                </Select>
                 <Select name="projectLevel">
                     {
                         classCodes.map(level => {
