@@ -65,6 +65,22 @@ class Signup extends Component {
                     <Alert className="animated fadeIn" color="danger">{this.props.message}</Alert>
                 ): (<></>)}
                 <Form>
+                <FormGroup>
+                        <Label for="classCode">Class Code</Label>
+                        <Input type="text" name="classCode" id="classCode" placeholder="Class Code" value={this.props.classCode} onChange={this.props.handleInputChange} valid={this.state.validClassCode} />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="fName">First Name</Label>
+                        <Input type="text" name="fName" id="fName" placeholder="John" value={this.props.fName} onChange={this.props.handleInputChange} valid={this.state.validFName} />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="lName">Last Name</Label>
+                        <Input type="text" name="lName" id="lName" placeholder="Smith" value={this.props.lName} onChange={this.props.handleInputChange} valid={this.state.validLName} />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="email">Email</Label>
+                        <Input type="text" name="email" id="email" placeholder="example@email.com" value={this.props.email} onChange={this.props.handleInputChange} valid={this.state.validEmail} />
+                    </FormGroup>
                     <FormGroup>
                         <Label for="username">Username</Label>
                         <Input type="text" name="username" id="username" placeholder="username" value={this.props.username} onChange={this.props.handleInputChange} valid={this.state.validUsername} />
@@ -85,7 +101,7 @@ class Signup extends Component {
                         <Button onClick={this.props.handleSignup} color="danger" block disabled>Signup</Button>
                     )}
                     <p className="signupLink">
-                        <Link to="/login">already have an account?  Sign in here</Link>
+                        <Link to="/login">already have an account?  Log in here</Link>
                     </p>
                 </Form>
             </div>

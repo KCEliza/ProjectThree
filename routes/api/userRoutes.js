@@ -16,17 +16,47 @@ router.post("/login", passport.authenticate("local", {
   });
 });
 
+// route to hand send post request
+
+var nodemailer = require('nodemailer');
+const creds = require('../config/submitIdea');
+
+var transport = {
+  host: 'smtp.gmail.com',
+  auth: {
+    user: creds.USER,
+    pass: creds.PASS
+  }
+}
+
+var transporter = nodemailer.createTransport(transport)
+
+transporter.verify((error, success) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Server is ready to take messages');
+  }
+});
+
+
 // /api/users/signup
 // route to logout the user
 router.post("/signup", function(req, res, next) {
-  db.User.findOne({username: req.body.username}, function(err, user) {
+  console.log("req.body", req.body);
+  
+  db.Users.findOne({username: req.body.username}, function(err, user) {
     if (err) throw err;
     if (user) {
       console.log("user already exists")
       return res.json("user already exists");
     }
     if (!user) {
-      let newUser = new db.User({
+      let newUser = new db.Users({
+        classCode: req.body.classCode,
+        fName: req.body.fName,
+        lName: req.body.lName,
+        email: req.body.email,
         username: req.body.username,
         password: req.body.password
       })
@@ -81,7 +111,7 @@ router.get("/admin", authMiddleware.isAdmin, function(req, res, next) {
 });
 
 router.get("/user", authMiddleware.isLoggedIn, function(req, res, next) {
-  db.User.findByIdAndUpdate(req.user._id).populate('todos').then((user) => {
+  db.Users.findByIdAndUpdate(req.user._id).populate('todos').then((user) => {
     res.json(user);
   }).catch((err) => {
     res.json(err);
