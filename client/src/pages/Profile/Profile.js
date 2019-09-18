@@ -4,6 +4,7 @@ import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import Menu from "../../components/Menu";
+import Cardfile from "../../components/Card/Card";
 
 class Profile extends Component {
     state = {
@@ -50,6 +51,11 @@ class Profile extends Component {
                         </div>
                         <div className="profileBox col-md-10 float-right">
                             <h1 id="userTitle">Welcome {this.state.user.username}</h1>
+                            <h4>All Projects: </h4>
+                            <Cardfile />
+                            <Cardfile />
+                            <Cardfile />
+                            <Cardfile />
                         </div>
                        
                     </>
