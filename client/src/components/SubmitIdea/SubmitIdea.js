@@ -76,7 +76,7 @@ class SubmitIdea extends Component {
                     
                     <FormGroup>
                         <Label for="title">Topic:  </Label>
-                    <input
+                    <Input
                                 type="text"
                                 name="title"
                                 id="title"
@@ -87,7 +87,7 @@ class SubmitIdea extends Component {
                     
                     <FormGroup>   
                     <Label for="description">Description: </Label>
-                    <input
+                    <Input
                                 type="description"
                                 name="description"
                                 id="description"
@@ -100,20 +100,20 @@ class SubmitIdea extends Component {
                     <FormGroup> 
                     <label>
                         Proeject Level:</label>
-                    <select name="projectLevel" placeholder="Default" className="projectLevel" value={this.state.value} onChange={this.handleInputChange}>
+                    <Select name="projectLevel" placeholder="Default" className="projectLevel" value={this.state.value} onChange={this.handleInputChange}>
                         <option value="default" placeholder="Default"></option>
                         <option value="project1">Project One</option>
                         <option value="project2">Project Two</option>
                         <option value="project3">Project Threet</option>
                         <option value="capstone">Capstone</option>
 
-                    </select>
+                    </Select>
                     </FormGroup> 
 
                     <FormGroup> 
                     <label>
                         Difficulty Level: </label>
-                    <select
+                    <Select
                         name="difficultyLevel"
                         className="difficultyLevel"
                         value={this.state.value}
@@ -122,9 +122,11 @@ class SubmitIdea extends Component {
                         <option value="easy" style={{ backgroundColor: "green" }}>Easy</option>
                         <option value="intermediate" style={{ backgroundColor: "orange" }}>Intermediate</option>
                         <option value="advanced" style={{ backgroundColor: "red" }}>Advanced</option> 
-                        </select>
+                        </Select>
 
-                    </FormGroup>                     
+                    </FormGroup>   
+                    
+                                      
                     {/* Need to make an API ile for the difrent tag */}
                     {/* <FormGroup>
                 <label htmlFor="tag-choice">
