@@ -1,0 +1,10 @@
+[
+    {
+        "id": 1,
+        "title": "Babes in Brunchland",
+        "description": "Design an app that scrapes a restaurant API, and delivers the user breakfast options by zip code. Display a map of each location and send invites to your friends.",
+        "projectLevel": 1,
+        "difficulty": 2,
+        
+    }
+]
