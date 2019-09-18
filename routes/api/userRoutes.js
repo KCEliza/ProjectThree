@@ -19,7 +19,7 @@ router.post("/login", passport.authenticate("local", {
 // route to hand send post request
 
 var nodemailer = require('nodemailer');
-const creds = require('../config/submitIdea');
+const creds = require('../../config/submitIdea');
 
 var transport = {
   host: 'smtp.gmail.com',

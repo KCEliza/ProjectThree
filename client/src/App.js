@@ -6,7 +6,6 @@ import Auth from "./pages/Auth";
 import NoMatch from "./pages/NoMatch";
 import TopNav from "./components/TopNav";
 import Footer from "./components/Footer";
-// import SubmitIdea from "./components/SubmitIdea";
 import { Container } from 'reactstrap';
 
 function App() {
@@ -22,7 +21,7 @@ function App() {
               <Route exact path="/login" render={(props) => <Auth {...props} action="login" />} />
   
               <Route exact path="/profile" component={Profile} />
-              <Route component={NoMatch} />t
+              <Route component={NoMatch} />
             </Switch>
           </Container>
           <Footer />
