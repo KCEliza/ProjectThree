@@ -15,10 +15,8 @@ export default class Menu extends Component {
                     <Link to="/profile" className="row homeLink navLink active"><i className="fas fa-home"></i>HOME</Link>        
                     
                     
-                    <Link to="#" className=" submitLink navLink"><i className="far fa-lightbulb"></i>SUBMIT IDEA</Link>
-                 
-
-                   
+                    <Link to="/profile/submit" className=" submitLink navLink"><i className="far fa-lightbulb"></i>SUBMIT IDEA</Link>
+                            
                         
                       
                 </nav>
