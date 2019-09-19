@@ -1,15 +1,21 @@
-
+html {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
 // page colors 
-$primary-color: #1E90FF;
+$primary-color: #BAD7F2;
 $background-color: #F5F5F5;
 
 // text colors
-$dark-text: #2F4F4F;
+$dark-text: black;
 $light-text: #F5F5F5;
 
 // fonts
 // $title-font: 'Concert One', cursive;
-$text-font: 'Josefin Sans', sans-serif;
-$title-font: 'Prosto One', cursive;
+$text-font:'Manjari', sans-serif;
+$title-font:'Manjari', sans-serif;
+
+
 
 $footer-height: 50px;
