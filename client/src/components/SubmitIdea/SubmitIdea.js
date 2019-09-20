@@ -99,7 +99,7 @@ class SubmitIdea extends Component {
 
                     <FormGroup> 
                     <label>
-                        Proeject Level:</label>
+                        Project Level:</label>
                     <Select name="projectLevel" placeholder="Default" className="projectLevel" value={this.state.value} onChange={this.handleInputChange}>
                         <option value="default" placeholder="Default"></option>
                         <option value="project1">Project One</option>
