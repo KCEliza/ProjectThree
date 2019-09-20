@@ -2,14 +2,28 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const createSchema = new Schema({
-Title: {
+username: {
+  type: String,
+  unique:true,
+  require:[true]
+  },
+  title: {
     type: Schema.Types.ObjectId,
     ref: "Users"
   },
-  Description: {
+  description: {
     type: String,
     unique: false,
     required: [true, "text is required"]
+  },
+  projectLevel: {
+    type: String,
+  },
+  difficulty:{
+    type:String,
+  },
+  tags: {
+    type: String,
   },
   createdAt: {
     type: Date,

@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import tags from "./tags.json";
 import "./style.css";
-
-import axios from 'axios';
+// import axios from 'axios';
 // import { STATUS_CODES } from "http";
 
 
@@ -33,7 +32,7 @@ class SubmitIdea extends Component {
     handleTagChange = event => {
 
         const value = event.target.value;
-        const name = event.target.name;
+        // const name = event.target.name;
         const selectedTags = [...this.state.selectedTags]
         if(selectedTags.includes(value)){
             for(var i = 0; i < selectedTags.length; i++){
@@ -142,7 +141,4 @@ class SubmitIdea extends Component {
     }
 
 }
-
-
-
 export default SubmitIdea;
