@@ -14,8 +14,8 @@ const Cardfile = (props) => {
           <CardTitle>Project Title</CardTitle>
           <CardSubtitle>Author</CardSubtitle>
           <CardText>Project description.</CardText>
-          <Button className="btn-success">Great Idea!</Button>
-          <Button className="btn-danger">Unenthused...</Button>
+          <Button className="btn-success">/\</Button>
+          <Button className="btn-danger">\/</Button>
         </CardBody>
       </Card>
     </div>
