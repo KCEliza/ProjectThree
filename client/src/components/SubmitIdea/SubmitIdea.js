@@ -12,24 +12,46 @@ class SubmitIdea extends Component {
     state = {
         tags,
         title: "",
-        description: ""
+        description: "",
+        username: "",
+        projectLevel: "",
+        projectDiff: "",
+        selectedTags: []
+
     }
 
     handleInputChange = event => {
         const value = event.target.value;
         const name = event.target.name;
+        console.log(value, "VALUE")
+        console.log(name,"NAME")
         this.setState({
             [name]: value
         });
     }
 
     handleTagChange = event => {
+
         const value = event.target.value;
         const name = event.target.name;
+        const selectedTags = [...this.state.selectedTags]
+        if(selectedTags.includes(value)){
+            for(var i = 0; i < selectedTags.length; i++){
+                if(selectedTags[i] === value){
+                    selectedTags.splice(i, 1);
+                    console.log("THIS IS WORKING")
+                };
+            };
+        }
+        else{
+            selectedTags.push(value);
+            console.log("PUSH IS WORKING")
+        };
         this.setState({
-            [name]: value
-        });
-    }
+            selectedTags
+        })
+        
+    };
 
 
 
@@ -40,29 +62,30 @@ class SubmitIdea extends Component {
         //Should handle sending email and storing the Idea information in the datatbase
 
         event.preventDefault();
-        const name = document.getElementById('username').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
+        
+        // const name = document.getElementById('username').value;
+        // const email = document.getElementById('email').value;
+        // const message = document.getElementById('message').value;
 
-        //Need to work on having the inputs samed in the database      
+        // //Need to work on having the inputs samed in the database      
 
-        //Sending email      
-        axios({
-            method: "POST",
-            url: "http://localhost:3002/send",
-            data: {
-                name: name,
-                email: email,
-                messsage: message
-            }
-        }).then((response) => {
-            if (response.data.msg === 'success') {
-                alert("Message Sent.");
-                this.resetForm()
-            } else if (response.data.msg === 'fail') {
-                alert("Message failed to send.")
-            }
-        });
+        // //Sending email      
+        // axios({
+        //     method: "POST",
+        //     url: "http://localhost:3002/send",
+        //     data: {
+        //         name: name,
+        //         email: email,
+        //         messsage: message
+        //     }
+        // }).then((response) => {
+        //     if (response.data.msg === 'success') {
+        //         alert("Message Sent.");
+        //         this.resetForm()
+        //     } else if (response.data.msg === 'fail') {
+        //         alert("Message failed to send.")
+        //     }
+        // });
         // resetForm() {
         //     document.getElementById('sumbitIdea').reset();
         // }
@@ -76,17 +99,17 @@ class SubmitIdea extends Component {
         return (
             <Form>
             <FormGroup>
-                <Input type="name" name="username" id="username" placeholder="Username" />
+                <Input value={this.state.username} onChange={this.handleInputChange} type="name" name="username" id="username" placeholder="Username" />
             </FormGroup>
             <FormGroup>
-                <Input type="text" name="title" id="title" placeholder="Project Title" />
+                <Input value={this.state.title} onChange={this.handleInputChange} type="text" name="title" id="title" placeholder="Project Title" />
             </FormGroup>
             <FormGroup>
-                <Input type="textarea" name="description" id="description" placeholder="Project Description"/>
+                <Input value={this.state.description} onChange={this.handleInputChange} type="textarea" name="description" id="description" placeholder="Project Description"/>
             </FormGroup>
             <FormGroup>
                 <Label for="projectLevel">Select <Link to="#">Project Level</Link></Label>
-                <Input type="select" name="projectLevel" id="projectLevel">
+                <Input value={this.state.projectLevel} onChange={this.handleInputChange} type="select" name="projectLevel" id="projectLevel">
                 <option>Project 1</option>
                 <option>Project 2</option>
                 <option>Project 3</option>
@@ -95,7 +118,7 @@ class SubmitIdea extends Component {
             </FormGroup>
             <FormGroup>
                 <Label for="difficulty">Select Difficulty</Label>
-                <Input type="select" name="projectDiff" id="projectDiff">
+                <Input value={this.state.projectDiff} onChange={this.handleInputChange} type="select" name="projectDiff" id="projectDiff">
                 <option>Beginner</option>
                 <option>Intermediate</option>
                 <option>Challenge</option>
@@ -106,7 +129,7 @@ class SubmitIdea extends Component {
                 <br></br>
                 {this.state.tags.map(tag => (
                     <Label check>
-                    <Input type="checkbox" />{' '}
+                    <Input value={tag.tag} onChange={this.handleTagChange} type="checkbox" />{' '}
                     {tag.tag}
                     </Label>
                 ))}
@@ -119,24 +142,6 @@ class SubmitIdea extends Component {
     }
 
 }
-    // {/* Need to make an API ile for the difrent tag */}
-    //                 {/* <FormGroup>
-    //             <label htmlFor="tag-choice">
-    //                 Selected Tag(s):
-    //             <input list="tags" id="tag-choice" name="tag-choice" className="form-control" placeholder="Choose tag(s)" />
-    //             <datalist id="tags">
-    //                 {this.state.tagList.map(tag =>(
-    //                     <option value={tag} key={tag} />
-    //                 ))}
-    //             </datalist>
-    //             </label>
-    //             {/* <button type="submit" className="btn btn-success btn-block mt-2">Search</button> */}
-    //                 {/* </FormGroup> */} 
-    //             {/* {
-    //                     projectTags.map(TimeRanges => {
-    //                         `<option value=${level}> ${level} </option>`
-    //                     })
-    //                 } */}
 
 
 
