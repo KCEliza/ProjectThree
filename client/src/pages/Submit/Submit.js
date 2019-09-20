@@ -4,6 +4,7 @@ import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import Menu from "../../components/Menu";
+import SubmitIdea from "../../components/SubmitIdea"
 
 class Submit extends Component {
     state = {
@@ -45,11 +46,12 @@ class Submit extends Component {
             
                 {this.state.loggedIn ? (
                     <>
-                        <div className="col-md-2">
-                            <Menu />
-                        </div>
-                        <div className="profileBox col-md-10 float-right">
+                       
+                        <Menu />
+                        
+                        <div className="profileBox col-md-10 float-right overflow-auto">
                             <h4>Submit Idea: </h4>
+                            <SubmitIdea />
                             
                         </div>
                        

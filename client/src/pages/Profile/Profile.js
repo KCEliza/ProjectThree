@@ -46,9 +46,8 @@ class Profile extends Component {
             
                 {this.state.loggedIn ? (
                     <>
-                        <div className="col-md-2">
-                            <Menu />
-                        </div>
+                        <Menu />
+                        
                         <div className="profileBox col-md-10 float-right">
                             <h1 id="userTitle">Welcome {this.state.user.username}</h1>
                             <h4>All Projects: </h4>
