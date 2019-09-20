@@ -1,3 +1,18 @@
+.sidebar {
+    padding: 10px;
+    background-color: rgb(105, 90, 90);
+    height: 100vh;
+    display: inline-block;
+    position: fixed;
+
+}
+.sidebar-header {
+    margin: 20px;
+    color: whitesmoke;
+}
+
+
+
 .wrapper {
     background-color: rgb(105, 90, 90);
     display: inline-block;
@@ -7,19 +22,14 @@
 
     /* min-height: 100%; */
 }
-
+ 
 i {
-    margin-right: 9px;
+    margin-right: 4px;
 }
 
 
-/* .row {
-    margin-top: 30px;
-    margin-left: 20px;
-} */
-
-.navLink {
+.nav-link {
     font-size: 24px;
     color: whitesmoke;
-    margin: 10px !important;
+    margin-top: 10px;
 }

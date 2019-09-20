@@ -1,12 +1,12 @@
 import React, {Component} from "react";
-import "./Profile.scss";
+import "./style.css";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import Menu from "../../components/Menu";
-import Cardfile from "../../components/Card/Card";
+import SubmitIdea from "../../components/SubmitIdea"
 
-class Profile extends Component {
+class Submit extends Component {
     state = {
         loggedIn: false,
         user: null,
@@ -46,15 +46,13 @@ class Profile extends Component {
             
                 {this.state.loggedIn ? (
                     <>
+                       
                         <Menu />
                         
-                        <div className="profileBox col-md-10 float-right">
-                            <h1 id="userTitle">Welcome {this.state.user.username}</h1>
-                            <h4>All Projects: </h4>
-                            <Cardfile />
-                            <Cardfile />
-                            <Cardfile />
-                            <Cardfile />
+                        <div className="profileBox col-md-10 float-right overflow-auto">
+                            <h4>Submit Idea: </h4>
+                            <SubmitIdea />
+                            
                         </div>
                        
                     </>
@@ -81,4 +79,4 @@ class Profile extends Component {
 }
 
 
-export default Profile;
+export default Submit;
