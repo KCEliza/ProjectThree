@@ -6,8 +6,10 @@ import {
   InputGroupAddon
 } from 'reactstrap';
 import "./style.css"
+import API from '../../utils/API';
 
 const Cardfile = (props) => {
+
   return (
     
     <div className="flip-card">
@@ -26,9 +28,9 @@ const Cardfile = (props) => {
              <CardSubtitle>Author</CardSubtitle>
              <CardText>Project description.</CardText>
              <InputGroup>
-              <Input />
+              <Input onChange= {props.handleCommentChange}/>
               <InputGroupAddon addonType="append">
-                <InputGroupText>Comment</InputGroupText>
+                <InputGroupText onClick = {props.handleCommentSubmit}>Comment</InputGroupText>
               </InputGroupAddon>
             </InputGroup>
              <Button className="btn-success">/\</Button>
@@ -42,6 +44,5 @@ const Cardfile = (props) => {
 
 );
 };
-
 
 export default Cardfile;

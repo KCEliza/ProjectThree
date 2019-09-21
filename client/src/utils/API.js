@@ -30,4 +30,8 @@ export default {
     return axios.post("/api/create/new", submitIdea);
   },
 
+  submitComment: function(submitComment) {
+    return axios.post("/api/comment/new", submitComment);
+  }
+
 };
