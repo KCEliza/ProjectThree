@@ -31,7 +31,7 @@ export default {
   },
 
   retrieveIdeas: function() {
-    return axios.get("/api/create/all")
+    return axios.get("/api/create/")
   }
 
 };

@@ -5,12 +5,10 @@ import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import Menu from "../../components/Menu";
 import CardFile from "../../components/Card/Card";
-import info from "../../info.json";
 
 
 class Profile extends Component {
-    state = {
-        info, 
+    state = { 
         loggedIn: false,
         user: null,
         loading: true,
@@ -33,10 +31,11 @@ class Profile extends Component {
         });
 
         API.retrieveIdeas().then(creates => {
+
             this.setState({
-                ideas: creates
+                ideas: creates.data
             })
-            console.log(this.state)
+            console.log(creates)
         })
 
         console.log(this.props)
@@ -62,13 +61,15 @@ class Profile extends Component {
                         <div className="profileBox col-md-10 float-right">
                             <h1 id="userTitle">Welcome {this.state.user.username}</h1>
                             <h4>All Projects: </h4>
-                            {this.state.info.map(info => (
+                            {this.state.ideas.map(idea => (
                                 <CardFile
                                           
-                                        name={info.name}
-                                        image={info.image}
-                                        occupation={info.occupation}
-                                        location={info.location}
+                                        name={idea.username}
+                                        title={idea.title}
+                                        description={idea.description}
+                                        projectLevel={idea.projectLevel}
+                                        projectDiff={idea.projectDiff}
+                                        tags={idea.tags}
                                     
                                     >
                                 </CardFile>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
+  Card, CardText, CardBody,
+  CardTitle, CardImg, CardSubtitle, Button
 } from 'reactstrap';
 import "./style.css"
 
@@ -12,19 +12,21 @@ const Cardfile = (props) => {
       <div className="flip-card-inner">
         <Card>
         <div className="flip-card-front">
-        <CardImg className="image" src={props.image} alt="Card image cap" />
+        <CardImg className="image" src="https://img.pngio.com/bulb-icon-cartoon-illustration-hand-drawn-animation-transparent-with-regard-to-cartoon-light-bulb-animated-light-bulb-png-1920_1080.png" alt="Card image cap" />
          <CardBody>
-             <CardTitle>{props.name}</CardTitle>
-             <CardSubtitle>{props.occupation}</CardSubtitle>
-             <CardText>{props.location}</CardText>
+             <CardTitle>{props.username}</CardTitle>
+             <CardSubtitle>{props.title}</CardSubtitle>
            </CardBody>
         </div>
         <div className="flip-card-back">
-             <CardTitle>Project Title</CardTitle>
-             <CardSubtitle>Author</CardSubtitle>
-             <CardText>Project description.</CardText>
-             <Button className="btn-success">/\</Button>
-             <Button className="btn-danger">\/</Button>
+             <CardTitle>{props.title}</CardTitle>
+             <CardSubtitle>{props.username}</CardSubtitle>
+             <CardText>Description: {props.description}</CardText>
+             <CardText>Project Level: {props.projectLevel}</CardText>
+             <CardText>Project Difficulty: {props.projectDiff}</CardText>
+             <CardText>Tags: {props.tags}</CardText>
+             <Button className="btn-success"><i className="fas fa-thumbs-up"></i></Button>
+             <Button className="btn-danger"><i className="fas fa-thumbs-down"></i></Button>
         </div>
         </Card>
       </div>

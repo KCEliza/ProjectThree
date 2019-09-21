@@ -3,9 +3,16 @@ const passport = require("../../config/passport");
 const db = require("../../models");
 const authMiddleware = require("../../config/middleware/authMiddleware");
 // /api/todos/all
+router.get("/", authMiddleware.isLoggedIn, function (req, res, next) {
+    db.Create.find({}, (err, create) => {
+        res.json(create);
+    });
+});
+
+
 // get all todos from the signed in user
 router.get("/all", authMiddleware.isLoggedIn, function (req, res, next) {
-    db.Create.find({ author: req.user.id }, (err, create) => {
+    db.Create.find({ username: req.body.username }, (err, create) => {
         res.json(create);
     });
 });
