@@ -20,7 +20,7 @@ router.get("/all", authMiddleware.isLoggedIn, function (req, res, next) {
 // add new todo, update the user to have todo id
 router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
     const newCreate = new db.Create({
-        username: req.body.username,
+        username: req.user.username,
         title: req.body.title,
         description: req.body.description,
         projectLevel: req.body.projectLevel,
@@ -28,6 +28,7 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
         tags: req.body.tags
     });
     console.log(req.body);
+    console.log(req.user);
     newCreate.save((err, newCreate) => {
         if (err) throw err;
         db.Users.findByIdAndUpdate(req.user.id, { $push: { creates: newCreate._id } }, (err, user) => {
