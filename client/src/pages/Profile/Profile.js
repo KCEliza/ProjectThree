@@ -10,7 +10,8 @@ class Profile extends Component {
     state = {
         loggedIn: false,
         user: null,
-        loading: true
+        loading: true,
+        ideas: []
     }
 
     componentDidMount() {
@@ -27,6 +28,13 @@ class Profile extends Component {
         }).catch(err => {
             console.log(err);
         });
+
+        API.retrieveIdeas().then(creates => {
+            this.setState({
+                ideas: creates
+            })
+            console.log(this.state)
+        })
 
         console.log(this.props)
     }
