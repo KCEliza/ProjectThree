@@ -1,7 +1,9 @@
 import React from 'react';
 import {
   Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
+  CardTitle, CardSubtitle, Button,
+  InputGroup, Input, InputGroupText,
+  InputGroupAddon
 } from 'reactstrap';
 import "./style.css"
 
@@ -23,9 +25,17 @@ const Cardfile = (props) => {
              <CardTitle>Project Title</CardTitle>
              <CardSubtitle>Author</CardSubtitle>
              <CardText>Project description.</CardText>
+             <InputGroup>
+              <Input />
+              <InputGroupAddon addonType="append">
+                <InputGroupText>Comment</InputGroupText>
+              </InputGroupAddon>
+            </InputGroup>
              <Button className="btn-success">/\</Button>
              <Button className="btn-danger">\/</Button>
+             
         </div>
+        
         </Card>
       </div>
     </div>
