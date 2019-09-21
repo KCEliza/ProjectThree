@@ -4,33 +4,31 @@ const Schema = mongoose.Schema;
 const createSchema = new Schema({
 username: {
   type: String,
-  unique:true,
-  require:[true]
+  require: true
   },
   title: {
-    type: Schema.Types.ObjectId,
-    ref: "Users"
+    type: String,
+    require: true
   },
   description: {
     type: String,
-    unique: false,
     required: [true, "text is required"]
   },
   projectLevel: {
-    type: String,
+    type: String
+    
   },
   difficulty:{
-    type:String,
+    type:String
+   
   },
   tags: {
-    type: String,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now()
+    type: Array
   }
 
 });
+
+
 
 const Create = mongoose.model("Create", createSchema);
 
