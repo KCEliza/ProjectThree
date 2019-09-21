@@ -24,7 +24,7 @@ const Menu = props => (
           </NavItem>
           <NavItem>
             <NavLink tag={Link} to={'/profile/myprojects'}>
-                <i class="fas fa-tasks"></i> MY PROJECTS
+                <i className="fas fa-tasks"></i> MY PROJECTS
             </NavLink>
           </NavItem>
         </Nav>        
