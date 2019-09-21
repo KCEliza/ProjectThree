@@ -14,8 +14,8 @@ class SubmitIdea extends Component {
         title: "",
         description: "",
         username: "",
-        projectLevel: "",
-        projectDiff: "",
+        projectLevel: "Project 1",
+        projectDiff: "Beginner",
         selectedTags: []
 
     }
@@ -72,7 +72,7 @@ class SubmitIdea extends Component {
             projectDiff: this.state.projectDiff,
             tags: this.state.selectedTags,
         })
-        // this.resetForm();
+        // .then.resetForm()
     }
         
         // const name = document.getElementById('username').value;
@@ -98,9 +98,9 @@ class SubmitIdea extends Component {
         //         alert("Message failed to send.")
         //     }
         // });
-        resetForm() {
-            document.getElementById('sumbitIdea').reset();
-        }
+        // resetForm() {
+        //     document.getElementById('sumbitIdea').reset();
+        // }
     
 
     //To clear the form after submitting an idea
@@ -132,7 +132,7 @@ class SubmitIdea extends Component {
                 </Input>
             </FormGroup>
             <FormGroup>
-                <Label for="difficulty">Select Difficulty</Label>
+                <Label for="projectDiff">Select Difficulty<Link to="#">Project Difficulty</Link></Label>
                 <Input value={this.state.projectDiff} onChange={this.handleInputChange} type="select" name="projectDiff" id="projectDiff">
                 <option>Beginner</option>
                 <option>Intermediate</option>
