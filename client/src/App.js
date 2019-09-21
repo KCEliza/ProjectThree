@@ -9,6 +9,7 @@ import TopNav from "./components/TopNav";
 import Footer from "./components/Footer";
 import { Container } from 'reactstrap';
 
+
 function App() {
   return (
    
@@ -24,6 +25,7 @@ function App() {
               <Route exact path="/profile" component={Profile} />
               <Route component={NoMatch} />
             </Switch>
+
           </Container>
           <Footer />
         </>
