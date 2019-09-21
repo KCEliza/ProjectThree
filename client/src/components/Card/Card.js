@@ -12,11 +12,11 @@ const Cardfile = (props) => {
       <div className="flip-card-inner">
         <Card>
         <div className="flip-card-front">
-        <CardImg className="image" src="https://img.pngio.com/bulb-icon-cartoon-illustration-hand-drawn-animation-transparent-with-regard-to-cartoon-light-bulb-animated-light-bulb-png-1920_1080.png" alt="Card image cap" />
+        <CardImg className="image" src={props.image} alt="Card image cap" />
          <CardBody>
-             <CardTitle>Project Title</CardTitle>
-             <CardSubtitle>Author</CardSubtitle>
-             <CardText>Project description.</CardText>
+             <CardTitle>{props.name}</CardTitle>
+             <CardSubtitle>{props.occupation}</CardSubtitle>
+             <CardText>{props.location}</CardText>
            </CardBody>
         </div>
         <div className="flip-card-back">

@@ -4,13 +4,18 @@ import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import Menu from "../../components/Menu";
-import Cardfile from "../../components/Card/Card";
+import CardFile from "../../components/Card/Card";
+import info from "../../info.json";
+
 
 class Profile extends Component {
     state = {
+        info, 
         loggedIn: false,
         user: null,
         loading: true
+        
+
     }
 
     componentDidMount() {
@@ -51,10 +56,17 @@ class Profile extends Component {
                         <div className="profileBox col-md-10 float-right">
                             <h1 id="userTitle">Welcome {this.state.user.username}</h1>
                             <h4>All Projects: </h4>
-                            <Cardfile />
-                            <Cardfile />
-                            <Cardfile />
-                            <Cardfile />
+                            {this.state.info.map(info => (
+                                <CardFile
+                                          
+                                        name={info.name}
+                                        image={info.image}
+                                        occupation={info.occupation}
+                                        location={info.location}
+                                    
+                                    >
+                                </CardFile>
+                            ))                            }
                         </div>
                        
                     </>
