@@ -4,10 +4,11 @@ import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import Menu from "../../components/Menu";
-import Cardfile from "../../components/Card/Card";
+import CardFile from "../../components/Card/Card";
+
 
 class Profile extends Component {
-    state = {
+    state = { 
         loggedIn: false,
         user: null,
         loading: true,
@@ -47,10 +48,11 @@ class Profile extends Component {
         });
 
         API.retrieveIdeas().then(creates => {
+
             this.setState({
-                ideas: creates
+                ideas: creates.data
             })
-            console.log(this.state)
+            console.log(creates)
         })
 
         console.log(this.props)
@@ -78,10 +80,21 @@ class Profile extends Component {
                         <div className="profileBox col-md-10 float-right">
                             <h1 id="userTitle">Welcome {this.state.user.username}</h1>
                             <h4>All Projects: </h4>
-                            <Cardfile handleCommentChange = {this.handleCommentChange} handleCommentSubmit = {this.handleCommentSubmit}/>
-                            <Cardfile />
-                            <Cardfile />
-                            <Cardfile />
+                            {this.state.ideas.map(idea => (
+                                <CardFile
+                                        handleCommentChange = {this.handleCommentChange} 
+                                        handleCommentSubmit = {this.handleCommentSubmit}
+                                        name={idea.username}
+                                        title={idea.title}
+                                        description={idea.description}
+                                        projectLevel={idea.projectLevel}
+                                        projectDiff={idea.projectDiff}
+                                        tags={idea.tags}
+                                    
+                                    >
+                                </CardFile>
+                            ))                            }
+
                         </div>
                        
                     </>
