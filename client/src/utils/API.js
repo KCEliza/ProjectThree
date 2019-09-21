@@ -30,4 +30,8 @@ export default {
     return axios.post("/api/create/new", submitIdea);
   },
 
+  retrieveIdeas: function() {
+    return axios.get("/api/create/all")
+  }
+
 };

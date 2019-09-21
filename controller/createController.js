@@ -1,5 +1,11 @@
-// var db = require("../models/Create");
+var db = require("../models/Create");
 
+module.exports = {
+    findAll: function(req, res) {
+        db.Create
+            
+    }
+}
 
 // module.exports = {
 //   findAll: function(req, res) {
