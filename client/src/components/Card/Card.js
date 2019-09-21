@@ -7,19 +7,31 @@ import "./style.css"
 
 const Cardfile = (props) => {
   return (
-    <div>
-      <Card className="projectCard">
-        <CardImg top src="https://img.pngio.com/bulb-icon-cartoon-illustration-hand-drawn-animation-transparent-with-regard-to-cartoon-light-bulb-animated-light-bulb-png-1920_1080.png" alt="Card image cap" />
-        <CardBody>
-          <CardTitle>Project Title</CardTitle>
-          <CardSubtitle>Author</CardSubtitle>
-          <CardText>Project description.</CardText>
-          <Button className="btn-success">/\</Button>
-          <Button className="btn-danger">\/</Button>
-        </CardBody>
-      </Card>
+    
+    <div className="flip-card">
+      <div className="flip-card-inner">
+        <Card>
+        <div className="flip-card-front">
+        <CardImg className="image" src="https://img.pngio.com/bulb-icon-cartoon-illustration-hand-drawn-animation-transparent-with-regard-to-cartoon-light-bulb-animated-light-bulb-png-1920_1080.png" alt="Card image cap" />
+         <CardBody>
+             <CardTitle>Project Title</CardTitle>
+             <CardSubtitle>Author</CardSubtitle>
+             <CardText>Project description.</CardText>
+           </CardBody>
+        </div>
+        <div className="flip-card-back">
+             <CardTitle>Project Title</CardTitle>
+             <CardSubtitle>Author</CardSubtitle>
+             <CardText>Project description.</CardText>
+             <Button className="btn-success">/\</Button>
+             <Button className="btn-danger">\/</Button>
+        </div>
+        </Card>
+      </div>
     </div>
-  );
+
+);
 };
+
 
 export default Cardfile;
