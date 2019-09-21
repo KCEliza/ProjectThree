@@ -15,12 +15,10 @@ username: {
     required: [true, "text is required"]
   },
   projectLevel: {
-    type: String
-    
+    type: String,
   },
-  difficulty:{
-    type:String
-   
+  projectDiff:{
+    type:String,
   },
   tags: {
     type: Array
