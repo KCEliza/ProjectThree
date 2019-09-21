@@ -46,11 +46,18 @@ const usersSchema = new Schema({
     type: Date,
     default: Date.now()
   },
-  lastUpdated: Date,
+  lastUpdated:{ Date,
   // `fullName` must be of type String
   fullName: String
+},
+creates: [
+  {
+    type: Schema.Types.ObjectId,
+    ref: "Create"
+  }
+]
 
-});
+  });
 
 usersSchema.methods.generateHash = function (password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
@@ -60,7 +67,7 @@ usersSchema.methods.validPassword = function (password, encrypted) {
   return bcrypt.compareSync(password, encrypted);
 }
 
-usersSchema.methods.lastUpdatedDate = function() {
+usersSchema.methods.lastUpdatedDate = function () {
   this.lastUpdated = Date.now();
   return this.lastUpdated;
 };

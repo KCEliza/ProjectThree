@@ -26,6 +26,12 @@ export default {
     return axios.get("/api/users/logout")
   },
 
+  submitIdea: function(submitIdea) {
+    return axios.post("/api/create/new", submitIdea);
+  },
 
+  retrieveIdeas: function() {
+    return axios.get("/api/create/all")
+  }
 
 };

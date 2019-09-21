@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import tags from "./tags.json";
 import "./style.css";
-
-import axios from 'axios';
+import API from "../../utils/API"
+// import axios from 'axios';
 // import { STATUS_CODES } from "http";
 
 
@@ -14,8 +14,8 @@ class SubmitIdea extends Component {
         title: "",
         description: "",
         username: "",
-        projectLevel: "",
-        projectDiff: "",
+        projectLevel: "Project 1",
+        projectDiff: "Beginner",
         selectedTags: []
 
     }
@@ -33,7 +33,7 @@ class SubmitIdea extends Component {
     handleTagChange = event => {
 
         const value = event.target.value;
-        const name = event.target.name;
+        // const name = event.target.name;
         const selectedTags = [...this.state.selectedTags]
         if(selectedTags.includes(value)){
             for(var i = 0; i < selectedTags.length; i++){
@@ -49,8 +49,9 @@ class SubmitIdea extends Component {
         };
         this.setState({
             selectedTags
+            
         })
-        
+        console.log(selectedTags);
     };
 
 
@@ -62,6 +63,17 @@ class SubmitIdea extends Component {
         //Should handle sending email and storing the Idea information in the datatbase
 
         event.preventDefault();
+
+        API.submitIdea({
+            username: this.state.username,
+            title: this.state.title,
+            description: this.state.description,
+            projectLevel: this.state.projectLevel,
+            projectDiff: this.state.projectDiff,
+            tags: this.state.selectedTags,
+        })
+        // .then.resetForm()
+    }
         
         // const name = document.getElementById('username').value;
         // const email = document.getElementById('email').value;
@@ -89,7 +101,7 @@ class SubmitIdea extends Component {
         // resetForm() {
         //     document.getElementById('sumbitIdea').reset();
         // }
-    }
+    
 
     //To clear the form after submitting an idea
 
@@ -97,14 +109,17 @@ class SubmitIdea extends Component {
     render() {
 
         return (
-            <Form>
+            <Form id="submitIdea">
             <FormGroup>
+            <Label for="username">Username</Label>
                 <Input value={this.state.username} onChange={this.handleInputChange} type="name" name="username" id="username" placeholder="Username" />
             </FormGroup>
             <FormGroup>
+            <Label for="title">Title</Label>
                 <Input value={this.state.title} onChange={this.handleInputChange} type="text" name="title" id="title" placeholder="Project Title" />
             </FormGroup>
             <FormGroup>
+            <Label for="description">Description</Label>
                 <Input value={this.state.description} onChange={this.handleInputChange} type="textarea" name="description" id="description" placeholder="Project Description"/>
             </FormGroup>
             <FormGroup>
@@ -117,7 +132,7 @@ class SubmitIdea extends Component {
                 </Input>
             </FormGroup>
             <FormGroup>
-                <Label for="difficulty">Select Difficulty</Label>
+                <Label for="projectDiff">Select Difficulty<Link to="#">Project Difficulty</Link></Label>
                 <Input value={this.state.projectDiff} onChange={this.handleInputChange} type="select" name="projectDiff" id="projectDiff">
                 <option>Beginner</option>
                 <option>Intermediate</option>
@@ -135,14 +150,11 @@ class SubmitIdea extends Component {
                 ))}
                 
             </FormGroup>         
-            <Button id="submitBtn" onClick={this.props.handleSubmit} block>Submit</Button>
+            <Button id="submitBtn" onClick={this.handleSubmit} block>Submit</Button>
             </Form>
         );
     
     }
 
 }
-
-
-
 export default SubmitIdea;

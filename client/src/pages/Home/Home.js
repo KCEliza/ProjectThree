@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import "./Home.scss";
+import { Jumbotron, Container } from 'reactstrap';
 
 class Home extends Component {
 
@@ -28,6 +29,14 @@ class Home extends Component {
   render() {
     return (
       <div className="homeBox">
+        <div>
+          <Jumbotron fluid>
+            <Container fluid>
+              <h1 className="display-3">Need an idea ? </h1>
+              <p className="lead">IHaveNoIdea gives you the power and inspiration to find ideas for school projects or future capstones. </p>
+            </Container>
+          </Jumbotron>
+        </div>
       </div>
     );
   }
