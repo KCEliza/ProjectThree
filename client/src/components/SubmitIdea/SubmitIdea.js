@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import tags from "./tags.json";
 import "./style.css";
+import API from "../../utils/API"
 // import axios from 'axios';
 // import { STATUS_CODES } from "http";
 
@@ -48,8 +49,9 @@ class SubmitIdea extends Component {
         };
         this.setState({
             selectedTags
+            
         })
-        
+        console.log(selectedTags);
     };
 
 
@@ -61,6 +63,17 @@ class SubmitIdea extends Component {
         //Should handle sending email and storing the Idea information in the datatbase
 
         event.preventDefault();
+
+        API.submitIdea({
+            username: this.state.username,
+            title: this.state.title,
+            description: this.state.description,
+            projectLevel: this.state.projectLevel,
+            projectDiff: this.state.projectDiff,
+            tags: this.state.selectedTags,
+        })
+        // this.resetForm();
+    }
         
         // const name = document.getElementById('username').value;
         // const email = document.getElementById('email').value;
@@ -85,10 +98,10 @@ class SubmitIdea extends Component {
         //         alert("Message failed to send.")
         //     }
         // });
-        // resetForm() {
-        //     document.getElementById('sumbitIdea').reset();
-        // }
-    }
+        resetForm() {
+            document.getElementById('sumbitIdea').reset();
+        }
+    
 
     //To clear the form after submitting an idea
 
@@ -96,14 +109,17 @@ class SubmitIdea extends Component {
     render() {
 
         return (
-            <Form>
+            <Form id="submitIdea">
             <FormGroup>
+            <Label for="username">Username</Label>
                 <Input value={this.state.username} onChange={this.handleInputChange} type="name" name="username" id="username" placeholder="Username" />
             </FormGroup>
             <FormGroup>
+            <Label for="title">Title</Label>
                 <Input value={this.state.title} onChange={this.handleInputChange} type="text" name="title" id="title" placeholder="Project Title" />
             </FormGroup>
             <FormGroup>
+            <Label for="description">Description</Label>
                 <Input value={this.state.description} onChange={this.handleInputChange} type="textarea" name="description" id="description" placeholder="Project Description"/>
             </FormGroup>
             <FormGroup>
@@ -134,7 +150,7 @@ class SubmitIdea extends Component {
                 ))}
                 
             </FormGroup>         
-            <Button id="submitBtn" onClick={this.props.handleSubmit} block>Submit</Button>
+            <Button id="submitBtn" onClick={this.handleSubmit} block>Submit</Button>
             </Form>
         );
     
