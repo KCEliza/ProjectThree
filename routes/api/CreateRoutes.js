@@ -17,7 +17,7 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
         title: req.body.title,
         description: req.body.description,
         projectLevel: req.body.projectLevel,
-        difficulty: req.body.difficulty,
+        projectDiff: req.body.projectDiff,
         tags: req.body.tags
     });
     console.log(req.body);
