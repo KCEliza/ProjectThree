@@ -15,6 +15,23 @@ class Profile extends Component {
         ideas: []
     }
 
+    handleCommentChange = (event) => {
+        const name = event.target.name;
+        const comment = event.target.value;
+        console.log(comment, "COMMENT INPUT")
+        console.log(name,"NAME")
+        this.setState({
+            [name]: comment
+        });
+    }
+    handleCommentSubmit = (event) =>{
+      event.preventDefault();
+      API.submitComment({
+        // username: this.state.username,
+        comment: this.state.comment
+      });
+    };
+
     componentDidMount() {
 
         this.loading();
@@ -49,6 +66,8 @@ class Profile extends Component {
         }, 1000)  
     }
 
+
+
     render() {
         return (
 
@@ -63,7 +82,8 @@ class Profile extends Component {
                             <h4>All Projects: </h4>
                             {this.state.ideas.map(idea => (
                                 <CardFile
-                                          
+                                        handleCommentChange = {this.handleCommentChange} 
+                                        handleCommentSubmit = {this.handleCommentSubmit}
                                         name={idea.username}
                                         title={idea.title}
                                         description={idea.description}
@@ -74,6 +94,7 @@ class Profile extends Component {
                                     >
                                 </CardFile>
                             ))                            }
+
                         </div>
                        
                     </>

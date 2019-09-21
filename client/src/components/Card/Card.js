@@ -1,11 +1,15 @@
 import React from 'react';
 import {
-  Card, CardText, CardBody,
-  CardTitle, CardImg, CardSubtitle, Button
+  Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button,
+  InputGroup, Input, InputGroupText,
+  InputGroupAddon
 } from 'reactstrap';
 import "./style.css"
+import API from '../../utils/API';
 
 const Cardfile = (props) => {
+
   return (
     
     <div className="flip-card">
@@ -25,15 +29,21 @@ const Cardfile = (props) => {
              <CardText>Project Level: {props.projectLevel}</CardText>
              <CardText>Project Difficulty: {props.projectDiff}</CardText>
              <CardText>Tags: {props.tags}</CardText>
-             <Button className="btn-success"><i className="fas fa-thumbs-up"></i></Button>
-             <Button className="btn-danger"><i className="fas fa-thumbs-down"></i></Button>
+             <InputGroup>
+              <Input onChange= {props.handleCommentChange}/>
+              <InputGroupAddon addonType="append">
+                <InputGroupText onClick = {props.handleCommentSubmit}>Comment</InputGroupText>
+              </InputGroupAddon>
+            </InputGroup>
+            <Button className="btn-success"><i className="fas fa-thumbs-up"></i></Button>
+            <Button className="btn-danger"><i className="fas fa-thumbs-down"></i></Button>
         </div>
+        
         </Card>
       </div>
     </div>
 
 );
 };
-
 
 export default Cardfile;
