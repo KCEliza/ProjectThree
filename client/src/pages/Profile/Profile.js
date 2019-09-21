@@ -14,6 +14,23 @@ class Profile extends Component {
         ideas: []
     }
 
+    handleCommentChange = (event) => {
+        const name = event.target.name;
+        const comment = event.target.value;
+        console.log(comment, "COMMENT INPUT")
+        console.log(name,"NAME")
+        this.setState({
+            [name]: comment
+        });
+    }
+    handleCommentSubmit = (event) =>{
+      event.preventDefault();
+      API.submitComment({
+        // username: this.state.username,
+        comment: this.state.comment
+      });
+    };
+
     componentDidMount() {
 
         this.loading();
@@ -47,6 +64,8 @@ class Profile extends Component {
         }, 1000)  
     }
 
+
+
     render() {
         return (
 
@@ -59,7 +78,7 @@ class Profile extends Component {
                         <div className="profileBox col-md-10 float-right">
                             <h1 id="userTitle">Welcome {this.state.user.username}</h1>
                             <h4>All Projects: </h4>
-                            <Cardfile />
+                            <Cardfile handleCommentChange = {this.handleCommentChange} handleCommentSubmit = {this.handleCommentSubmit}/>
                             <Cardfile />
                             <Cardfile />
                             <Cardfile />
