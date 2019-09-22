@@ -28,7 +28,7 @@ const Cardfile = (props) => {
              <CardText>Description: {props.description}</CardText>
              <CardText>Project Level: {props.projectLevel}</CardText>
              <CardText>Project Difficulty: {props.projectDiff}</CardText>
-             <CardText>Tags: {props.tags.tag}</CardText>
+             <CardText>Tags: {props.tags}</CardText>
              <InputGroup>
               <Input onChange= {props.handleCommentChange}/>
               <InputGroupAddon addonType="append">

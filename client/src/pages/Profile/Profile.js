@@ -4,7 +4,8 @@ import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import Menu from "../../components/Menu";
-import CardFile from "../../components/Card/Card";
+import CardFile from "../../components/Card";
+import Filter from "../../components/Filter";
 
 
 class Profile extends Component {
@@ -12,7 +13,9 @@ class Profile extends Component {
         loggedIn: false,
         user: null,
         loading: true,
-        ideas: []
+        ideas: [],
+        filteredIdeas: [],
+        displayedIdeas: []
     }
 
     handleCommentChange = (event) => {
@@ -32,6 +35,29 @@ class Profile extends Component {
       });
     };
 
+    handleFilter = (filter) => {
+        let filteredIdeas = [...this.state.filteredIdeas, filter]
+        this.displayFiltered(filteredIdeas)
+        this.setState ({
+            filteredIdeas
+        })
+
+    }
+
+    displayFiltered = (array) => {
+        //do lodash
+        //set state for display ideas
+    }
+
+    removeFilter = (filter) => {
+        let filteredIdeas = [...this.state.filteredIdeas]
+        //spilce filter out of filteredIdeas array
+        this.displayFiltered(filteredIdeas)
+        this.setState({
+            filteredIdeas
+        })
+    }
+
     componentDidMount() {
 
         this.loading();
@@ -50,7 +76,8 @@ class Profile extends Component {
         API.retrieveIdeas().then(creates => {
 
             this.setState({
-                ideas: creates.data
+                ideas: creates.data,
+                displayedIdeas: creates.data
             })
             console.log(creates)
         })
@@ -79,8 +106,14 @@ class Profile extends Component {
                         
                         <div className="profileBox col-md-10 float-right">
                             <h1 id="userTitle">Welcome {this.state.user.username}</h1>
+                            <Filter 
+                            handleFilter = {this.handleFilter}
+                            />
+                            {this.state.filteredIdeas.map(filter => (
+                                <button>{filter}</button> //make secondary filter click (remove filter function on the click of this button --> remove lower case curly bracket item from filtered ideas and update displayed ideas)
+                            ))}
                             <h4>All Projects: </h4>
-                            {this.state.ideas.map(idea => (
+                            {this.state.displayedIdeas.map(idea => (
                                 <CardFile
                                         handleCommentChange = {this.handleCommentChange} 
                                         handleCommentSubmit = {this.handleCommentSubmit}
