@@ -1,8 +1,22 @@
+require('dotenv').config();
 const router = require("express").Router();
 const passport = require("../../config/passport");
 const db = require("../../models");
 const authMiddleware = require("../../config/middleware/authMiddleware");
+const nodemailer = require("nodemailer");
 // /api/todos/all
+
+let transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    auth: {
+        user: process.env.EMAIL, // TODO: your gmail account
+        pass: process.env.PASSWORD // TODO: your gmail password
+    }
+});
+
+
+
 router.get("/", authMiddleware.isLoggedIn, function (req, res, next) {
     db.Create.find({}, (err, create) => {
         res.json(create);
@@ -36,6 +50,22 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
             res.send(newCreate);
         });
     });
+    //DO NODEMAILER HERE
+    let mailOptions = {
+        from: process.env.EMAIL, // TODO: email sender
+        to: 'claudiapollinger.cp@gmail.com', // TODO: email receiver
+        subject: 'New Idea on I have No Idea App',
+        text: `${req.user.username} has submitted an idea. Go check it out`
+    };
+    transporter.sendMail(mailOptions, (err, data) => {
+        if (err) {
+            return console.log('Error occurs');
+        }
+        return console.log('Email sent!!!');
+    });
+
+
+
 });
 // /apiCreate/remove
 // removed todo based on id, updates user
