@@ -1,22 +1,79 @@
 @import "../../sass/variable.scss";
 
+
+
 .homeBox {
-    
+    background-color: #506182;
     margin: 0 auto;
-    margin-top: 5%;
+    // margin-top: 5%;
     width: 100%;
     height:100%;
-    font-family: $text-font;
+    // font-family: $text-font;
+
+    .homeLogo {
+        max-height: 400px;
+    }
+
+
+    h3 {
+        color: #C6EBBE !important;
+        font-family: 'PT Sans', sans-serif;
+
+        font-size: 3em !important;
+    }
+    h1 {
+        font-size: 5em !important;
+        vertical-align: middle;
+
+    }
+    h4 {
+        margin-top: 5px;
+    }
+
+    i {
+        font-size: 4em;
+        margin-bottom: 5px !important;
+    }
+
+    .descWrap {
+        min-height: 300px;
+        width: 100%;
+        background-color: whitesmoke;
+    }
+
+    .describeBox {
+        color: #3c4961;
+        margin-top: 25px;
+        // padding: 5px;
+        // margin: 2px;
+        // height: 100%;
+        // border-radius: 12px;
+        // border: 5px solid #F06C9B;
+    }
 
     .jumbotron {
-        background-color: $background-color;
+        font-family: 'PT Mono', monospace;
+        background-color: #506182;
         text-align: center;
         width: 100%;
+        min-height: 550px;
+        color: #C6EBBE;
+
     }
+
+    .jumboText {
+        vertical-align: middle;
+    }
+    .landingRotating {
+        // font-size: 2em !important;
+        font-weight: 400 !important;
+        color: #C6EBBE !important;
+        opacity: 0.5 !important;
+      }
 
     button {
         font-size: 1.3em;
         font-weight: bold;
     }
-}
 
+}

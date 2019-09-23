@@ -6,6 +6,7 @@ import API from "../../utils/API";
 import Menu from "../../components/Menu";
 import CardFile from "../../components/Card";
 import Filter from "../../components/Filter";
+import _ from "lodash";
 
 
 class Profile extends Component {
@@ -45,6 +46,7 @@ class Profile extends Component {
     }
 
     displayFiltered = (array) => {
+        console.log(array)
         //do lodash
         //set state for display ideas
     }
@@ -52,6 +54,18 @@ class Profile extends Component {
     removeFilter = (filter) => {
         let filteredIdeas = [...this.state.filteredIdeas]
         //spilce filter out of filteredIdeas array
+        if(filteredIdeas.includes(filter)){
+            for(var i = 0; i < filteredIdeas.length; i++){
+                if(filteredIdeas[i] === filter){
+                    filteredIdeas.splice(i, 1);
+                    console.log("THIS IS WORKING")
+                };
+            };
+        }
+        else{
+            filteredIdeas.push(filter);
+            console.log("PUSH IS WORKING")
+        };
         this.displayFiltered(filteredIdeas)
         this.setState({
             filteredIdeas
@@ -102,7 +116,7 @@ class Profile extends Component {
             
                 {this.state.loggedIn ? (
                     <>
-                        <Menu />
+                        <Menu/>
                         
                         <div className="profileBox col-md-10 float-right">
                             <h1 id="userTitle">Welcome {this.state.user.username}</h1>
@@ -110,7 +124,8 @@ class Profile extends Component {
                             handleFilter = {this.handleFilter}
                             />
                             {this.state.filteredIdeas.map(filter => (
-                                <button>{filter}</button> //make secondary filter click (remove filter function on the click of this button --> remove lower case curly bracket item from filtered ideas and update displayed ideas)
+                                <button
+                                onChange = {this.removeFilter}>{filter}</button> //make secondary filter click (remove filter function on the click of this button --> remove lower case curly bracket item from filtered ideas and update displayed ideas)
                             ))}
                             <h4>All Projects: </h4>
                             {this.state.displayedIdeas.map(idea => (
