@@ -66,9 +66,12 @@ class Signup extends Component {
                 ): (<></>)}
                 <Form>
                 <FormGroup>
-                        <Label for="classCode">Class Code</Label>
-                        <Input type="text" name="classCode" id="classCode" placeholder="Class Code" value={this.props.classCode} onChange={this.props.handleInputChange} valid={this.state.validClassCode} />
-                    </FormGroup>
+                <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="filter" data-toggle="dropdown">Your Class Code
+             <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="filter">
+                 </ul>
+                    </div></FormGroup>
                     <FormGroup>
                         <Label for="fName">First Name</Label>
                         <Input type="text" name="fName" id="fName" placeholder="John" value={this.props.fName} onChange={this.props.handleInputChange} valid={this.state.validFName} />
