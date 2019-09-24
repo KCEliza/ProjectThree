@@ -50,6 +50,8 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
             res.send(newCreate);
         });
     });
+
+
     //DO NODEMAILER HERE
     let mailOptions = {
         from: process.env.EMAIL, // TODO: email sender
@@ -66,6 +68,21 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
 
 
 
+});
+
+router.post("/card", authMiddleware.isLoggedIn, function (req, res, next) {
+    const newComment = new db.Comment({
+        comment: req.user.comment
+    });
+    console.log(req.body);
+    console.log(req.user);
+    newComment.save((err, newCreate) => {
+        if (err) throw err;
+        db.Comment.findByIdAndUpdate(req.user.id, { $push: { comment: newComment._id } }, (err, user) => {
+            if (err) throw err;
+            res.send(newCommment);
+        });
+    })
 });
 // /apiCreate/remove
 // removed todo based on id, updates user
@@ -86,7 +103,7 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
 //         res.json(create);
 //     });
 // });
-module.exports = router;
+// module.exports = router;
 
 
 

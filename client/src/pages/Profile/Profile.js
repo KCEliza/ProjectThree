@@ -35,19 +35,19 @@ class Profile extends Component {
       });
     };
 
-    handleFilter = (filter) => {
-        let filteredIdeas = [...this.state.filteredIdeas, filter]
-        this.displayFiltered(filteredIdeas)
-        this.setState ({
-            filteredIdeas
-        })
+    // handleFilter = (filter) => {
+    //     let filteredIdeas = [...this.state.filteredIdeas, filter]
+    //     this.displayFiltered(filteredIdeas)
+    //     this.setState ({
+    //         filteredIdeas
+    //     })
 
-    }
+    // }
 
-    displayFiltered = (array) => {
-        //do lodash
-        //set state for display ideas
-    }
+    // displayFiltered = (array) => {
+    //     //do lodash
+    //     //set state for display ideas
+    // }
 
     removeFilter = (filter) => {
         let filteredIdeas = [...this.state.filteredIdeas]
@@ -72,18 +72,19 @@ class Profile extends Component {
         }).catch(err => {
             console.log(err);
         });
-
-        API.retrieveIdeas().then(creates => {
-
-            this.setState({
-                ideas: creates.data,
-                displayedIdeas: creates.data
-            })
-            console.log(creates)
-        })
-
-        console.log(this.props)
     }
+
+    //     API.retrieveIdeas().then(creates => {
+
+    //         this.setState({
+    //             ideas: creates.data,
+    //             displayedIdeas: creates.data
+    //         })
+    //         console.log(creates)
+    //     })
+
+    //     console.log(this.props)
+    // }
 
     loading() {
         setTimeout(()=> {

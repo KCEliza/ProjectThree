@@ -18,26 +18,26 @@ router.post("/login", passport.authenticate("local", {
 
 // route to hand send post request
 
-var nodemailer = require('nodemailer');
-const creds = require('../../config/submitIdea');
+// var nodemailer = require('nodemailer');
+// const creds = require('../../config/submitIdea');
 
-var transport = {
-  host: 'smtp.gmail.com',
-  auth: {
-    user: creds.USER,
-    pass: creds.PASS
-  }
-}
+// var transport = {
+//   host: 'smtp.gmail.com',
+//   auth: {
+//     user: creds.USER,
+//     pass: creds.PASS
+//   }
+// }
 
-var transporter = nodemailer.createTransport(transport)
+// var transporter = nodemailer.createTransport(transport)
 
-transporter.verify((error, success) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Server is ready to take messages');
-  }
-});
+// transporter.verify((error, success) => {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log('Server is ready to take messages');
+//   }
+// });
 
 
 // /api/users/signup

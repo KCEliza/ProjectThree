@@ -6,7 +6,7 @@ import {
   InputGroupAddon
 } from 'reactstrap';
 import "./style.css"
-import API from '../../utils/API';
+// import API from '../../utils/API';
 
 const Cardfile = (props) => {
 
