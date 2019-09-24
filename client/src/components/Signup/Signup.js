@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, FormText, Alert } from 'reactstrap';
 import { Link } from "react-router-dom";
+import classCode from "../../classCode.json"
 
 class Signup extends Component {
     state = {
@@ -10,6 +11,7 @@ class Signup extends Component {
     }
     
     componentDidUpdate() {
+        
         this.validatePassword();
         this.confirmPassword();
         this.validateUsername();
@@ -67,8 +69,17 @@ class Signup extends Component {
                 <Form>
                 <FormGroup>
                 <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="filter" data-toggle="dropdown">Your Class Code
-             <span class="caret"></span></button>
+                <div>Your Class Code
+             {/* <span class="caret"> */}
+             <select className = "classCodes" style={{width: "150px"}}>
+             {classCode.map((data, index) =>
+            //  console.log(classCode.title),
+                 <option key = {index} value = {data.title}>{data.title}</option>
+             
+             )}
+             </select>
+             {/* </span> */}
+             </div>
             <ul class="dropdown-menu" role="menu" aria-labelledby="filter">
                  </ul>
                     </div></FormGroup>
