@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import tags from "./tags.json";
 import "./style.css";
@@ -13,14 +13,16 @@ class SubmitIdea extends Component {
         tags,
         title: "",
         description: "",
-        username: "",
         projectLevel: "Project 1",
         projectDiff: "Beginner",
         selectedTags: []
 
     }
 
+    redirect = () => this.props.history.push("/profile");
+
     handleInputChange = event => {
+        console.log("props in handleInputChange", this.props)
         const value = event.target.value;
         const name = event.target.name;
         console.log(value, "VALUE")
@@ -31,6 +33,7 @@ class SubmitIdea extends Component {
     }
 
     handleTagChange = event => {
+        // alert("tag change")
 
         const value = event.target.value;
         // const name = event.target.name;
@@ -63,57 +66,26 @@ class SubmitIdea extends Component {
         //Should handle sending email and storing the Idea information in the datatbase
 
         event.preventDefault();
+        // console.log("props in handleSubmit", this.props)
 
         API.submitIdea({
-            username: this.state.username,
             title: this.state.title,
             description: this.state.description,
             projectLevel: this.state.projectLevel,
             projectDiff: this.state.projectDiff,
             tags: this.state.selectedTags,
         })
-        // .then.resetForm()
+        .then(res => this.redirect())
+        .catch(err => console.log(err));
+        // this.props.history.push("/profile")
+        // .then.handleSubmit();
+        
     }
         
-        // const name = document.getElementById('username').value;
-        // const email = document.getElementById('email').value;
-        // const message = document.getElementById('message').value;
-
-        // //Need to work on having the inputs samed in the database      
-
-        // //Sending email      
-        // axios({
-        //     method: "POST",
-        //     url: "http://localhost:3002/send",
-        //     data: {
-        //         name: name,
-        //         email: email,
-        //         messsage: message
-        //     }
-        // }).then((response) => {
-        //     if (response.data.msg === 'success') {
-        //         alert("Message Sent.");
-        //         this.resetForm()
-        //     } else if (response.data.msg === 'fail') {
-        //         alert("Message failed to send.")
-        //     }
-        // });
-        // resetForm() {
-        //     document.getElementById('sumbitIdea').reset();
-        // }
-    
-
-    //To clear the form after submitting an idea
-
-
     render() {
 
         return (
             <Form id="submitIdea">
-            <FormGroup>
-            <Label for="username">Username</Label>
-                <Input value={this.state.username} onChange={this.handleInputChange} type="name" name="username" id="username" placeholder="Username" />
-            </FormGroup>
             <FormGroup>
             <Label for="title">Title</Label>
                 <Input value={this.state.title} onChange={this.handleInputChange} type="text" name="title" id="title" placeholder="Project Title" />
@@ -157,4 +129,4 @@ class SubmitIdea extends Component {
     }
 
 }
-export default SubmitIdea;
+export default withRouter(SubmitIdea);

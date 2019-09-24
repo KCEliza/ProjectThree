@@ -1,11 +1,32 @@
+require('dotenv').config();
 const router = require("express").Router();
 const passport = require("../../config/passport");
 const db = require("../../models");
 const authMiddleware = require("../../config/middleware/authMiddleware");
+const nodemailer = require("nodemailer");
 // /api/todos/all
+
+let transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    auth: {
+        user: process.env.EMAIL, // TODO: your gmail account
+        pass: process.env.PASSWORD // TODO: your gmail password
+    }
+});
+
+
+
+router.get("/", authMiddleware.isLoggedIn, function (req, res, next) {
+    db.Create.find({}, (err, create) => {
+        res.json(create);
+    });
+});
+
+
 // get all todos from the signed in user
 router.get("/all", authMiddleware.isLoggedIn, function (req, res, next) {
-    db.Create.find({ author: req.user.id }, (err, create) => {
+    db.Create.find({ username: req.body.username }, (err, create) => {
         res.json(create);
     });
 });
@@ -13,7 +34,7 @@ router.get("/all", authMiddleware.isLoggedIn, function (req, res, next) {
 // add new todo, update the user to have todo id
 router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
     const newCreate = new db.Create({
-        username: req.body.username,
+        username: req.user.username,
         title: req.body.title,
         description: req.body.description,
         projectLevel: req.body.projectLevel,
@@ -21,6 +42,7 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
         tags: req.body.tags
     });
     console.log(req.body);
+    console.log(req.user);
     newCreate.save((err, newCreate) => {
         if (err) throw err;
         db.Users.findByIdAndUpdate(req.user.id, { $push: { creates: newCreate._id } }, (err, user) => {
@@ -28,6 +50,22 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
             res.send(newCreate);
         });
     });
+    //DO NODEMAILER HERE
+    let mailOptions = {
+        from: process.env.EMAIL, // TODO: email sender
+        to: 'claudiapollinger.cp@gmail.com', // TODO: email receiver
+        subject: 'New Idea on I have No Idea App',
+        text: `${req.user.username} has submitted an idea. Go check it out`
+    };
+    transporter.sendMail(mailOptions, (err, data) => {
+        if (err) {
+            return console.log('Error occurs');
+        }
+        return console.log('Email sent!!!');
+    });
+
+
+
 });
 // /apiCreate/remove
 // removed todo based on id, updates user
