@@ -31,7 +31,6 @@ class Profile extends Component {
         });
     }
     handleCommentSubmit = (event) =>{
-        alert("WORK FUCKER")
       event.preventDefault();
       API.submitComment({
         // username: this.state.username,
