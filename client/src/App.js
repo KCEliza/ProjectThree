@@ -7,7 +7,7 @@ import Submit from "./pages/Submit"
 import NoMatch from "./pages/NoMatch";
 import TopNav from "./components/TopNav";
 import Footer from "./components/Footer";
-import { Container } from 'reactstrap';
+// import { Container } from 'reactstrap';
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
       <Router>
         <>
           <TopNav />
-          <Container>
+          {/* <Container> */}
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/signup" render={(props) => <Auth {...props} action="signup" />} />
@@ -26,7 +26,7 @@ function App() {
               <Route component={NoMatch} />
             </Switch>
 
-          </Container>
+          {/* </Container> */}
           <Footer />
         </>
       </Router>

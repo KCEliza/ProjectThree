@@ -17,7 +17,7 @@
     "url": "git+https://github.com/KCEliza/ProjectThree.git"
   },
   "keywords": [],
-  "author": "Evan E J Tucker",
+  "author": "I Have No Idea Group Project",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/KCEliza/ProjectThree/issues"
@@ -40,6 +40,7 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
+    "react-rotating-text": "^1.4.1",
     "rsuite": "^4.0.0"
   },
   "devDependencies": {

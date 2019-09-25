@@ -47,6 +47,7 @@ class Profile extends Component {
     }
 
     displayFiltered = (array) => {
+        console.log(array)
         //do lodash
             let ideas = [...this.state.ideas]
 
@@ -91,6 +92,7 @@ class Profile extends Component {
         }).catch(err => {
             console.log(err);
         });
+    // }
 
         API.retrieveIdeas().then(creates => {
 
@@ -121,7 +123,7 @@ class Profile extends Component {
             
                 {this.state.loggedIn ? (
                     <>
-                        <Menu />
+                        <Menu/>
                         
                         <div className="profileBox col-md-10 float-right">
                             <h1 id="userTitle">Welcome {this.state.user.username}</h1>
@@ -170,7 +172,7 @@ class Profile extends Component {
             </>
         )
     }
-}
+};
 
 
 export default Profile;
