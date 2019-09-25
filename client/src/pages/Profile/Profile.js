@@ -16,17 +16,18 @@ class Profile extends Component {
         loading: true,
         ideas: [],
         filteredIdeas: [],
-        displayedIdeas: []
+        displayedIdeas: [],
+        comment: ""
     }
 
     handleCommentChange = (event) => {
         
-        const name = event.target.name;
+        // const name = event.target.name;
         const comment = event.target.value;
         console.log(comment, "COMMENT INPUT")
-        console.log(name,"NAME")
+        // console.log(name,"NAME")
         this.setState({
-            [name]: comment
+            comment
         });
     }
     handleCommentSubmit = (event) =>{
