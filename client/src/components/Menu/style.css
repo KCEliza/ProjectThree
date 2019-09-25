@@ -1,6 +1,6 @@
 .sidebar {
     padding: 10px;
-    background-color: rgb(105, 90, 90);
+    background-color: #512d38;
     height: 100vh;
     display: inline-block;
     position: fixed;
@@ -8,13 +8,13 @@
 }
 .sidebar-header {
     margin: 20px;
-    color: whitesmoke;
+    color: #ffe9f3;
 }
 
 
 
 .wrapper {
-    background-color: rgb(105, 90, 90);
+    background-color: #512d38;
     display: inline-block;
     position: fixed;
     padding: 20px;
@@ -30,6 +30,6 @@ i {
 
 .nav-link {
     font-size: 24px;
-    color: whitesmoke;
+    color: #ffe9f3;
     margin-top: 10px;
 }

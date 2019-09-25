@@ -1,23 +1,24 @@
 @import "../../sass/variable.scss";
 
 .navbar {
-    background: #647aa3;
+    background: #73565f;
     box-shadow: 0 3px 10px $dark-text;
     font-family: $text-font;
     
+    
     .logo {
-        max-height: 50px;
+        max-height: 42px;
         margin-right: 5px;
     }
 
     a.titleFont {
         font-family: 'PT Mono', monospace;
         font-size: 2em;
-        color: $light-text;
+        color: #ffe9f3;
     }
 
     a.titleFont:hover {
-        color: $light-text;
+        color: #ffe9f3;
         font-weight: bold;
     }
 
@@ -26,7 +27,7 @@
     }
 
     .light-text {
-        color: $light-text
+        color: #ffe9f3;
     }
 }
 

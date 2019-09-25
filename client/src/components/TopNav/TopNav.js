@@ -56,7 +56,7 @@ export default class Navigation extends Component {
         return (
             <div>
                 <Navbar className="navbar" light expand="md">
-                    <NavbarBrand href="/" className="titleFont"><img className="logo" alt="I HAVE NO IDEA logo" src="/assets/images/LightbulbWht.png" /> I HAVE NO IDEA!</NavbarBrand>
+                    <NavbarBrand href="/" className="titleFont"><img className="logo" alt="I HAVE NO IDEA logo" src="/assets/images/lbWhite.png" /> I HAVE NO IDEA!</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
@@ -72,6 +72,12 @@ export default class Navigation extends Component {
                                         <>
                                             <DropdownItem>
                                                 <NavLink href="/profile">Profile</NavLink>
+                                            </DropdownItem>
+                                            <DropdownItem>
+                                                <NavLink href="/profile/submit">Submit Idea</NavLink>
+                                            </DropdownItem>
+                                            <DropdownItem>
+                                                <NavLink href="/profile/myprojects">My Projects</NavLink>
                                             </DropdownItem>
                                             <DropdownItem>
                                                 <NavLink onClick={this.logout}>Logout</NavLink>
