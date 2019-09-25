@@ -15,7 +15,7 @@ class Profile extends Component {
         user: null,
         loading: true,
         ideas: [],
-        filteredIdeas: [],
+        filters: [],
         displayedIdeas: []
     }
 
@@ -37,12 +37,12 @@ class Profile extends Component {
     };
 
     handleFilter = (filter) => {
-        let filteredIdeas = [...this.state.filteredIdeas, filter]
-        this.displayFiltered(filteredIdeas)
+        let filters = [filter]
+        this.displayFiltered(filters)
         this.setState ({
-            filteredIdeas
+            filters
         })
-        console.log("filtered ideas 1: ", filteredIdeas)
+        console.log("filtered ideas 1: ", filters)
 
     }
 
@@ -71,7 +71,9 @@ class Profile extends Component {
    // (remove filter function on the click of this button --> remove lower case curly bracket item from filtered ideas and update displayed ideas)
     removeFilter = () => {
         this.setState({
-            displayedIdeas: this.ideas
+            displayedIdeas: this.state.ideas,
+            filters: []
+
         })
     }
 
@@ -126,8 +128,8 @@ class Profile extends Component {
                             <Filter 
                             handleFilter = {this.handleFilter}
                             />
-                            {this.state.filteredIdeas.map(filter => (
-                                <Button id="filterBtn" onClick={this.removeFilter}>{filter}</Button> //make secondary filter click 
+                            {this.state.filters.map(filter => (
+                                <Button onClick={this.removeFilter}>{filter}<i className="far fa-times-circle"></i></Button> //make secondary filter click 
                             ))}
                             <h4>All Projects: </h4>
                             {this.state.displayedIdeas.map(idea => (
