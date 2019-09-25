@@ -50,3 +50,7 @@
   .image {
       height: 150px;
   }
+
+  .card-text{
+    padding: 4px;
+  }
