@@ -35,6 +35,6 @@ export default {
   },
   retrieveIdeas: function() {
     return axios.get("/api/create/")
-  }
+  },
 
 };
