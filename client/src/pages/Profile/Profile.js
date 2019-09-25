@@ -86,19 +86,19 @@ class Profile extends Component {
         }).catch(err => {
             console.log(err);
         });
-    }
-
-    //     API.retrieveIdeas().then(creates => {
-
-    //         this.setState({
-    //             ideas: creates.data,
-    //             displayedIdeas: creates.data
-    //         })
-    //         console.log(creates)
-    //     })
-
-    //     console.log(this.props)
     // }
+
+        API.retrieveIdeas().then(creates => {
+
+            this.setState({
+                ideas: creates.data,
+                displayedIdeas: creates.data
+            })
+            console.log(creates)
+        })
+
+        console.log(this.props)
+    }
 
     loading() {
         setTimeout(()=> {
