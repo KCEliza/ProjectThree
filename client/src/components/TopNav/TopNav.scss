@@ -1,12 +1,18 @@
 @import "../../sass/variable.scss";
 
 .navbar {
-    background: $primary-color;
+    background: #647aa3;
     box-shadow: 0 3px 10px $dark-text;
     font-family: $text-font;
+    
+    .logo {
+        max-height: 50px;
+        margin-right: 5px;
+    }
 
     a.titleFont {
-        font-family: $title-font;
+        font-family: 'PT Mono', monospace;
+        font-size: 2em;
         color: $light-text;
     }
 
