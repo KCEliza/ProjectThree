@@ -33,6 +33,8 @@ const Cardfile = (props) => {
               <Input onChange= {props.handleCommentChange}/>
               <InputGroupAddon addonType="append">
                 <InputGroupText onClick = {props.handleCommentSubmit}>Comment</InputGroupText>
+                <CardText>{props.comments}</CardText>
+
               </InputGroupAddon>
             </InputGroup>
             <Button className="btn-success"><i className="fas fa-thumbs-up"></i></Button>

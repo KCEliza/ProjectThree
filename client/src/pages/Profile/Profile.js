@@ -17,7 +17,8 @@ class Profile extends Component {
         ideas: [],
         filteredIdeas: [],
         displayedIdeas: [],
-        comment: ""
+        comment: "",
+        comments:[]
     }
 
     handleCommentChange = (event) => {
@@ -32,10 +33,13 @@ class Profile extends Component {
     }
     handleCommentSubmit = (event) =>{
       event.preventDefault();
+      const comments = event.target.value;
       API.submitComment({
-        // username: this.state.username,
+        _id: this.state.id,
         comment: this.state.comment
-      });
+      }).then(res => this.setState({comments: res.data
+      }))
+          
     };
 
     handleFilter = (filter) => {
@@ -131,6 +135,7 @@ class Profile extends Component {
                                 onChange = {this.removeFilter}>{filter}</button> //make secondary filter click (remove filter function on the click of this button --> remove lower case curly bracket item from filtered ideas and update displayed ideas)
                             ))}
                             <h4>All Projects: </h4>
+                            
                             {this.state.displayedIdeas.map(idea => (
                                 <CardFile
                                         handleCommentChange = {this.handleCommentChange} 
@@ -141,6 +146,7 @@ class Profile extends Component {
                                         projectLevel={idea.projectLevel}
                                         projectDiff={idea.projectDiff}
                                         tags={idea.tags}
+                                        comments ={idea.comment}
                                     
                                     >
                                 </CardFile>

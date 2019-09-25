@@ -22,7 +22,13 @@ const createSchema = new Schema({
   },
   tags: {
     type: Array
-  }
+  },
+  comments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Comment"
+    }
+  ]
 
 });
 
