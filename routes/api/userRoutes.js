@@ -2,6 +2,8 @@ const router = require("express").Router();
 const passport = require("../../config/passport");
 const db = require("../../models");
 const authMiddleware = require("../../config/middleware/authMiddleware");
+var nodemailer = require('nodemailer');
+const creds = require('../../config/submitIdea');
 
 // /api/users/login
 // route to login the user
@@ -16,34 +18,12 @@ router.post("/login", passport.authenticate("local", {
   });
 });
 
-// route to hand send post request
-
-var nodemailer = require('nodemailer');
-const creds = require('../../config/submitIdea');
-
-var transport = {
-  host: 'smtp.gmail.com',
-  auth: {
-    user: creds.USER,
-    pass: creds.PASS
-  }
-}
-
-var transporter = nodemailer.createTransport(transport)
-
-transporter.verify((error, success) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Server is ready to take messages');
-  }
-});
 
 
 // /api/users/signup
 // route to logout the user
 router.post("/signup", function(req, res, next) {
-  console.log("req.body", req.body);
+  // console.log("req.body", req.body);
   
   db.Users.findOne({username: req.body.username}, function(err, user) {
     if (err) throw err;
