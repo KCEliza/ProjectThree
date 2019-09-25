@@ -2,6 +2,8 @@ const router = require("express").Router();
 const passport = require("../../config/passport");
 const db = require("../../models");
 const authMiddleware = require("../../config/middleware/authMiddleware");
+var nodemailer = require('nodemailer');
+const creds = require('../../config/submitIdea');
 
 // /api/users/login
 // route to login the user
@@ -43,7 +45,7 @@ router.post("/login", passport.authenticate("local", {
 // /api/users/signup
 // route to logout the user
 router.post("/signup", function(req, res, next) {
-  console.log("req.body", req.body);
+  // console.log("req.body", req.body);
   
   db.Users.findOne({username: req.body.username}, function(err, user) {
     if (err) throw err;

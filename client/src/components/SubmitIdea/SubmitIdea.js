@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Form, FormGroup, Input, Label, Button} from 'reactstrap';
 import tags from "./tags.json";
 import "./style.css";
 import API from "../../utils/API"
@@ -26,7 +26,7 @@ class SubmitIdea extends Component {
         const value = event.target.value;
         const name = event.target.name;
         console.log(value, "VALUE")
-        console.log(name,"NAME")
+        console.log(name, "NAME")
         this.setState({
             [name]: value
         });
@@ -38,21 +38,21 @@ class SubmitIdea extends Component {
         const value = event.target.value;
         // const name = event.target.name;
         const selectedTags = [...this.state.selectedTags]
-        if(selectedTags.includes(value)){
-            for(var i = 0; i < selectedTags.length; i++){
-                if(selectedTags[i] === value){
+        if (selectedTags.includes(value)) {
+            for (var i = 0; i < selectedTags.length; i++) {
+                if (selectedTags[i] === value) {
                     selectedTags.splice(i, 1);
                     console.log("THIS IS WORKING")
                 };
             };
         }
-        else{
+        else {
             selectedTags.push(value);
             console.log("PUSH IS WORKING")
         };
         this.setState({
             selectedTags
-            
+
         })
         console.log(selectedTags);
     };
@@ -75,17 +75,18 @@ class SubmitIdea extends Component {
             projectDiff: this.state.projectDiff,
             tags: this.state.selectedTags,
         })
-        .then(res => this.redirect())
-        .catch(err => console.log(err));
+            .then(res => this.redirect())
+            .catch(err => console.log(err));
         // this.props.history.push("/profile")
         // .then.handleSubmit();
-        
+
     }
-        
+
     render() {
 
         return (
-            <Form id="submitIdea">
+
+<Form id="submitIdea">
             <FormGroup>
             <Label for="title">Title</Label>
                 <Input value={this.state.title} onChange={this.handleInputChange} type="text" name="title" id="title" placeholder="Project Title" />
@@ -124,8 +125,47 @@ class SubmitIdea extends Component {
             </FormGroup>         
             <Button id="submitBtn" onClick={this.handleSubmit} block>Submit</Button>
             </Form>
+
+            // <Form controlId="submitIdea">
+            //     <Form.Group>
+            //         <Form.Label> for="title">Title </Form.Label>
+            //         <Form.Control value={this.state.title} onChange={this.handleInputChange} type="text" name="title" id="title" placeholder="Project Title" />
+            //     </Form.Group>
+            //     <Form.Group>
+            //         <Form.Label for="description">Description</Form.Label>
+            //         <Form.Control value={this.state.description} onChange={this.handleInputChange} type="textarea" name="description" id="description" placeholder="Project Description" />
+            //     </Form.Group>
+            //     <Form.Group>
+            //         <Form.Label for="projectLevel">Select <Link to="#">Project Level</Link></Form.Label>
+            //         <Form.Control as="select" value={this.state.projectLevel} onChange={this.handleInputChange} name="projectLevel" id="projectLevel" multiple>
+            //             <option>Project 1</option>
+            //             <option>Project 2</option>
+            //             <option>Project 3</option>
+            //             <option>Capstone</option>
+            //         </Form.Control>
+            //     </Form.Group>
+            //     <Form.Group>
+            //     <Form.Label for="projectDiff">Select Difficulty<Link to="#">Project Difficulty</Link></Form.Label>
+            //         <Form.Control as="select" value={this.state.projectDiff} onChange={this.handleInputChange} name="projectDiff" id="projectDiff" multiple>
+            //             <option>Beginner</option>
+            //             <option>Intermediate</option>
+            //             <option>Challenge</option>
+            //         </Form.Control>
+            //     </Form.Group>
+            //     <Form.Group check>
+            //         <Form.Label for="tags">Please check all that apply: </Form.Label>
+            //         <br></br>
+            //         {this.state.tags.map(tag => (
+            //             <Form.Label check>
+            //                 <Form.Control value={tag.tag} onChange={this.handleTagChange} type="checkbox" />{' '}
+            //                 {tag.tag}
+            //             </Form.Label>
+            //         ))}
+            //     </Form.Group>
+            //     <Button id="submitBtn" onClick={this.handleSubmit} block>Submit</Button>
+            // </Form>
         );
-    
+
     }
 
 }
