@@ -88,6 +88,7 @@ class Profile extends Component {
         }).catch(err => {
             console.log(err);
         });
+    // }
 
         API.retrieveIdeas().then(creates => {
 
@@ -168,7 +169,7 @@ class Profile extends Component {
             </>
         )
     }
-}
+};
 
 
 export default Profile;
