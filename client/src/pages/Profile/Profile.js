@@ -20,6 +20,7 @@ class Profile extends Component {
     }
 
     handleCommentChange = (event) => {
+        
         const name = event.target.name;
         const comment = event.target.value;
         console.log(comment, "COMMENT INPUT")
@@ -29,6 +30,7 @@ class Profile extends Component {
         });
     }
     handleCommentSubmit = (event) =>{
+        alert("WORK FUCKER")
       event.preventDefault();
       API.submitComment({
         // username: this.state.username,
