@@ -25,12 +25,12 @@ let transporter = nodemailer.createTransport({
 });
 
 
-// router.get("/", authMiddleware.isLoggedIn, function (req, res, next) {
-//     db.Create.find({}, (err, create) => {
-//         res.json(create);
-//         console.log(create)
-//     });
-// });
+router.get("/", authMiddleware.isLoggedIn, function (req, res, next) {
+    db.Create.find({}, (err, create) => {
+        res.json(create);
+        console.log(create)
+    });
+});
 
 
 // get all todos from the signed in user

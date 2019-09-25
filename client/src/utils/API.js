@@ -34,7 +34,7 @@ export default {
     return axios.post("/api/comment/new", submitComment);
   },
   retrieveIdeas: function() {
-    return axios.get("/api/create/")
+    return axios.get("/api/create")
   },
 
 };
