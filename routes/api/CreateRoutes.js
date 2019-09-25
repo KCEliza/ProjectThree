@@ -76,7 +76,7 @@ router.post("/card", authMiddleware.isLoggedIn, function (req, res, next) {
     });
     console.log(req.body);
     console.log(req.user);
-    newComment.save((err, newCreate) => {
+    newComment.save((err, newCommment) => {
         if (err) throw err;
         db.Comment.findByIdAndUpdate(req.user.id, { $push: { comment: newComment._id } }, (err, user) => {
             if (err) throw err;
@@ -162,4 +162,4 @@ router.post("/card", authMiddleware.isLoggedIn, function (req, res, next) {
 //     });
 // });
 
-// module.exports = router;
+module.exports = router;
