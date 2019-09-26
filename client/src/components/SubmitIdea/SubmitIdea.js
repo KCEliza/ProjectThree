@@ -74,6 +74,7 @@ class SubmitIdea extends Component {
             projectLevel: this.state.projectLevel,
             projectDiff: this.state.projectDiff,
             tags: this.state.selectedTags,
+           
         })
             .then(res => this.redirect())
             .catch(err => console.log(err));
