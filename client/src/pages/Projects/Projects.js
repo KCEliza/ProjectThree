@@ -67,30 +67,64 @@ render() {
             </Container>
           </Jumbotron>
         </div>
+        <Container fluid className="descWrap">
+            <div className="descriptionWrap text-center container-fluid">
+            <div className="col-md-2 float-left describeBox">
+            <h4> Kristen Christeson</h4>
+              <a class="white-text linkedin" href="https://www.linkedin.com/in/kristen-christeson-080927181/"><img class="logo" src="https://img.icons8.com/carbon-copy/2x/linkedin.png" alt = "linkedIn"></img></a>           
+              </div>
+              <div className="col-md-2 float-left describeBox">
+              <h4> Genevieve DePriest</h4>
+              <a class="white-text linkedin" href="https://www.linkedin.com/in/s-genevieve-depriest-02309674/"><img class="logo" src="https://img.icons8.com/carbon-copy/2x/linkedin.png" alt = "linkedIn"></img></a>               
+              </div>
+              <div className="col-md-1 float-left describeBox">
+
+              </div>
+              <div className="col-md-2 float-left describeBox">
+              <h4> Christelle Mangama</h4>
+              <a class="white-text linkedin" href="https://www.linkedin.com/in/mangama-christelle-39068620"><img class="logo" src="https://img.icons8.com/carbon-copy/2x/linkedin.png" alt = "linkedIn"></img></a> 
+              </div>
+              <div className="col-md-1 float-left describeBox">
+
+              </div>
+              <div className="col-md-2 float-left describeBox">
+              <h4> Amber Moreyra</h4>
+              <a class="white-text linkedin" href="https://www.linkedin.com/in/amber-moreyra-a2082870/"><img class="logo" src="https://img.icons8.com/carbon-copy/2x/linkedin.png" alt = "linkedIn"></img></a>                         
+              </div>
+              <div className="col-md-2 float-left describeBox">
+              <h4> Claudia Pollinger</h4>
+              <a class="white-text linkedin" href="https://www.linkedin.com/in/claudia-pollinger-a6958032/"><img class="logo" src="https://img.icons8.com/carbon-copy/2x/linkedin.png" alt = "linkedIn"></img></a>           
+                
+              </div>
+
+            </div>
+          </Container>
+          <Container fluid>
+          </Container>
       </div>
 
                 </>
             ) : (
-                <div className="noUser">
-                    {!this.state.loading ? (
-                        <>
-                            <div className="container text-center">
+              <div className="noUser">
+                  {!this.state.loading ? (
+                      <>
+                          <div className="container text-center">
 
-                                <h1>please log in</h1>
-                                <Link className="loginLink" to="/login"><Button className="loginBtn btn-large" color="info" >Login</Button></Link>
+                              <h1>please log in</h1>
+                              <Link className="loginLink" to="/login"><Button className="loginBtn btn-large" color="info" >Login</Button></Link>
 
-                            </div>
-                        </>
-                    ) : (
-                        <img id="loadingIcon" src="./assets/images/lightbulb.gif" alt="loading"/>
-                    )}
-                </div> 
-                
-            )}
-        </>
-    )
-};
-
+                          </div>
+                      </>
+                  ) : (
+                      <img id="loadingIcon" src="./assets/images/lightbulb.gif" alt="loading"/>
+                  )}
+              </div> 
+              
+          )}
+      </>
+  )
 }
+
+};
 
 export default Projects;
