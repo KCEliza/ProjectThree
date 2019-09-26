@@ -22,6 +22,9 @@ const createSchema = new Schema({
   },
   tags: {
     type: Array
+  },
+  likes: {
+    type: Number
   }
 
 });

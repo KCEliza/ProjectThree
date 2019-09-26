@@ -16,7 +16,8 @@ class Profile extends Component {
         loading: true,
         ideas: [],
         filters: [],
-        displayedIdeas: []
+        displayedIdeas: [],
+        likes: 0
     }
 
     handleCommentChange = (event) => {
@@ -36,6 +37,23 @@ class Profile extends Component {
       });
     };
 
+
+    
+    handleVote = () => {
+        let likes = [this.state.likes]
+        let likesCount = likes + 1
+        
+        this.setState({
+            likes: likesCount
+        })
+            console.log("likes: ", this.state.likes)
+            console.log("likesCount: ", likesCount)
+
+        // API.vote({
+        //     likes: this.state.likes
+        // })
+      }
+      
     handleFilter = (filter) => {
         let filters = [filter]
         this.displayFiltered(filters)
@@ -47,29 +65,16 @@ class Profile extends Component {
     }
 
     displayFiltered = (array) => {
-        console.log(array)
-        //do lodash
             let ideas = [...this.state.ideas]
 
             // let displayedIdeas = ideas.filter(ideas => ideas.projectLevel.includes(filter)) works
-            // let displayedIdeas = _.filter(ideas, something => something.projectLevel === "Project 2") works
             let displayedIdeas = _.filter(ideas, {projectLevel: array[0]});
 
             this.setState({
                 displayedIdeas
             })
-            console.log("ideas: ", ideas);
-            console.log("displayed ideas: ", displayedIdeas);
-            console.log("array: ", array);
-        // let displayedIdeas = _.filter(this.state.ideas, ["projectLevel", {filter}])
-        // this.handleFilter(displayedIdeas)
-        //set state for display ideas
-        // this.setState({
-        //     displayedIdeas
-        // })
     }
 
-   // (remove filter function on the click of this button --> remove lower case curly bracket item from filtered ideas and update displayed ideas)
     removeFilter = () => {
         this.setState({
             displayedIdeas: this.state.ideas,
@@ -131,20 +136,21 @@ class Profile extends Component {
                             handleFilter = {this.handleFilter}
                             />
                             {this.state.filters.map(filter => (
-                                <Button onClick={this.removeFilter}>{filter}<i className="far fa-times-circle"></i></Button> //make secondary filter click 
+                                <Button onClick={this.removeFilter}>{filter}<i className="far fa-times-circle"></i></Button>  
                             ))}
                             <h4>All Projects: </h4>
                             {this.state.displayedIdeas.map(idea => (
                                 <CardFile
                                         handleCommentChange = {this.handleCommentChange} 
                                         handleCommentSubmit = {this.handleCommentSubmit}
+                                        handleVote = {this.handleVote}
                                         name={idea.username}
                                         title={idea.title}
                                         description={idea.description}
                                         projectLevel={idea.projectLevel}
                                         projectDiff={idea.projectDiff}
                                         tags={idea.tags}
-                                    
+                                        likes={idea.likes}
                                     >
                                 </CardFile>
                             ))                            }

@@ -8,6 +8,7 @@ import {
 import "./style.css"
 // import API from '../../utils/API';
 
+
 const Cardfile = (props) => {
 
   return (
@@ -35,15 +36,14 @@ const Cardfile = (props) => {
                 <InputGroupText onClick = {props.handleCommentSubmit}>Comment</InputGroupText>
               </InputGroupAddon>
             </InputGroup>
-            <Button className="btn-success"><i className="fas fa-thumbs-up"></i></Button>
-            <Button className="btn-danger"><i className="fas fa-thumbs-down"></i></Button>
+            <Button onClick={props.handleVote}><i className="fas fa-thumbs-up"></i></Button>
         </div>
-        
         </Card>
       </div>
     </div>
 
 );
+
 };
 
 export default Cardfile;
