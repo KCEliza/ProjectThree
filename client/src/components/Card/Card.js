@@ -6,7 +6,10 @@ import {
   InputGroupAddon
 } from 'reactstrap';
 import "./style.css"
+
+import API from "../../utils/API";
 // import API from '../../utils/API';
+
 
 const Cardfile = (props) => {
 
@@ -25,20 +28,26 @@ const Cardfile = (props) => {
           </CardBody>
         </div>
         <div className="flip-card-back">
-          <CardTitle>{props.title}</CardTitle>
-          <CardSubtitle>{props.username}</CardSubtitle>
-          <CardText>Description: {props.description}</CardText>
-          <CardText>Project Level: {props.projectLevel}</CardText>
-          <CardText>Project Difficulty: {props.projectDiff}</CardText>
-          <CardText>Tags: {props.tags}</CardText>
-          <InputGroup>
-            <Input onChange= {props.handleCommentChange}/>
-            <InputGroupAddon addonType="append">
-              <InputGroupText onClick = {props.handleCommentSubmit}>Comment</InputGroupText>
-            </InputGroupAddon>
-          </InputGroup>
-            <Button className="btn-success"><i className="fas fa-thumbs-up"></i></Button>
+             <CardTitle>{props.title}</CardTitle>
+             <CardSubtitle>{props.username}</CardSubtitle>
+             <CardText>Description: {props.description}</CardText>
+             <CardText>Project Level: {props.projectLevel}</CardText>
+             <CardText>Project Difficulty: {props.projectDiff}</CardText>
+             <CardText>Tags: {props.tags}</CardText>
+
+             <Button className="btn-success"><i className="fas fa-thumbs-up"></i></Button>
             <Button className="btn-danger"><i className="fas fa-thumbs-down"></i></Button>
+             <InputGroup>
+              <Input onChange= {props.handleCommentChange}/>
+              <InputGroupAddon addonType="append">
+                <InputGroupText onClick = {props.handleCommentSubmit}>Comment</InputGroupText>
+
+                
+              </InputGroupAddon>
+            </InputGroup>
+
+            <CardText>{props.comment}</CardText>
+        
         </div>
         
         </Card>

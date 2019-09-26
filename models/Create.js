@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const db = require("../models");
 
 const createSchema = new Schema({
 // username: {
@@ -22,12 +23,20 @@ const createSchema = new Schema({
   },
   tags: {
     type: Array
-  }
+  },
+  comments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Comment"
+    }
+  ]
 
 });
 
 
 
 const Create = mongoose.model("Create", createSchema);
+
+
 
 module.exports = Create;
