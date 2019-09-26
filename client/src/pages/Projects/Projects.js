@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import "./Projects.css";
+import "./Projects.scss";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import { Jumbotron, Container } from 'reactstrap';
 import ReactRotatingText from 'react-rotating-text';
 import API from "../../utils/API";
 import Menu from "../../components/Menu";
+
 
 class Projects extends Component{
     state = {
@@ -48,15 +49,16 @@ render() {
             {this.state.loggedIn ? (
                 <>
                     <Menu />
-                    <div className="homeBox col-md-10 float-right">
+                    
+                    <div className="comingBox col-md-10 float-right">
         <div>
           <Jumbotron fluid>
             <Container fluid>
               <div className="col-md-7 float-left align-middle jumboText">
-                <h1 className="comingSoon">COMING SOON</h1>
-                <h3>YOUR PROJECT PAGE</h3>
+                <h1 className="comingSoon">COMING SOON!</h1>
+                <h3>FUTURE DEVELOPMENT</h3>
                 <h3>
-                  <ReactRotatingText className='landingRotating' items={['favorite new ideas', 'collaborate', 'see your ideas']} />
+                  <ReactRotatingText className='landingRotating' items={['private messaging', 'administrative log in', 'favorite new ideas', 'form teams with fellow bootcampers', 'general public licensing']} />
                 </h3>
               </div>
               <div className="col-md-5 float-left text-center">
