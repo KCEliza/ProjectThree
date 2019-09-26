@@ -42,7 +42,7 @@ class Home extends Component {
                 </h3>
               </div>
               <div className="col-md-5 float-left text-center">
-                <img alt="I HAVE NO IDEA logo" className="homeLogo img-fluid" src="/assets/images/LightbulbGrn.png" />
+                <img alt="I HAVE NO IDEA logo" className="homeLogo img-fluid" src="/assets/images/lbWhite.png" />
               </div>
             </Container>
           </Jumbotron>

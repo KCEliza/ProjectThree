@@ -134,7 +134,7 @@ class Profile extends Component {
                         <Menu />
 
                         <div className="profileBox col-md-10 float-right">
-                            <h1 id="userTitle">Welcome {this.state.user.username}</h1>
+                            <h4 id="userTitle">Welcome {this.state.user.username}</h4>
                             <Filter
                                 handleFilter={this.handleFilter}
                             />
@@ -164,25 +164,26 @@ class Profile extends Component {
 
                     </>
                 ) : (
-                        <div className="noUser">
-                            {!this.state.loading ? (
-                                <>
-                                    <div className="container text-center">
+                    <div className="noUser">
+                        {!this.state.loading ? (
+                            <>
+                                <div className="container text-center">
 
-                                        <h1>please log in</h1>
-                                        <Link className="loginLink" to="/login"><Button className="loginBtn btn-large" color="info" >Login</Button></Link>
+                                    <h1>please log in</h1>
+                                    <Link className="loginLink" to="/login"><Button className="loginBtn btn-large" color="info" >Login</Button></Link>
 
-                                    </div>
-                                </>
-                            ) : (
-                                    <img id="loadingIcon" src="./assets/images/loading.gif" alt="loading" />
-                                )}
-                        </div>
-
-                    )}
+                                </div>
+                            </>
+                        ) : (
+                            <img id="loadingIcon" src="./assets/images/lightbulb.gif" alt="loading"/>
+                        )}
+                    </div> 
+                    
+                )}
             </>
         )
     }
+
 };
 
 
