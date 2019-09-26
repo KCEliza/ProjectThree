@@ -21,6 +21,10 @@ class Profile extends Component {
         comments: []
     }
 
+    // handleCardClick = (id) => {
+    //     console.log(id)
+    // }
+
     handleCommentChange = (event) => {
 
         // const name = event.target.name;
@@ -155,7 +159,9 @@ class Profile extends Component {
                                     projectDiff={idea.projectDiff}
                                     tags={idea.tags}
                                     comments={idea.comments}
-
+                                    // cardClick={this.handleCardClick}
+                                    id={idea.title}
+                                    key={idea.title}
                                 >
                                 </CardFile>
                             ))}

@@ -22,13 +22,12 @@ const Cardfile = (props) => {
             <CardImg className="image" src="/assets/images/lbWhite.png" alt="Card image cap" />
           </div>
           <CardBody>
-            <CardTitle>{props.username}</CardTitle>
-            <CardSubtitle>{props.title}</CardSubtitle>
+            <CardTitle>{props.title}</CardTitle>
           </CardBody>
         </div>
         <div className="flip-card-back">
              <CardTitle>{props.title}</CardTitle>
-             <CardSubtitle>{props.username}</CardSubtitle>
+             <CardSubtitle>{props.name}</CardSubtitle>
              <CardText>Description: {props.description}</CardText>
              <CardText>Level: {props.projectLevel}</CardText>
              <CardText>Project Difficulty: {props.projectDiff}</CardText>
@@ -51,7 +50,7 @@ const Cardfile = (props) => {
         
         </Card>
       </div>
-    </div>
+  </div>
 
 );
 };
