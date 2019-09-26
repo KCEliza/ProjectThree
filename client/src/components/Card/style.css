@@ -42,26 +42,19 @@
   }
   /* Style the front side (fallback if image is missing) */
   .flip-card-front {
-    background-color: #87baab !important;
-    color: 512d38;
-    border-radius: 12px !important;
-
+    background-color: #bbb;
+    color: black;
   }
   
   /* Style the back side */
   .flip-card-back {
-    background-color: dodgerblue;
-    position: fixed;
+    background-color: green;
     color: white;
     transform: rotateY(180deg);
-    
     height: 400px;
     width: 400px;
-    z-index: 9999999;
-  }
-
-  .imageWrap {
-    background-color: #87baab;
+    margin-left: -100%;
+    
   }
 
   .image {
