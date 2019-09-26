@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const db = require("../models");
 
 const createSchema = new Schema({
 // username: {
@@ -23,14 +24,25 @@ const createSchema = new Schema({
   tags: {
     type: Array
   },
+<<<<<<< HEAD
   likes: {
     type: Number
   }
+=======
+  comments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Comment"
+    }
+  ]
+>>>>>>> master
 
 });
 
 
 
 const Create = mongoose.model("Create", createSchema);
+
+
 
 module.exports = Create;

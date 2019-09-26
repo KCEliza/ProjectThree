@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./Profile.scss";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -10,31 +10,44 @@ import _ from "lodash";
 
 
 class Profile extends Component {
-    state = { 
+    state = {
         loggedIn: false,
         user: null,
         loading: true,
         ideas: [],
         filters: [],
+        likes: 0,
         displayedIdeas: [],
-        likes: 0
+        comment:{},
+        comments: []
     }
 
+    // handleCardClick = (id) => {
+    //     console.log(id)
+    // }
+
     handleCommentChange = (event) => {
-        const name = event.target.name;
+
+        // const name = event.target.name;
         const comment = event.target.value;
         console.log(comment, "COMMENT INPUT")
-        console.log(name,"NAME")
+        // console.log(name,"NAME")
         this.setState({
-            [name]: comment
+            comment
         });
     }
-    handleCommentSubmit = (event) =>{
-      event.preventDefault();
-      API.submitComment({
-        // username: this.state.username,
-        comment: this.state.comment
-      });
+
+    handleCommentSubmit = (event) => {
+        event.preventDefault();
+        console.log("did it work")
+        API.submitComment({
+            _id: this.state.id,
+            comment: this.state.comment
+        }).then(res => {
+            this.setState({ comment: res.data.comment , comments:res.data.comment});
+            
+            console.log(res.data.comment);
+        })
     };
 
 
@@ -81,7 +94,8 @@ class Profile extends Component {
             filters: []
 
         })
-    }
+    };
+
 
     componentDidMount() {
 
@@ -97,7 +111,9 @@ class Profile extends Component {
         }).catch(err => {
             console.log(err);
         });
-    // }
+
+
+
 
         API.retrieveIdeas().then(creates => {
 
@@ -112,12 +128,13 @@ class Profile extends Component {
     }
 
     loading() {
-        setTimeout(()=> {
+        setTimeout(() => {
             this.setState({
                 loading: false
             })
-        }, 1000)  
-    }
+        }, 1000)
+    };
+
 
 
 
@@ -125,38 +142,43 @@ class Profile extends Component {
         return (
 
             <>
-            
+
                 {this.state.loggedIn ? (
                     <>
-                        <Menu/>
-                        
+                        <Menu />
+
                         <div className="profileBox col-md-10 float-right">
-                            <h1 id="userTitle">Welcome {this.state.user.username}</h1>
-                            <Filter 
-                            handleFilter = {this.handleFilter}
+                            <h4 id="userTitle">Welcome {this.state.user.username}</h4>
+                            <Filter
+                                handleFilter={this.handleFilter}
                             />
                             {this.state.filters.map(filter => (
                                 <Button onClick={this.removeFilter}>{filter}<i className="far fa-times-circle"></i></Button>  
                             ))}
                             <h4>All Projects: </h4>
+
                             {this.state.displayedIdeas.map(idea => (
                                 <CardFile
-                                        handleCommentChange = {this.handleCommentChange} 
-                                        handleCommentSubmit = {this.handleCommentSubmit}
-                                        handleVote = {this.handleVote}
-                                        name={idea.username}
-                                        title={idea.title}
-                                        description={idea.description}
-                                        projectLevel={idea.projectLevel}
-                                        projectDiff={idea.projectDiff}
-                                        tags={idea.tags}
-                                        likes={idea.likes}
-                                    >
+                                    handleCommentChange={this.handleCommentChange}
+                                    handleCommentSubmit={this.handleCommentSubmit}
+                                    handleVote = {this.handleVote}
+                                    name={idea.username}
+                                    title={idea.title}
+                                    description={idea.description}
+                                    projectLevel={idea.projectLevel}
+                                    projectDiff={idea.projectDiff}
+                                    tags={idea.tags}
+                                    comments={idea.comments}
+                                    // cardClick={this.handleCardClick}
+                                    id={idea.title}
+                                    key={idea.title}
+                                    likes={idea.likes}
+                                >
                                 </CardFile>
-                            ))                            }
+                            ))}
 
                         </div>
-                       
+
                     </>
                 ) : (
                     <div className="noUser">
@@ -170,7 +192,7 @@ class Profile extends Component {
                                 </div>
                             </>
                         ) : (
-                            <img id="loadingIcon" src="./assets/images/loading.gif" alt="loading"/>
+                            <img id="loadingIcon" src="./assets/images/lightbulb.gif" alt="loading"/>
                         )}
                     </div> 
                     
@@ -178,6 +200,7 @@ class Profile extends Component {
             </>
         )
     }
+
 };
 
 

@@ -37,18 +37,16 @@ class SubmitIdea extends Component {
 
         const value = event.target.value;
         // const name = event.target.name;
-        const selectedTags = [...this.state.selectedTags]
+        const selectedTags = [...this.state.selected]
         if (selectedTags.includes(value)) {
             for (var i = 0; i < selectedTags.length; i++) {
                 if (selectedTags[i] === value) {
                     selectedTags.splice(i, 1);
-                    console.log("THIS IS WORKING")
                 };
             };
         }
         else {
             selectedTags.push(value);
-            console.log("PUSH IS WORKING")
         };
         this.setState({
             selectedTags
@@ -74,6 +72,7 @@ class SubmitIdea extends Component {
             projectLevel: this.state.projectLevel,
             projectDiff: this.state.projectDiff,
             tags: this.state.selectedTags,
+           
         })
             .then(res => this.redirect())
             .catch(err => console.log(err));
