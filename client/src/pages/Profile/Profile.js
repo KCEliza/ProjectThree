@@ -52,7 +52,7 @@ class Profile extends Component {
         this.setState({
             filteredIdeas
         })
-
+        console.log(filteredIdeas)
     }
 
     displayFiltered = (array) => {
