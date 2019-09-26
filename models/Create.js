@@ -24,18 +24,15 @@ const createSchema = new Schema({
   tags: {
     type: Array
   },
-<<<<<<< HEAD
   likes: {
     type: Number
-  }
-=======
+  },
   comments: [
     {
       type: Schema.Types.ObjectId,
       ref: "Comment"
     }
   ]
->>>>>>> master
 
 });
 
