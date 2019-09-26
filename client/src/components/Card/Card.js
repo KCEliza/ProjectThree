@@ -6,7 +6,10 @@ import {
   InputGroupAddon
 } from 'reactstrap';
 import "./style.css"
+
+import API from "../../utils/API";
 // import API from '../../utils/API';
+
 
 const Cardfile = (props) => {
 
@@ -36,9 +39,12 @@ const Cardfile = (props) => {
               <Input onChange= {props.handleCommentChange}/>
               <InputGroupAddon addonType="append">
                 <InputGroupText onClick = {props.handleCommentSubmit}>Comment</InputGroupText>
-                <CardText>{props.comment}</CardText>
+
+                
               </InputGroupAddon>
             </InputGroup>
+
+            <CardText>{props.comment}</CardText>
         
         </div>
         

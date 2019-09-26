@@ -34,6 +34,7 @@ router.post("/new", function (req, res) {
 
 
 
+
 // router.post("/new", function (req, res) {
 //     const newComment = new db.Comment({
 //         comment: req.user.comment

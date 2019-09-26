@@ -33,11 +33,6 @@ router.get("/", authMiddleware.isLoggedIn, function (req, res, next) {
     })
     .catch(err=>console.log(err)
     )
-
-
-
-
-
     
     // console.log(Schema);
 //     Schema.Create.
@@ -104,20 +99,20 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
 
 });
 
-router.post("/card", authMiddleware.isLoggedIn, function (req, res, next) {
-    const newComment = new db.Comment({
-        comment: req.user.comment
-    });
-    console.log(req.body);
-    console.log(req.user);
-    newComment.save((err, newCommment) => {
-        if (err) throw err;
-        db.Comment.findByIdAndUpdate(req.user.id, { $push: { comment: newComment.comment } }, (err, user) => {
-            if (err) throw err;
-            res.send(newCommment);
-        });
-    })
-});
+// router.post("/card", function (req, res) {
+//     const newComment = new db.Comment({
+//         comment: req.user.comment
+//     });
+//     console.log(req.body);
+//     console.log(req.user);
+//     newComment.save((err, newCommment) => {
+//         if (err) throw err;
+//         db.Create.findByIdAndUpdate(req.user.id, { $push: { comment: newComment.comment } }, (err, user) => {
+//             if (err) throw err;
+//             res.send(newCommment);
+//         });
+//     })
+// });
 
 
 // /apiCreate/remove
