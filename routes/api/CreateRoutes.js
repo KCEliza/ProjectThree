@@ -26,10 +26,28 @@ let transporter = nodemailer.createTransport({
 
 
 router.get("/", authMiddleware.isLoggedIn, function (req, res, next) {
-    db.Create.find({}, (err, create) => {
-        res.json(create);
-        console.log(create)
-    });
+    db.Create.find()
+    .populate("comments")
+    .then(data=>{
+        res.json(data)
+    })
+    .catch(err=>console.log(err)
+    )
+
+
+
+
+
+    
+    // console.log(Schema);
+//     Schema.Create.
+//   find({}).
+//   populate('comments').
+//   exec(function (err, create) {
+//     if (err) return handleError(err);
+//     console.log('The author is %s', create.comment.comments);
+//     // prints "The author is Ian Fleming"
+//   });
 });
 
 
@@ -100,6 +118,8 @@ router.post("/card", authMiddleware.isLoggedIn, function (req, res, next) {
         });
     })
 });
+
+
 // /apiCreate/remove
 // removed todo based on id, updates user
 // router.delete("/remove", authMiddleware.isLoggedIn, function (req, res, next) {
@@ -181,4 +201,4 @@ module.exports = router;
 //     });
 // });
 
-module.exports = router;
+// module.exports = router;
