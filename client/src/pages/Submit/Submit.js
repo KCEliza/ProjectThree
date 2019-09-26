@@ -68,7 +68,7 @@ class Submit extends Component {
                                 </div>
                             </>
                         ) : (
-                            <img id="loadingIcon" src="./assets/images/loading.gif" alt="loading"/>
+                            <img id="loadingIcon" src="./assets/images/lightbulb.gif" alt="loading"/>
                         )}
                     </div> 
                     

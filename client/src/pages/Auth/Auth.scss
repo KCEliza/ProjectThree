@@ -13,6 +13,7 @@
     .signupLink {
         margin-top: 15px;
         text-align: center;
+        color: #512d38;
     }
 
     .title-font {
@@ -20,11 +21,15 @@
     }
 
     #loginBtn {
-        background: $primary-color;
+        background: #512d38;
         font-family: $title-font;
         color: $light-text;
         border: none;
         font-size: 1.2em;
+    }
+
+    a {
+        color: #512d38;
     }
 }
 

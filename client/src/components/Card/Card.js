@@ -19,17 +19,19 @@ const Cardfile = (props) => {
       <div className="flip-card-inner">
         <Card>
         <div className="flip-card-front">
-        <CardImg className="image" src="https://img.pngio.com/bulb-icon-cartoon-illustration-hand-drawn-animation-transparent-with-regard-to-cartoon-light-bulb-animated-light-bulb-png-1920_1080.png" alt="Card image cap" />
-         <CardBody>
-             <CardTitle>{props.username}</CardTitle>
-             <CardSubtitle>{props.title}</CardSubtitle>
-           </CardBody>
+          <div className="imageWrap">
+            <CardImg className="image" src="/assets/images/lbWhite.png" alt="Card image cap" />
+          </div>
+          <CardBody>
+            <CardTitle>{props.username}</CardTitle>
+            <CardSubtitle>{props.title}</CardSubtitle>
+          </CardBody>
         </div>
         <div className="flip-card-back">
              <CardTitle>{props.title}</CardTitle>
              <CardSubtitle>{props.username}</CardSubtitle>
              <CardText>Description: {props.description}</CardText>
-             <CardText>Project Level: {props.projectLevel}</CardText>
+             <CardText>Level: {props.projectLevel}</CardText>
              <CardText>Project Difficulty: {props.projectDiff}</CardText>
              <CardText>Tags: {props.tags}</CardText>
 
