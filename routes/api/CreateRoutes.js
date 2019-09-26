@@ -62,7 +62,8 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
         description: req.body.description,
         projectLevel: req.body.projectLevel,
         projectDiff: req.body.projectDiff,
-        tags: req.body.tags
+        tags: req.body.tags,
+        comments: req.body.comments
     });
    
     newCreate.save((err, newCreate) => {
@@ -110,9 +111,9 @@ router.post("/card", authMiddleware.isLoggedIn, function (req, res, next) {
     console.log(req.user);
     newComment.save((err, newCommment) => {
         if (err) throw err;
-        db.Comment.findByIdAndUpdate(req.user.id, { $push: { comment: newComment._id } }, (err, user) => {
+       return db.Comment.findByIdAndUpdate(req.user.id, { $push: { create: comments._id } }, (err, user) => {
             if (err) throw err;
-            res.send(newCommment);
+            res.send(newComment);
         });
     })
 });
@@ -162,4 +163,4 @@ router.post("/card", authMiddleware.isLoggedIn, function (req, res, next) {
 // module.exports = router;
 
 
-// module.exports = router;
+module.exports = router;

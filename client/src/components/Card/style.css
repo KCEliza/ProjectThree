@@ -40,11 +40,14 @@
   
   /* Style the back side */
   .flip-card-back {
+    position: absolute;
     background-color: dodgerblue;
     color: white;
     transform: rotateY(180deg);
     height: 600px;
     width: 600px;
+    margin-left: -100%;
+    z-index: 1; !important
   }
 
   .image {

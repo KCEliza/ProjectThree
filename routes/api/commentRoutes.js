@@ -26,6 +26,7 @@ router.post("/new", function (req, res) {
     db.Comment.create(req.body, (err, comment) => {
 
         res.json(comment);
+        
         console.log(comment)
     });
 });
