@@ -16,16 +16,18 @@ class Profile extends Component {
         loading: true,
         ideas: [],
         filteredIdeas: [],
-        displayedIdeas: []
+        displayedIdeas: [],
+        comment: ""
     }
 
     handleCommentChange = (event) => {
-        const name = event.target.name;
+        
+        // const name = event.target.name;
         const comment = event.target.value;
         console.log(comment, "COMMENT INPUT")
-        console.log(name,"NAME")
+        // console.log(name,"NAME")
         this.setState({
-            [name]: comment
+            comment
         });
     }
     handleCommentSubmit = (event) =>{
@@ -86,6 +88,7 @@ class Profile extends Component {
         }).catch(err => {
             console.log(err);
         });
+    // }
 
         API.retrieveIdeas().then(creates => {
 
@@ -118,8 +121,8 @@ class Profile extends Component {
                     <>
                         <Menu/>
                         
-                        <div className="profileBox col-md-10 float-right">
-                            <h1 id="userTitle">Welcome {this.state.user.username}</h1>
+                        <div className="profileBox col-md-10 float-right" >
+                            <h4 id="userTitle">Welcome {this.state.user.username}</h4>
                             <Filter 
                             handleFilter = {this.handleFilter}
                             />
@@ -158,7 +161,7 @@ class Profile extends Component {
                                 </div>
                             </>
                         ) : (
-                            <img id="loadingIcon" src="./assets/images/loading.gif" alt="loading"/>
+                            <img id="loadingIcon" src="./assets/images/lightbulb.gif" alt="loading"/>
                         )}
                     </div> 
                     
@@ -166,7 +169,7 @@ class Profile extends Component {
             </>
         )
     }
-}
+};
 
 
 export default Profile;

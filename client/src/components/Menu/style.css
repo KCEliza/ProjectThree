@@ -1,6 +1,6 @@
 .sidebar {
     padding: 10px;
-    background-color: #512d38;
+    background-color:#512d38;
     height: 100vh;
     display: inline-block;
     position: fixed;
@@ -14,13 +14,11 @@
 
 
 .wrapper {
-    background-color: #512d38;
+    background-color:#512d38;
     display: inline-block;
     position: fixed;
     padding: 20px;
     height: 100vh;
-
-    /* min-height: 100%; */
 }
  
 i {
