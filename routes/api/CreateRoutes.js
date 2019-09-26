@@ -102,6 +102,31 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
 // router.post("/card", function (req, res) {
 //     const newComment = new db.Comment({
 //         comment: req.user.comment
+router.post("/card", authMiddleware.isLoggedIn, function (req, res, next) {
+    const newComment = new db.Comment({
+        comment: req.user.comment
+    });
+    console.log(req.body);
+    console.log(req.user);
+    newComment.save((err, newCommment) => {
+        if (err) throw err;
+        db.Comment.findByIdAndUpdate(req.user.id, { $push: { comment: newComment._id } }, (err, user) => {
+            if (err) throw err;
+            res.send(newCommment);
+        });
+    })
+});
+
+
+// /apiCreate/remove
+// removed todo based on id, updates user
+// router.delete("/remove", authMiddleware.isLoggedIn, function (req, res, next) {
+//     db.Create.findByIdAndDelete(req.body.id, (err, todo) => {
+//         if (err) throw err;
+//         db.Users.findByIdAndUpdate(todo._id, { $pull: { 'todos': todo._id } }, { new: true }, (err, user) => {
+//             if (err) throw err;
+//             res.send(user);
+//         });
 //     });
 //     console.log(req.body);
 //     console.log(req.user);
@@ -137,4 +162,4 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
 // module.exports = router;
 
 
-module.exports = router;
+// module.exports = router;

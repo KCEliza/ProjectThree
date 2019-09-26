@@ -49,6 +49,11 @@ router.post("/new", function (req, res) {
 //         });
 //     })
 // });
+router.put("/new", function (req, res, next) {
+    const newComment = new db.Comment({
+        comment: req.body.comment
+    });
+})
 
 
 module.exports = router;
