@@ -25,7 +25,6 @@
 .flip-card:hover .flip-card-inner {
   position: absolute;
   transform: rotateY(180deg);
-  z-index: 1;
 
 }
 
@@ -64,8 +63,6 @@
 .image {
   max-width: 150px;
   opacity: .2;
-  /* height: 150px; */
-  /* background-color: #bee6cc; */
 }
 
 .card-text {

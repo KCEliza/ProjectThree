@@ -1,4 +1,8 @@
+import React, { Component } from "react";
+import "./Projects.css";
 import Menu from "../../components/Menu";
+
+class Projects extends Component{
 
 componentDidMount() {
 
@@ -14,7 +18,7 @@ componentDidMount() {
     }).catch(err => {
         console.log(err);
     });
-}
+};
 
 loading() {
     setTimeout(() => {
@@ -23,6 +27,7 @@ loading() {
         })
     }, 1000)
 };
+
 
 render() {
     return (
@@ -58,9 +63,8 @@ render() {
             )}
         </>
     )
-}
-
 };
 
+}
 
 export default Projects;
