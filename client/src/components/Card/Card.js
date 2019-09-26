@@ -31,7 +31,7 @@ const Cardfile = (props) => {
              <CardTitle>{props.title}</CardTitle>
              <CardSubtitle>{props.username}</CardSubtitle>
              <CardText>Description: {props.description}</CardText>
-             <CardText>Project Level: {props.projectLevel}</CardText>
+             <CardText>Level: {props.projectLevel}</CardText>
              <CardText>Project Difficulty: {props.projectDiff}</CardText>
              <CardText>Tags: {props.tags}</CardText>
 

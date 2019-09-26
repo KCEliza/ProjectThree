@@ -1,28 +1,32 @@
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
-    background-color: transparent;
-    width: 300px;
-    height: 300px;
-    margin: 15px;
-    float: left;
-    border: 1px solid #f1f1f1;
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
-  }
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  margin: 15px;
+  float: left;
+  border: 1px solid #f1f1f1;
+  border-radius: 12px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
   
   /* This container is needed to position the front and back side */
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
   
   /* Do an horizontal flip when you move the mouse over the flip box container */
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
+.flip-card:hover .flip-card-inner {
+  position: absolute;
+  transform: rotateY(180deg);
+  z-index: 1;
+
+}
   
   /* Position the front and back side */
   .flip-card-front, .flip-card-back {
@@ -34,30 +38,35 @@
   }
   
   .card-body {
-    background-color: #bee6cc
+    background-color: #87baab
   }
   /* Style the front side (fallback if image is missing) */
   .flip-card-front {
-    background-color: #bee6cc !important;
+    background-color: #87baab !important;
     color: 512d38;
+    border-radius: 12px !important;
+
   }
   
   /* Style the back side */
   .flip-card-back {
     background-color: dodgerblue;
+    position: fixed;
     color: white;
     transform: rotateY(180deg);
-    height: 600px;
-    width: 600px;
+    
+    height: 400px;
+    width: 400px;
+    z-index: 9999999;
   }
 
   .imageWrap {
-    background-color: #bee6cc;
+    background-color: #87baab;
   }
 
   .image {
     max-width: 150px;
-    opacity: .5;
+    opacity: .2;
       /* height: 150px; */
       /* background-color: #bee6cc; */
   }
