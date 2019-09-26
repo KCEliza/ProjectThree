@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet');
+
 .form-check-label {
     padding-right: 25px;
 }
-
+ 
+#submitIdea{
+    font-family: 'Roboto', sans-serif;
+    color: rgb(75, 75, 75);
+}

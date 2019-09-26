@@ -118,7 +118,7 @@ class Profile extends Component {
                     <>
                         <Menu/>
                         
-                        <div className="profileBox col-md-10 float-right">
+                        <div className="profileBox col-md-10 m-30 align-middle float-right">
                             <h1 id="userTitle">Welcome {this.state.user.username}</h1>
                             <Filter 
                             handleFilter = {this.handleFilter}

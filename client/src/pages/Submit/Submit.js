@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./style.css";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -32,47 +32,47 @@ class Submit extends Component {
     }
 
     loading() {
-        setTimeout(()=> {
+        setTimeout(() => {
             this.setState({
                 loading: false
             })
-        }, 1000)  
+        }, 1000)
     }
 
     render() {
         return (
 
             <>
-            
+
                 {this.state.loggedIn ? (
                     <>
-                       
+
                         <Menu />
-                        
-                        <div className="profileBox col-md-10 float-right overflow-auto">
+
+                        <div className="profileBox col-md-10 mg-l-50 mg-r-50 float-right overflow-auto">
                             <h4>Submit Idea: </h4>
                             <SubmitIdea />
-                            
+
                         </div>
-                       
+
                     </>
                 ) : (
-                    <div className="noUser">
-                        {!this.state.loading ? (
-                            <>
-                                <div className="container text-center">
+                        <div className="noUser">
+                            {!this.state.loading ? (
+                                <>
+                                    <div className="container text-center">
 
-                                    <h1>please log in</h1>
-                                    <Link className="loginLink" to="/login"><Button className="loginBtn btn-large" color="info" >Login</Button></Link>
+                                        <h1>please log in</h1>
+                                        <Link className="loginLink" to="/login"><Button className="loginBtn btn-large" color="info" >Login</Button></Link>
 
-                                </div>
-                            </>
-                        ) : (
-                            <img id="loadingIcon" src="./assets/images/loading.gif" alt="loading"/>
-                        )}
-                    </div> 
-                    
-                )}
+                                    </div>
+                                </>
+                            ) : (
+                                    <img id="loadingIcon" src="./assets/images/loading.gif" alt="loading" />
+                                )}
+                        </div>
+
+                    )}
             </>
         )
     }

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Form, FormGroup, Input, Label, Button} from 'reactstrap';
+import { Form, FormGroup, Input, Label,Button } from 'reactstrap';
 import tags from "./tags.json";
 import "./style.css";
 import API from "../../utils/API"
+// import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
 // import axios from 'axios';
 // import { STATUS_CODES } from "http";
 
@@ -55,9 +56,7 @@ class SubmitIdea extends Component {
 
         })
         console.log(selectedTags);
-    };
-
-
+    }
 
     //Need to incorporate Nodemailer to have an email sent to all memmbers to inform then that a new idea was submitted
     //Submit to add to database
@@ -86,84 +85,46 @@ class SubmitIdea extends Component {
 
         return (
 
-<Form id="submitIdea">
-            <FormGroup>
-            <Label for="title">Title</Label>
-                <Input value={this.state.title} onChange={this.handleInputChange} type="text" name="title" id="title" placeholder="Project Title" />
-            </FormGroup>
-            <FormGroup>
-            <Label for="description">Description</Label>
-                <Input value={this.state.description} onChange={this.handleInputChange} type="textarea" name="description" id="description" placeholder="Project Description"/>
-            </FormGroup>
-            <FormGroup>
-                <Label for="projectLevel">Select <Link to="#">Project Level</Link></Label>
-                <Input value={this.state.projectLevel} onChange={this.handleInputChange} type="select" name="projectLevel" id="projectLevel">
-                <option>Project 1</option>
-                <option>Project 2</option>
-                <option>Project 3</option>
-                <option>Capstone</option>
-                </Input>
-            </FormGroup>
-            <FormGroup>
-                <Label for="projectDiff">Select Difficulty<Link to="#">Project Difficulty</Link></Label>
-                <Input value={this.state.projectDiff} onChange={this.handleInputChange} type="select" name="projectDiff" id="projectDiff">
-                <option>Beginner</option>
-                <option>Intermediate</option>
-                <option>Challenge</option>
-                </Input>
-            </FormGroup>
-            <FormGroup check>
-                <Label for="tags">Please check all that apply: </Label>
-                <br></br>
-                {this.state.tags.map(tag => (
-                    <Label check>
-                    <Input value={tag.tag} onChange={this.handleTagChange} type="checkbox" />{' '}
-                    {tag.tag}
-                    </Label>
-                ))}
-                
-            </FormGroup>         
-            <Button id="submitBtn" onClick={this.handleSubmit} block>Submit</Button>
+            <Form id="submitIdea" class="m-x-50 m-t-100 align-middle">
+                <FormGroup>
+                    <Label for="title">Title</Label>
+                    <Input value={this.state.title} onChange={this.handleInputChange} type="text" name="title" id="title" placeholder="Project Title" />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="description">Description</Label>
+                    <Input value={this.state.description} onChange={this.handleInputChange} type="textarea" name="description" id="description" placeholder="Project Description" />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="projectLevel">Select <Link to="#">Project Level</Link></Label>
+                    <Input value={this.state.projectLevel} onChange={this.handleInputChange} type="select" name="projectLevel" id="projectLevel">
+                        <option>Project 1</option>
+                        <option>Project 2</option>
+                        <option>Project 3</option>
+                        <option>Capstone</option>
+                    </Input>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="projectDiff">Select Difficulty<Link to="#">Project Difficulty</Link></Label>
+                    <Input value={this.state.projectDiff} onChange={this.handleInputChange} type="select" name="projectDiff" id="projectDiff">
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Challenge</option>
+                    </Input>
+                </FormGroup>
+                <FormGroup check>
+                    <Label for="tags">Please check all that apply: </Label>
+                    <br></br>
+                    {this.state.tags.map(tag => (
+                        <Label check>
+                            <Input value={tag.tag} onChange={this.handleTagChange} type="checkbox" />{' '}
+                            {tag.tag}
+                        </Label>
+                    ))}
+
+                </FormGroup>
+                <Button id="submitBtn" onClick={this.handleSubmit} block>Submit</Button>
             </Form>
 
-            // <Form controlId="submitIdea">
-            //     <Form.Group>
-            //         <Form.Label> for="title">Title </Form.Label>
-            //         <Form.Control value={this.state.title} onChange={this.handleInputChange} type="text" name="title" id="title" placeholder="Project Title" />
-            //     </Form.Group>
-            //     <Form.Group>
-            //         <Form.Label for="description">Description</Form.Label>
-            //         <Form.Control value={this.state.description} onChange={this.handleInputChange} type="textarea" name="description" id="description" placeholder="Project Description" />
-            //     </Form.Group>
-            //     <Form.Group>
-            //         <Form.Label for="projectLevel">Select <Link to="#">Project Level</Link></Form.Label>
-            //         <Form.Control as="select" value={this.state.projectLevel} onChange={this.handleInputChange} name="projectLevel" id="projectLevel" multiple>
-            //             <option>Project 1</option>
-            //             <option>Project 2</option>
-            //             <option>Project 3</option>
-            //             <option>Capstone</option>
-            //         </Form.Control>
-            //     </Form.Group>
-            //     <Form.Group>
-            //     <Form.Label for="projectDiff">Select Difficulty<Link to="#">Project Difficulty</Link></Form.Label>
-            //         <Form.Control as="select" value={this.state.projectDiff} onChange={this.handleInputChange} name="projectDiff" id="projectDiff" multiple>
-            //             <option>Beginner</option>
-            //             <option>Intermediate</option>
-            //             <option>Challenge</option>
-            //         </Form.Control>
-            //     </Form.Group>
-            //     <Form.Group check>
-            //         <Form.Label for="tags">Please check all that apply: </Form.Label>
-            //         <br></br>
-            //         {this.state.tags.map(tag => (
-            //             <Form.Label check>
-            //                 <Form.Control value={tag.tag} onChange={this.handleTagChange} type="checkbox" />{' '}
-            //                 {tag.tag}
-            //             </Form.Label>
-            //         ))}
-            //     </Form.Group>
-            //     <Button id="submitBtn" onClick={this.handleSubmit} block>Submit</Button>
-            // </Form>
         );
 
     }
