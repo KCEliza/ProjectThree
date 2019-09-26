@@ -14,7 +14,7 @@ const Cardfile = (props) => {
 
   return (
     
-    <div className="flip-card" onClick={() => props.cardClick(props.id)}>
+    <div className="flip-card">
       <div className="flip-card-inner">
         <Card>
         <div className="flip-card-front">
@@ -25,7 +25,7 @@ const Cardfile = (props) => {
             <CardTitle>{props.title}</CardTitle>
           </CardBody>
         </div>
-        {/* <div className="flip-card-back">
+        <div className="flip-card-back">
              <CardTitle>{props.title}</CardTitle>
              <CardSubtitle>{props.name}</CardSubtitle>
              <CardText>Description: {props.description}</CardText>
@@ -46,11 +46,11 @@ const Cardfile = (props) => {
 
             <CardText>{props.comment}</CardText>
         
-        </div> */}
+        </div>
         
         </Card>
       </div>
-    </div>
+  </div>
 
 );
 };

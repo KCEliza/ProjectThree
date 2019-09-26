@@ -7,6 +7,7 @@ import Submit from "./pages/Submit"
 import NoMatch from "./pages/NoMatch";
 import TopNav from "./components/TopNav";
 import Footer from "./components/Footer";
+import Projects from "./pages/Projects";
 // import { Container } from 'reactstrap';
 
 
@@ -23,6 +24,7 @@ function App() {
               <Route exact path="/login" render={(props) => <Auth {...props} action="login" />} />
               <Route exact path="/profile/submit" render={(props) => <Submit {...props} action="submit" />} />
               <Route exact path="/profile" component={Profile} />
+              <Route exact path = "/profile/myprojects" component = {Projects} />
               <Route component={NoMatch} />
             </Switch>
 
