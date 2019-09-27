@@ -12,7 +12,7 @@ import "./style.css"
 
 
 const Cardfile = (props) => {
-
+  
   return (
     
     <div className="flip-card">
@@ -38,16 +38,21 @@ const Cardfile = (props) => {
             <Button id="likeBtn" onClick={props.handleVote}><i className="fas fa-thumbs-up"></i></Button>
             <CardText id="likeText">Likes: {props.likes}</CardText>
              <InputGroup>
-              <Input onChange= {props.handleCommentChange}/>
+              <Input 
+                onChange={props.handleInputChange} 
+                name="comment" 
+                value={props.comment}
+              />
               <InputGroupAddon addonType="append">
-                <InputGroupText onClick = {props.handleCommentSubmit}>Comment</InputGroupText>
+                <InputGroupText onClick = {()=>props.handleCommentSubmit(props.id)}>Comment</InputGroupText>
 
                 
               </InputGroupAddon>
             </InputGroup>
 
-            <CardText>{props.comment}</CardText>
-            </div>
+
+            {props.allComments.map(comment=><CardText>{comment.comment}</CardText>)}
+
         
         </div>
         </Card>
