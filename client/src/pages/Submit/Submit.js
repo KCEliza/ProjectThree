@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./style.css";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -32,29 +32,30 @@ class Submit extends Component {
     }
 
     loading() {
-        setTimeout(()=> {
+        setTimeout(() => {
             this.setState({
                 loading: false
             })
-        }, 1000)  
+        }, 1000)
     }
 
     render() {
         return (
 
             <>
-            
+
                 {this.state.loggedIn ? (
                     <>
-                       
+
                         <Menu />
-                        
-                        <div className="profileBox col-md-10 float-right overflow-auto">
-                            <h4>Submit Idea: </h4>
+
+                        <div className="profileBox col-md-10 mg-l-50 mg-r-50 float-right overflow-auto">
+                            <h2 className="text-md-left font-weight-bold">Submit Idea: </h2>
+                            <hr></hr>
                             <SubmitIdea />
-                            
+
                         </div>
-                       
+
                     </>
                 ) : (
                     <div className="noUser">

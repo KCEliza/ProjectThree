@@ -1,4 +1,49 @@
-.form-check-label {
-    padding-right: 25px;
+@import url('https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap');
+
+ 
+#submitIdea{
+    font-family: 'Be Vietnam', sans-serif;
+    color: black;
 }
 
+
+.groupForm{
+ margin-bottom:5px;
+}
+
+Label{
+/* margin-left:5px; */
+font-size:16px;
+}
+
+h4{
+    font-size:26px bold;
+    margin-bottom:10px;
+   
+}
+.btn.btn-outline-secondary{
+   /* background-color:white; */
+   /* color: #87baab; */
+   color: white;
+   background-color: #512d38;
+    position: center;
+    font-size: 16px;
+}
+
+
+.form-check-label {
+    padding-right: 30px;
+}
+
+#submitIdea{
+    padding-top:10px;
+/* margin-bottom: 200px; */
+}
+
+.allTags{
+    /* margin-right:10px; */
+    position:center;
+}
+Link{
+    font-size:10px;
+}

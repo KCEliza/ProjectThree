@@ -50,9 +50,9 @@ render() {
                 <>
                     <Menu />
                     
-                    <div className="comingBox col-md-10 float-right">
+                    <div className="comingBox col-md-10 float-right bottom-fix">
         <div>
-          <Jumbotron fluid>
+          <Jumbotron fluid> 
             <Container fluid>
               <div className="col-md-7 float-left align-middle jumboText">
                 <h1 className="comingSoon">COMING SOON!</h1>

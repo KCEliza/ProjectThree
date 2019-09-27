@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const userRoutes = require("./userRoutes");
-const createRoutes = require("./createRoutes");
+const createRoutes = require("./CreateRoutes");
 const commentRoutes = require("./commentRoutes");
 const db = require("../../models");
 

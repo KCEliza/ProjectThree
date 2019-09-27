@@ -83,22 +83,22 @@ class Profile extends Component {
     handleFilter = (filter) => {
         let filters = [filter]
         this.displayFiltered(filters)
-        this.setState ({
+        this.setState({
             filters
         })
 
     }
 
     displayFiltered = (array) => {
-            let ideas = [...this.state.ideas]
+        let ideas = [...this.state.ideas]
 
             // let displayedIdeas = ideas.filter(ideas => ideas.projectLevel.includes(filter)) works
             console.log("filter to be applied: " + array[0]);
             let displayedIdeas = _.filter(ideas, {projectLevel: array[0]});
 
-            this.setState({
-                displayedIdeas
-            })
+        this.setState({
+            displayedIdeas
+        })
     }
 
     removeFilter = () => {
@@ -160,7 +160,8 @@ class Profile extends Component {
                     <>
                         <Menu />
                         <div className="profileBox col-md-10 float-right">
-                            <h4 id="userTitle">Welcome {this.state.user.username}</h4>
+                            <h2 id="userTitle">Welcome {this.state.user.username}</h2>
+                            <hr></hr>
                             <Filter
                                 handleFilter={this.handleFilter}
                             />
@@ -194,22 +195,22 @@ class Profile extends Component {
 
                     </>
                 ) : (
-                    <div className="noUser">
-                        {!this.state.loading ? (
-                            <>
-                                <div className="container text-center">
+                        <div className="noUser">
+                            {!this.state.loading ? (
+                                <>
+                                    <div className="container text-center">
 
-                                    <h1>please log in</h1>
-                                    <Link className="loginLink" to="/login"><Button className="loginBtn btn-large" color="info" >Login</Button></Link>
+                                        <h1>please log in</h1>
+                                        <Link className="loginLink" to="/login"><Button className="loginBtn btn-large" color="info" >Login</Button></Link>
 
-                                </div>
-                            </>
-                        ) : (
-                            <img id="loadingIcon" src="./assets/images/lightbulb.gif" alt="loading"/>
-                        )}
-                    </div> 
-                    
-                )}
+                                    </div>
+                                </>
+                            ) : (
+                                    <img id="loadingIcon" src="./assets/images/lightbulb.gif" alt="loading" />
+                                )}
+                        </div>
+
+                    )}
             </>
         )
     }

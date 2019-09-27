@@ -1,12 +1,12 @@
 # I Have No Idea
-##FIND IDEAS
+## FIND IDEAS
 * Can't think of a project idea? Filter through our options to find out which project really jives with your vibes!
-##GENERATE IDEAS
+## GENERATE IDEAS
 * Have a coding project burning in the back of your mind? Submit an idea to further collaborate!
 ## COLLABORATE
 * Connect with others enrolled in Trilogy webdev bootcamps by leaving suggestions and ideas in the comments box!
 
-[Check out I Have No Idea](INSERT COMPLETED LINK)
+[Check out I Have No Idea](https://guarded-waters-18087.herokuapp.com/)
 
 ## Requirements
 * mongoDB
