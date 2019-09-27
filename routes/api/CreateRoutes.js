@@ -6,6 +6,7 @@ const authMiddleware = require("../../config/middleware/authMiddleware");
 const nodemailer = require("nodemailer");
 
 
+
 // /api/todos/all
 
 let transporter = nodemailer.createTransport({
@@ -91,23 +92,20 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
 
 });
 
-// router.post("/card", function (req, res) {
-//     const newComment = new db.Comment({
-//         comment: req.user.comment
 router.post("/card", authMiddleware.isLoggedIn, function (req, res, next) {
-    const newComment = new db.Comment({
-        comment: req.user.comment
-    });
-    console.log(req.body);
-    console.log(req.user);
-    newComment.save((err, newCommment) => {
-        if (err) throw err;
-       return db.Comment.findByIdAndUpdate(req.user.id, { $push: { create: comments._id } }, (err, user) => {
-            if (err) throw err;
-            res.send(newComment);
-        });
-    })
+    console.log("in this /card");
+    console.log("req.body", req.body);
+    console.log("req.user", req.user);
+    db.Comment.create({comment:req.body.comment})
+        .then(dbComment => {
+            console.log("dbComment", dbComment);
+             return db.Create.findByIdAndUpdate(req.body.id , {$push: {comments: dbComment._id}})
+        })
+        .then(dbCard => res.json(dbCard))
+        .catch(err => res.json(err));
+   
 });
 
 
 module.exports = router;
+
