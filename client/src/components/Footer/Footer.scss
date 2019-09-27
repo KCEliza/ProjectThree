@@ -3,7 +3,7 @@
 .footer {
     width: 100%;
     left: 0;
-    bottom:0;
+    bottom: 0;
     margin: 0 auto;
     position: fixed;
     height: $footer-height;
@@ -11,7 +11,8 @@
     box-shadow: 1px 7px 3px 8px $dark-text;
     font-family: $text-font;
     color: $light-text;
-    flex-shrink:0;
+    flex-shrink: 0;
+
     p {
         line-height: $footer-height;
         width: 33%;
@@ -23,18 +24,27 @@
     .gh-icon {
         color: $light-text;
         font-size: 1.3em;
-    }
+        margin-left: 150%;
 
-    .react-icon {
-        font-size: 1.3em;
-        -webkit-animation:spin 25s linear infinite;
-        -moz-animation:spin 25s linear infinite;
-        animation:spin 25s linear infinite;
     }
-
 
 }
 
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
