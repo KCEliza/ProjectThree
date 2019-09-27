@@ -58,7 +58,7 @@ render() {
                 <h1 className="comingSoon">COMING SOON!</h1>
                 <h3>FUTURE DEVELOPMENT</h3>
                 <h3>
-                  <ReactRotatingText className='landingRotating' items={['private messaging', 'administrative log in', 'favorite new ideas', 'form teams with fellow bootcampers', 'general public licensing']} />
+                  <ReactRotatingText className='landingRotating' items={['private messaging', 'administrative log in', 'favorite new ideas','full accessibility', 'form teams with fellow bootcampers', 'general public licensing']} />
                 </h3>
               </div>
               <div className="col-md-5 float-left text-center">
