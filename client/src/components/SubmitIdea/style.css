@@ -1,10 +1,51 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet');
 
-.form-check-label {
-    padding-right: 25px;
-}
+
  
 #submitIdea{
     font-family: 'Roboto', sans-serif;
-    color: rgb(75, 75, 75);
+    color: black;
+}
+
+
+
+
+.groupForm{
+ margin-bottom:5px;
+}
+
+Label{
+/* margin-left:5px; */
+font-size:16px;
+}
+
+h4{
+    font-size:26px bold;
+    margin-bottom:10px;
+   
+}
+.btn.btn-outline-secondary{
+   background-color:white;
+   color: black;
+    position: center;
+    font-size: 16px;
+
+}
+
+
+.form-check-label {
+    padding-right: 30px;
+}
+
+#submitIdea{
+    padding-top:10px;
+/* margin-bottom: 200px; */
+}
+
+.allTags{
+    /* margin-right:10px; */
+    position:center;
+}
+Link{
+    font-size:10px;
 }

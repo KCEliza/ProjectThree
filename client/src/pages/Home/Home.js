@@ -42,7 +42,7 @@ class Home extends Component {
                 </h3>
               </div>
               <div className="col-md-5 float-left text-center">
-                <img alt="I HAVE NO IDEA logo" className="homeLogo img-fluid" src="/assets/images/LightbulbGrn.png" />
+                <img alt="I HAVE NO IDEA logo" className="homeLogo img-fluid" src="/assets/images/lbWhite.png" />
               </div>
             </Container>
           </Jumbotron>
@@ -57,7 +57,7 @@ class Home extends Component {
                 </h5>
               </div>
               <div className="col-md-4 float-left describeBox">
-                <i class="fas fa-bolt"></i>              
+                <i className="fas fa-bolt"></i>              
                 <h4> GENERATE IDEAS</h4>
                 <h5 className="describing">
                   Have a coding project burning in the back of your mind?  Submit an idea to further collaborate!

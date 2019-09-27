@@ -3,7 +3,7 @@
 
 
 .homeBox {
-    background-color: #506182;
+    background-color: #8e5974;
     margin: 0 auto;
     // margin-top: 5%;
     width: 100%;
@@ -16,9 +16,9 @@
 
 
     h3 {
-        color: #C6EBBE !important;
+        color: #87baab !important;
         font-family: 'PT Sans', sans-serif;
-
+        font-weight: bold;
         font-size: 3em !important;
     }
     h1 {
@@ -42,7 +42,7 @@
     }
 
     .describeBox {
-        color: #3c4961;
+        color: #512d38;
         margin-top: 25px;
         // padding: 5px;
         // margin: 2px;
@@ -53,11 +53,11 @@
 
     .jumbotron {
         font-family: 'PT Mono', monospace;
-        background-color: #506182;
+        background-color: #512d38;
         text-align: center;
         width: 100%;
         min-height: 550px;
-        color: #C6EBBE;
+        color:whitesmoke;
 
     }
 
@@ -67,7 +67,7 @@
     .landingRotating {
         // font-size: 2em !important;
         font-weight: 400 !important;
-        color: #C6EBBE !important;
+        color: whitesmoke!important;
         opacity: 0.5 !important;
       }
 
