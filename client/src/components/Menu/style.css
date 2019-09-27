@@ -1,8 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap');
+
+
+ 
 .sidebar {
     padding: 10px;
     background-color:#512d38;
-    height: 100vh;
+    /* height: 800px; */
     display: inline-block;
+    /* position: fixed; */
+    font-family: 'Be Vietnam', sans-serif;
+    /* position: -webkit-sticky; */
+    /* position: sticky; */
+    /* top: 0; */
+    bottom:0;
+
+
+    height: 100%;
+    /* width: 160px; */
     position: fixed;
 }
 .sidebar-header {
@@ -26,7 +40,11 @@ i {
 ​
 ​
 .nav-link {
-    font-size: 24px;
+    font-size: 20px;
     color: #ffe9f3;
     margin-top: 10px;
+
+
 }
+
+
