@@ -100,6 +100,8 @@ router.post("/card", authMiddleware.isLoggedIn, function (req, res, next) {
             console.log("dbComment", dbComment);
              return db.Create.findByIdAndUpdate(req.body.id , {$push: {comments: dbComment._id}})
         })
+        .then(dbCard => res.json(dbCard))
+        .catch(err => res.json(err));
    
 });
 

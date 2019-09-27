@@ -51,8 +51,10 @@ class Profile extends Component {
             API.retrieveIdeas().then(creates => {
                 this.setState({
                     ideas: creates.data,
-                    displayedIdeas: creates.data
+                    displayedIdeas: creates.data,
+                    comment: ""
                 })
+
             })
         })
     };
