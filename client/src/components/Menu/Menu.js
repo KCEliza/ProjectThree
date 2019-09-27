@@ -6,7 +6,7 @@ import "./style.css";
 
 
 const Menu = props => (
-    <div className="sidebar col-md-2">
+    <div className="w3-bar-block sidebar col-md-2">
       <div className="sidebar-header">
         <h3>I HAVE NO IDEA!</h3>
       </div>
