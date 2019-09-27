@@ -85,7 +85,7 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
             // to: req.user.email, // email of the logged in user.
             bcc: emails,
             subject: 'New Idea on I have No Idea App', // where to put all users'
-            text: `${req.user.username} has submitted a new Project Idea in your "I have not Idea" aaplication. Go check it out!`
+            text: `${req.user.username} has submitted a new Project Idea in your "I have no Idea" application. Go check it out!`
         };
     
         transporter.sendMail(mailOptions, (err, data) => {

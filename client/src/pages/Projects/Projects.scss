@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap');
+
+
 .comingBox {
     background-color: #8e5974;
     margin: 0 auto;
@@ -24,6 +27,7 @@
     }
     h4 {
         margin-top: 5px;
+        font-family: 'PT Sans', sans-serif;
     }
 
     i {
@@ -77,4 +81,17 @@
         width: 20px;
     }
 
+}
+
+.filter{
+    background-color: white;
+}
+
+
+Button{
+    background-color: #512d38; 
+}
+
+.allProjects{
+    border: .25em black;
 }

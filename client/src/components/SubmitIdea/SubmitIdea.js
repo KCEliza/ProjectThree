@@ -38,7 +38,7 @@ class SubmitIdea extends Component {
 
         const value = event.target.value;
         // const name = event.target.name;
-        const selectedTags = [...this.state.selected]
+        const selectedTags = [...this.state.selectedTags]
         if (selectedTags.includes(value)) {
             for (var i = 0; i < selectedTags.length; i++) {
                 if (selectedTags[i] === value) {
@@ -55,6 +55,7 @@ class SubmitIdea extends Component {
         })
         console.log(selectedTags);
     }
+    
 
     //Need to incorporate Nodemailer to have an email sent to all memmbers to inform then that a new idea was submitted
     //Submit to add to database
@@ -77,7 +78,6 @@ class SubmitIdea extends Component {
             .catch(err => console.log(err));
         // this.props.history.push("/profile")
         // .then.handleSubmit();
-
     }
 
     render() {
@@ -97,7 +97,7 @@ class SubmitIdea extends Component {
                 </FormGroup>
 
                 <FormGroup className="formGroup">
-                    <Label for="projectLevel">Select Project Level <Link to="#"><i>Level</i></Link></Label>
+                    <Label for="projectLevel">Select Project Level</Label>
                     <Input value={this.state.projectLevel} onChange={this.handleInputChange} type="select" name="projectLevel" id="projectLevel">
                         <option>Project 1</option>
                         <option>Project 2</option>
@@ -107,19 +107,17 @@ class SubmitIdea extends Component {
                 </FormGroup>
 
                 <FormGroup className="formGroup">
-
-                    <Label for="projectDiff">Select Difficulty<Link to="#"><i>Difficulty</i></Link></Label>
+                    <Label for="projectDiff">Select Difficulty</Label>
                     <Input value={this.state.projectDiff} onChange={this.handleInputChange} type="select" name="projectDiff" id="projectDiff">
                         <option>Beginner</option>
                         <option>Intermediate</option>
                         <option>Challenge</option>
                     </Input>
-
                 </FormGroup>
 
                 <FormGroup check>
-                    <div for="tags" clasName="tagsLabel">Please check all that apply: </div>
-                    <br></br>
+                    <div for="tags">Please check all that apply: </div>
+            
                     <div>
                         {this.state.tags.map(tag => (
                             <Label check className="checkboxLabel">

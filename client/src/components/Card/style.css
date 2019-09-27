@@ -52,7 +52,7 @@
   transform: rotateY(180deg);
   /* height: 105%;
   width: 105%; */
- 
+  
 }
 
 .imageWrap {
@@ -64,4 +64,11 @@
 }
 .card-text {
   padding: 4px;
+}
+
+
+.flip-card-back{display: flex}
+
+.flip-card-back {
+  overflow-y: auto;
 }

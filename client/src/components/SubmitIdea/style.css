@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet');
-
+@import url('https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap');
 
  
 #submitIdea{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Be Vietnam', sans-serif;
     color: black;
 }
-
-
 
 
 .groupForm{
@@ -25,11 +22,12 @@ h4{
    
 }
 .btn.btn-outline-secondary{
-   background-color:white;
-   color: black;
+   /* background-color:white; */
+   /* color: #87baab; */
+   color: white;
+   background-color: #512d38;
     position: center;
     font-size: 16px;
-
 }
 
 

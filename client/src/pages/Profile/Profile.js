@@ -18,7 +18,7 @@ class Profile extends Component {
         filters: [],
         likes: 0,
         displayedIdeas: [],
-        comment:{},
+        comment: {},
         comments: []
     }
 
@@ -44,33 +44,33 @@ class Profile extends Component {
             _id: this.state.id,
             comment: this.state.comment
         }).then(res => {
-            this.setState({ comment: res.data.comment , comments:res.data.comment});
-            
+            this.setState({ comment: res.data.comment, comments: res.data.comment });
+
             console.log(res.data.comment);
         })
     };
 
 
-    
+
     handleVote = () => {
         let likes = [this.state.likes]
         let likesCount = likes + 1
-        
+
         this.setState({
             likes: likesCount
         })
-            console.log("likes: ", this.state.likes)
-            console.log("likesCount: ", likesCount)
+        console.log("likes: ", this.state.likes)
+        console.log("likesCount: ", likesCount)
 
         // API.vote({
         //     likes: this.state.likes
         // })
-      }
-      
+    }
+
     handleFilter = (filter) => {
         let filters = [filter]
         this.displayFiltered(filters)
-        this.setState ({
+        this.setState({
             filters
         })
         console.log("filtered ideas 1: ", filters)
@@ -78,14 +78,14 @@ class Profile extends Component {
     }
 
     displayFiltered = (array) => {
-            let ideas = [...this.state.ideas]
+        let ideas = [...this.state.ideas]
 
-            // let displayedIdeas = ideas.filter(ideas => ideas.projectLevel.includes(filter)) works
-            let displayedIdeas = _.filter(ideas, {projectLevel: array[0]});
+        // let displayedIdeas = ideas.filter(ideas => ideas.projectLevel.includes(filter)) works
+        let displayedIdeas = _.filter(ideas, { projectLevel: array[0] });
 
-            this.setState({
-                displayedIdeas
-            })
+        this.setState({
+            displayedIdeas
+        })
     }
 
     removeFilter = () => {
@@ -148,55 +148,60 @@ class Profile extends Component {
                         <Menu />
 
                         <div className="profileBox col-md-10 float-right">
-                            <h4 id="userTitle">Welcome {this.state.user.username}</h4>
+                            <h2 id="userTitle">Welcome {this.state.user.username}</h2>
+                            <hr></hr>
                             <Filter
                                 handleFilter={this.handleFilter}
                             />
                             {this.state.filters.map(filter => (
-                                <Button onClick={this.removeFilter}>{filter}<i className="far fa-times-circle"></i></Button>  
+                                <Button className="filter" onClick={this.removeFilter}>{filter}<i className="far fa-times-circle"></i></Button>
                             ))}
-                            <h4>All Projects: </h4>
+                            <br></br>
+                            <br></br>
 
-                            {this.state.displayedIdeas.map(idea => (
-                                <CardFile
-                                    handleCommentChange={this.handleCommentChange}
-                                    handleCommentSubmit={this.handleCommentSubmit}
-                                    handleVote = {this.handleVote}
-                                    name={idea.username}
-                                    title={idea.title}
-                                    description={idea.description}
-                                    projectLevel={idea.projectLevel}
-                                    projectDiff={idea.projectDiff}
-                                    tags={idea.tags}
-                                    comments={idea.comments}
-                                    // cardClick={this.handleCardClick}
-                                    id={idea.title}
-                                    key={idea.title}
-                                    likes={idea.likes}
-                                >
-                                </CardFile>
-                            ))}
 
+                            <div className="allProjects">
+                                <h4>All Projects: </h4>
+                                {this.state.displayedIdeas.map(idea => (
+                                    <CardFile
+                                        handleCommentChange={this.handleCommentChange}
+                                        handleCommentSubmit={this.handleCommentSubmit}
+                                        handleVote={this.handleVote}
+                                        name={idea.username}
+                                        title={idea.title}
+                                        description={idea.description}
+                                        projectLevel={idea.projectLevel}
+                                        projectDiff={idea.projectDiff}
+                                        tags={idea.tags}
+                                        comments={idea.comments}
+                                        // cardClick={this.handleCardClick}
+                                        id={idea.title}
+                                        key={idea.title}
+                                        likes={idea.likes}
+                                    >
+                                    </CardFile>
+                                ))}
+                            </div>
                         </div>
 
                     </>
                 ) : (
-                    <div className="noUser">
-                        {!this.state.loading ? (
-                            <>
-                                <div className="container text-center">
+                        <div className="noUser">
+                            {!this.state.loading ? (
+                                <>
+                                    <div className="container text-center">
 
-                                    <h1>please log in</h1>
-                                    <Link className="loginLink" to="/login"><Button className="loginBtn btn-large" color="info" >Login</Button></Link>
+                                        <h1>please log in</h1>
+                                        <Link className="loginLink" to="/login"><Button className="loginBtn btn-large" color="info" >Login</Button></Link>
 
-                                </div>
-                            </>
-                        ) : (
-                            <img id="loadingIcon" src="./assets/images/lightbulb.gif" alt="loading"/>
-                        )}
-                    </div> 
-                    
-                )}
+                                    </div>
+                                </>
+                            ) : (
+                                    <img id="loadingIcon" src="./assets/images/lightbulb.gif" alt="loading" />
+                                )}
+                        </div>
+
+                    )}
             </>
         )
     }
