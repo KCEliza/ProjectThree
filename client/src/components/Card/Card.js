@@ -32,7 +32,7 @@ const Cardfile = (props) => {
              <CardText>Description: {props.description}</CardText>
              <CardText>Level: {props.projectLevel}</CardText>
              <CardText>Project Difficulty: {props.projectDiff}</CardText>
-             <CardText>Tags: {props.tags}</CardText>
+             <CardText className = "tagStyle">Tags: {props.tags}</CardText>
             <Button id="likeBtn" onClick={props.handleVote}><i className="fas fa-thumbs-up"></i></Button>
             <CardText id="likeText">Likes: {props.likes}</CardText>
              <InputGroup>
@@ -44,8 +44,8 @@ const Cardfile = (props) => {
                 
               </InputGroupAddon>
             </InputGroup>
-            <Button onClick={props.handleVote}><i className="fas fa-thumbs-up"></i></Button>
-            <a href = "https://www.w3.org/WAI/tips/developing/">Make it accessible!</a>
+            <a href = "https://www.w3.org/WAI/tips/developing/" target="_blank">Make it accessible!</a>
+
             <CardText>{props.comment}</CardText>
         
         </div>
