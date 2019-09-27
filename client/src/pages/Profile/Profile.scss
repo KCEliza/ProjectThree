@@ -8,7 +8,7 @@
 
 
 .profilePage {
-    // height: 100%;
+    height: 100%;
     // margin: 0 auto;
     // margin-top: 25px;
 
@@ -31,9 +31,9 @@
         }
 
         #loadingIcon {
-            max-height: 200px !important;
-            max-width: 200px !important;
-            margin: auto;
+            height: 200px;
+            width: 200px;
+            margin: 0 auto;
             // margin-top: 25px;
         }
     }
