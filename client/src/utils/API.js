@@ -33,9 +33,12 @@ export default {
   submitComment: function(submitComment) {
     return axios.post("/api/comment/new", submitComment);
   },
+
   retrieveIdeas: function() {
     return axios.get("/api/create")
   },
 
-
+  // vote: function(vote) {
+  //   return axios.get("/api/vote", vote)
+  // },
 };

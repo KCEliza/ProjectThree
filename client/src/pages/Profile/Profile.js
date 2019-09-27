@@ -15,7 +15,8 @@ class Profile extends Component {
         user: null,
         loading: true,
         ideas: [],
-        filteredIdeas: [],
+        filters: [],
+        likes: 0,
         displayedIdeas: [],
         comment:{},
         comments: []
@@ -50,39 +51,48 @@ class Profile extends Component {
     };
 
 
-    handleFilter = (filter) => {
-        let filteredIdeas = [...this.state.filteredIdeas, filter]
-        this.displayFiltered(filteredIdeas)
+    
+    handleVote = () => {
+        let likes = [this.state.likes]
+        let likesCount = likes + 1
+        
         this.setState({
-            filteredIdeas
+            likes: likesCount
         })
-        console.log(filteredIdeas)
+            console.log("likes: ", this.state.likes)
+            console.log("likesCount: ", likesCount)
+
+        // API.vote({
+        //     likes: this.state.likes
+        // })
+      }
+      
+    handleFilter = (filter) => {
+        let filters = [filter]
+        this.displayFiltered(filters)
+        this.setState ({
+            filters
+        })
+        console.log("filtered ideas 1: ", filters)
+
     }
 
     displayFiltered = (array) => {
-        console.log(array)
-        //do lodash
-        //set state for display ideas
+            let ideas = [...this.state.ideas]
+
+            // let displayedIdeas = ideas.filter(ideas => ideas.projectLevel.includes(filter)) works
+            let displayedIdeas = _.filter(ideas, {projectLevel: array[0]});
+
+            this.setState({
+                displayedIdeas
+            })
     }
 
-    removeFilter = (filter) => {
-        let filteredIdeas = [...this.state.filteredIdeas]
-        //spilce filter out of filteredIdeas array
-        if (filteredIdeas.includes(filter)) {
-            for (var i = 0; i < filteredIdeas.length; i++) {
-                if (filteredIdeas[i] === filter) {
-                    filteredIdeas.splice(i, 1);
-                    console.log("THIS IS WORKING")
-                };
-            };
-        }
-        else {
-            filteredIdeas.push(filter);
-            console.log("PUSH IS WORKING")
-        };
-        this.displayFiltered(filteredIdeas)
+    removeFilter = () => {
         this.setState({
-            filteredIdeas
+            displayedIdeas: this.state.ideas,
+            filters: []
+
         })
     };
 
@@ -142,9 +152,8 @@ class Profile extends Component {
                             <Filter
                                 handleFilter={this.handleFilter}
                             />
-                            {this.state.filteredIdeas.map(filter => (
-                                <button
-                                    onChange={this.removeFilter}>{filter}</button> //make secondary filter click (remove filter function on the click of this button --> remove lower case curly bracket item from filtered ideas and update displayed ideas)
+                            {this.state.filters.map(filter => (
+                                <Button onClick={this.removeFilter}>{filter}<i className="far fa-times-circle"></i></Button>  
                             ))}
                             <h4>All Projects: </h4>
 
@@ -152,6 +161,7 @@ class Profile extends Component {
                                 <CardFile
                                     handleCommentChange={this.handleCommentChange}
                                     handleCommentSubmit={this.handleCommentSubmit}
+                                    handleVote = {this.handleVote}
                                     name={idea.username}
                                     title={idea.title}
                                     description={idea.description}
@@ -162,6 +172,7 @@ class Profile extends Component {
                                     // cardClick={this.handleCardClick}
                                     id={idea.title}
                                     key={idea.title}
+                                    likes={idea.likes}
                                 >
                                 </CardFile>
                             ))}

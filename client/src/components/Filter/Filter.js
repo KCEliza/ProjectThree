@@ -37,6 +37,7 @@
 
 import React from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import "./style.css"
 
 class Filter extends React.Component {
   constructor(props) {
@@ -56,7 +57,7 @@ class Filter extends React.Component {
 
   render() {
     return (
-      <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+      <ButtonDropdown className="dropDown" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
           Filter Options
         </DropdownToggle>
