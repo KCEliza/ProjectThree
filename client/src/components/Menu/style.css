@@ -4,15 +4,14 @@
     height: 100vh;
     display: inline-block;
     position: fixed;
-
 }
 .sidebar-header {
     margin: 20px;
     color: #ffe9f3;
 }
-
-
-
+​
+​
+​
 .wrapper {
     background-color:#512d38;
     display: inline-block;
@@ -24,8 +23,8 @@
 i {
     margin-right: 4px;
 }
-
-
+​
+​
 .nav-link {
     font-size: 24px;
     color: #ffe9f3;

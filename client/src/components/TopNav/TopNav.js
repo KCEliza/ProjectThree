@@ -55,7 +55,7 @@ export default class Navigation extends Component {
     render() {
         return (
             <div>
-                <Navbar className="navbar" light expand="md">
+                <Navbar className="navbar" light expand="md" style={{ zIndex:"1"}}>
                     <NavbarBrand href="/" className="titleFont"><img className="logo" alt="I HAVE NO IDEA logo" src="/assets/images/LightbulbWht.png" /> I HAVE NO IDEA!</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
@@ -71,7 +71,7 @@ export default class Navigation extends Component {
                                     {this.state.loggedIn ? (
                                         <>
                                             <DropdownItem>
-                                                <NavLink href="/profile">Profile</NavLink>
+                                                <NavLink href="/profile">All Ideas</NavLink>
                                             </DropdownItem>
                                             <DropdownItem>
                                                 <NavLink href="/profile/submit">Submit Idea</NavLink>
