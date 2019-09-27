@@ -42,9 +42,11 @@
     border-radius: 20px !important;
   }
   
+
 .card-body {
   background-color: #87baab
 }
+
 /* Style the back side */
 .flip-card-back {
   background-color: #87baab !important;
@@ -53,6 +55,7 @@
   /* height: 105%;
   width: 105%; */
  
+
 }
 
 .imageWrap {
@@ -64,4 +67,14 @@
 }
 .card-text {
   padding: 4px;
+}
+
+#likeBtn {
+  float: left;
+  margin-left: 25px;
+}
+
+#likeText {
+  float: right;
+  margin-right: 25px;
 }

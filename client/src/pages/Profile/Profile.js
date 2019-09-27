@@ -16,7 +16,6 @@ class Profile extends Component {
         loading: true,
         ideas: [],
         filters: [],
-        likes: 0,
         displayedIdeas: [],
         comment:{},
         comments: []
@@ -52,20 +51,25 @@ class Profile extends Component {
 
 
     
-    handleVote = () => {
-        let likes = [this.state.likes]
-        let likesCount = likes + 1
-        
-        this.setState({
-            likes: likesCount
-        })
-            console.log("likes: ", this.state.likes)
-            console.log("likesCount: ", likesCount)
+    handleVote = (id, likes) => {
+          API.vote(id, likes + 1) 
+        .then(res => {
+            API.retrieveIdeas().then(creates => {
+                console.log("updated ideas", creates.data);
 
-        // API.vote({
-        //     likes: this.state.likes
-        // })
-      }
+                this.setState({
+                    ideas: creates.data,
+                    displayedIdeas: creates.data
+                }, () => {
+                    if (this.state.filters.length) {
+                        this.displayFiltered(this.state.filters);    
+                    }
+                })
+            })
+        })
+        .catch(err => console.log(err))
+    };      
+      
       
     handleFilter = (filter) => {
         let filters = [filter]
@@ -73,7 +77,6 @@ class Profile extends Component {
         this.setState ({
             filters
         })
-        console.log("filtered ideas 1: ", filters)
 
     }
 
@@ -81,6 +84,7 @@ class Profile extends Component {
             let ideas = [...this.state.ideas]
 
             // let displayedIdeas = ideas.filter(ideas => ideas.projectLevel.includes(filter)) works
+            console.log("filter to be applied: " + array[0]);
             let displayedIdeas = _.filter(ideas, {projectLevel: array[0]});
 
             this.setState({
@@ -161,7 +165,7 @@ class Profile extends Component {
                                 <CardFile
                                     handleCommentChange={this.handleCommentChange}
                                     handleCommentSubmit={this.handleCommentSubmit}
-                                    handleVote = {this.handleVote}
+                                    handleVote = {() => this.handleVote(idea._id, idea.likes)}
                                     name={idea.username}
                                     title={idea.title}
                                     description={idea.description}
@@ -169,14 +173,12 @@ class Profile extends Component {
                                     projectDiff={idea.projectDiff}
                                     tags={idea.tags}
                                     comments={idea.comments}
-                                    // cardClick={this.handleCardClick}
-                                    id={idea.title}
-                                    key={idea.title}
+                                    id={idea._id}
                                     likes={idea.likes}
                                 >
                                 </CardFile>
+                            
                             ))}
-
                         </div>
 
                     </>

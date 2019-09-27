@@ -37,7 +37,7 @@ class SubmitIdea extends Component {
 
         const value = event.target.value;
         // const name = event.target.name;
-        const selectedTags = [...this.state.selected]
+        const selectedTags = [...this.state.selectedTags]
         if (selectedTags.includes(value)) {
             for (var i = 0; i < selectedTags.length; i++) {
                 if (selectedTags[i] === value) {
