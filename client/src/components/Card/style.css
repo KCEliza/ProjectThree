@@ -3,14 +3,13 @@
   background-color: transparent;
   width: 300px;
   height: 300px;
-  margin: 12.5px 25px;
+  margin: 35px 25px;
   float: left;
   border: 1px solid #f1f1f1;
   border-radius: 12px;
   perspective: 1000px;
   /* Remove this if you don't want the 3D effect */
 }
-
 /* This container is needed to position the front and back side */
 .flip-card-inner {
   position: relative;
@@ -25,7 +24,6 @@
 .flip-card:hover .flip-card-inner {
   /* position: absolute; */
   transform: rotateY(180deg);
-
 }
   
   /* Position the front and back side */
@@ -60,11 +58,13 @@
 
 }
 
+.imageWrap {
+  background-color: #87baab;
+}
 .image {
   max-width: 150px;
   opacity: .2;
 }
-
 .card-text {
   padding: 4px;
 }
