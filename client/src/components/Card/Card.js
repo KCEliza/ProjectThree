@@ -39,14 +39,14 @@ const Cardfile = (props) => {
              <InputGroup>
               <Input onChange= {props.handleCommentChange}/>
               <InputGroupAddon addonType="append">
-                <a href = "https://www.w3.org/WAI/tips/developing/">Consider making your project fully accessible!</a>
+                
                 <InputGroupText onClick = {props.handleCommentSubmit}>Comment</InputGroupText>
 
                 
               </InputGroupAddon>
             </InputGroup>
             <Button onClick={props.handleVote}><i className="fas fa-thumbs-up"></i></Button>
-
+            <a href = "https://www.w3.org/WAI/tips/developing/">Make it accessible!</a>
             <CardText>{props.comment}</CardText>
         
         </div>
