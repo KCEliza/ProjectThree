@@ -4,7 +4,7 @@ import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import Menu from "../../components/Menu";
-import CardFile from "../../components/Card";
+import CardFile from "../../components/Card/";
 import Filter from "../../components/Filter";
 import _ from "lodash";
 
@@ -18,7 +18,8 @@ class Profile extends Component {
         filteredIdeas: [],
         displayedIdeas: [],
         comment:{},
-        comments: []
+        comments: [],
+        modal: false
     }
 
     // handleCardClick = (id) => {
@@ -125,6 +126,12 @@ class Profile extends Component {
         }, 1000)
     };
 
+    toggle= () => {
+        this.setState(prevState => ({
+          modal: !prevState.modal
+        }));
+    };
+    
 
 
 
@@ -150,6 +157,8 @@ class Profile extends Component {
 
                             {this.state.displayedIdeas.map(idea => (
                                 <CardFile
+                                    toggle={this.toggle}
+                                    modal ={this.state.modal}
                                     handleCommentChange={this.handleCommentChange}
                                     handleCommentSubmit={this.handleCommentSubmit}
                                     name={idea.username}

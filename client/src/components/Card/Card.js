@@ -25,10 +25,10 @@ const Cardfile = (props) => {
             <CardTitle>{props.title}</CardTitle>
           </CardBody>
         </div>
-        <div className="flip-card-back">
+        <div className="flip-card-back description">
              <CardTitle>{props.title}</CardTitle>
              <CardSubtitle>{props.name}</CardSubtitle>
-             <CardText>Description: {props.description}</CardText>
+             <CardText >Description: {props.description}</CardText>
              <CardText>Level: {props.projectLevel}</CardText>
              <CardText>Project Difficulty: {props.projectDiff}</CardText>
              <CardText>Tags: {props.tags}</CardText>
