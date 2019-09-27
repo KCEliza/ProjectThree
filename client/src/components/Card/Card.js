@@ -33,9 +33,8 @@ const Cardfile = (props) => {
              <CardText>Level: {props.projectLevel}</CardText>
              <CardText>Project Difficulty: {props.projectDiff}</CardText>
              <CardText>Tags: {props.tags}</CardText>
-
-             <Button className="btn-success"><i className="fas fa-thumbs-up"></i></Button>
-            <Button className="btn-danger"><i className="fas fa-thumbs-down"></i></Button>
+            <Button id="likeBtn" onClick={props.handleVote}><i className="fas fa-thumbs-up"></i></Button>
+            <CardText id="likeText">Likes: {props.likes}</CardText>
              <InputGroup>
               <Input onChange= {props.handleCommentChange}/>
               <InputGroupAddon addonType="append">

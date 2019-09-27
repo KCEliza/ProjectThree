@@ -38,7 +38,7 @@ export default {
     return axios.get("/api/create")
   },
 
-  // vote: function(vote) {
-  //   return axios.get("/api/vote", vote)
-  // },
+  vote: function(id, likes) {
+    return axios.put(`/api/vote/${id}`, { likes: likes });
+  }
 };
