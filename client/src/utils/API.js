@@ -31,7 +31,7 @@ export default {
   },
 
   submitComment: function(submitComment) {
-    return axios.post("/api/comment/new", submitComment);
+    return axios.post("/api/create/card", submitComment);
   },
 
   retrieveIdeas: function() {

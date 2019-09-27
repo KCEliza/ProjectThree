@@ -18,35 +18,42 @@ class Profile extends Component {
         filters: [],
         likes: 0,
         displayedIdeas: [],
-        comment:{},
-        comments: []
+        comment:"",
+        allComments: []
     }
 
     // handleCardClick = (id) => {
     //     console.log(id)
     // }
 
-    handleCommentChange = (event) => {
-
-        // const name = event.target.name;
-        const comment = event.target.value;
-        console.log(comment, "COMMENT INPUT")
-        // console.log(name,"NAME")
+    handleInputChange = event => {
+        console.log("in handle input change")
+        const value = event.target.value;
+        const name = event.target.name;
+        console.log(value, "VALUE")
+        console.log(name, "NAME")
         this.setState({
-            comment
+            [name]: value
         });
     }
 
-    handleCommentSubmit = (event) => {
-        event.preventDefault();
+    handleCommentSubmit = (id) => {
+        // event.preventDefault();
         console.log("did it work")
+        console.log("card id", id);
+        console.log(this.state.comment);
+        
+        
         API.submitComment({
-            _id: this.state.id,
+            id: id,
             comment: this.state.comment
         }).then(res => {
-            this.setState({ comment: res.data.comment , comments:res.data.comment});
-            
-            console.log(res.data.comment);
+            API.retrieveIdeas().then(creates => {
+                this.setState({
+                    ideas: creates.data,
+                    displayedIdeas: creates.data
+                })
+            })
         })
     };
 
@@ -159,7 +166,6 @@ class Profile extends Component {
 
                             {this.state.displayedIdeas.map(idea => (
                                 <CardFile
-                                    handleCommentChange={this.handleCommentChange}
                                     handleCommentSubmit={this.handleCommentSubmit}
                                     handleVote = {this.handleVote}
                                     name={idea.username}
@@ -168,9 +174,11 @@ class Profile extends Component {
                                     projectLevel={idea.projectLevel}
                                     projectDiff={idea.projectDiff}
                                     tags={idea.tags}
-                                    comments={idea.comments}
+                                    comment={this.state.comment}
+                                    allComments={idea.comments}
+                                    handleInputChange={this.handleInputChange}
                                     // cardClick={this.handleCardClick}
-                                    id={idea.title}
+                                    id={idea._id}
                                     key={idea.title}
                                     likes={idea.likes}
                                 >
