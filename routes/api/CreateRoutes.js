@@ -54,7 +54,8 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
         projectLevel: req.body.projectLevel,
         projectDiff: req.body.projectDiff,
         tags: req.body.tags,
-        comments: req.body.comments
+        comments: req.body.comments,
+        likes: 0
     });
    
     newCreate.save((err, newCreate) => {
