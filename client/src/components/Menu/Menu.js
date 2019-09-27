@@ -14,7 +14,7 @@ const Menu = props => (
         <Nav vertical className="list-unstyled pb-3">
           <NavItem>
             <NavLink tag={Link} to={'/profile'}>
-            <i class="fas fa-project-diagram"></i> ALL IDEAS
+            <i className="fas fa-project-diagram"></i> ALL IDEAS
             </NavLink>
           </NavItem>
           <NavItem>
