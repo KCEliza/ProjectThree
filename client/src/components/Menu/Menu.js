@@ -6,11 +6,7 @@ import "./style.css";
 
 
 const Menu = props => (
-<<<<<<< HEAD
-    <div className="sidebar col-md-2" style={{ position: "fixed", top: 0, paddingTop: 80}}>
-=======
     <div className="w3-bar-block sidebar col-md-2">
->>>>>>> master
       <div className="sidebar-header">
         <h3>I HAVE NO IDEA!</h3>
       </div>

@@ -59,6 +59,7 @@ const Cardfile = (props) => {
 
         
         </div>
+        </div>
         </Card>
       </div>
   </div>
