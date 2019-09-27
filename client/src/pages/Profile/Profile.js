@@ -4,7 +4,7 @@ import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import Menu from "../../components/Menu";
-import CardFile from "../../components/Card/";
+import CardFile from "../../components/Card/SmartCard";
 import Filter from "../../components/Filter";
 import _ from "lodash";
 
