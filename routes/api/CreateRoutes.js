@@ -6,6 +6,7 @@ const authMiddleware = require("../../config/middleware/authMiddleware");
 const nodemailer = require("nodemailer");
 
 
+
 // /api/todos/all
 
 let transporter = nodemailer.createTransport({
@@ -33,16 +34,6 @@ router.get("/", authMiddleware.isLoggedIn, function (req, res, next) {
     })
     .catch(err=>console.log(err)
     )
-    // NEEDDD THIISS ???????????????????
-    // console.log(Schema);
-//     Schema.Create.
-//   find({}).
-//   populate('comments').
-//   exec(function (err, create) {
-//     if (err) return handleError(err);
-//     console.log('The author is %s', create.comment.comments);
-//     // prints "The author is Ian Fleming"
-//   });
 });
 
 
@@ -101,67 +92,18 @@ router.post("/new", authMiddleware.isLoggedIn, function (req, res, next) {
 
 });
 
-// router.post("/card", function (req, res) {
-//     const newComment = new db.Comment({
-//         comment: req.user.comment
 router.post("/card", authMiddleware.isLoggedIn, function (req, res, next) {
-    const newComment = new db.Comment({
-        comment: req.user.comment
-    });
-    console.log(req.body);
-    console.log(req.user);
-    newComment.save((err, newCommment) => {
-        if (err) throw err;
-       return db.Comment.findByIdAndUpdate(req.user.id, { $push: { create: comments._id } }, (err, user) => {
-            if (err) throw err;
-            res.send(newComment);
-        });
-    })
+    console.log("in this /card");
+    console.log("req.body", req.body);
+    console.log("req.user", req.user);
+    db.Comment.create({comment:req.body.comment})
+        .then(dbComment => {
+            console.log("dbComment", dbComment);
+             return db.Create.findByIdAndUpdate(req.body.id , {$push: {comments: dbComment._id}})
+        })
+        .then(dbCard => res.json(dbCard))
+        .catch(err => res.json(err));
+   
 });
-
-
-// /apiCreate/remove
-// removed todo based on id, updates user
-// router.delete("/remove", authMiddleware.isLoggedIn, function (req, res, next) {
-//     db.Create.findByIdAndDelete(req.body.id, (err, todo) => {
-//         if (err) throw err;
-//         db.Users.findByIdAndUpdate(todo._id, { $pull: { 'todos': todo._id } }, { new: true }, (err, user) => {
-//             if (err) throw err;
-//             res.send(user);
-//         });
-//     });
-//     console.log(req.body);
-//     console.log(req.user);
-//     newComment.save((err, newCommment) => {
-//         if (err) throw err;
-//         db.Create.findByIdAndUpdate(req.user.id, { $push: { comment: newComment.comment } }, (err, user) => {
-//             if (err) throw err;
-//             res.send(newCommment);
-//         });
-//     })
-// });
-
-
-// /apiCreate/remove
-// removed todo based on id, updates user
-// router.delete("/remove", authMiddleware.isLoggedIn, function (req, res, next) {
-//     db.Create.findByIdAndDelete(req.body.id, (err, todo) => {
-//         if (err) throw err;
-//         db.Users.findByIdAndUpdate(todo._id, { $pull: { 'todos': todo._id } }, { new: true }, (err, user) => {
-//             if (err) throw err;
-//             res.send(user);
-//         });
-//     });
-// });
-// // /api/create/update
-// // update a todo based on id
-// router.put("/update", authMiddleware.isLoggedIn, function (req, res, next) {
-//     db.Create.findByIdAndUpdate(req.body.id, { todo: req.body.create }, { new: true }, (err, create) => {
-//         if (err) throw err;
-//         res.json(create);
-//     });
-// });
-// module.exports = router;
-
 
 module.exports = router;
