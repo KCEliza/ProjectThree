@@ -46,8 +46,12 @@ Need an Idea for an up coming project or need to work on your coding skills. Loo
 * Admin Login to mediate and add in new class codes
 
 ## "Have No Idea" Contributors: 
-[Kristen Christeson - Auth / Back-end](https://github.com/KCEliza/)
-[Genevieve DePriest - Styles / Front-end](https://github.com/gdepriest/)
-[Christelle Mangama - NodeMailer / Front-end](https://github.com/mangama/)
-[Amber Moreyra - LoDash / Front-end](https://github.com/ambermoreyra/)
-[Claudia Pollinger Database / Back-end](https://github.com/Claudpod1/)
+[Kristen Christeson - Auth / Back-end](https://github.com/KCEliza/) <b>
+  
+[Genevieve DePriest - Styles / Front-end](https://github.com/gdepriest/)<b>
+  
+[Christelle Mangama - NodeMailer / Front-end](https://github.com/mangama/)<b>
+  
+[Amber Moreyra - LoDash / Front-end](https://github.com/ambermoreyra/)<b> 
+  
+[Claudia Pollinger Database / Back-end](https://github.com/Claudpod1/) <b>
