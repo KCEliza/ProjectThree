@@ -24,6 +24,9 @@ const createSchema = new Schema({
   tags: {
     type: Array
   },
+  likes: {
+    type: Number
+  },
   comments: [
     {
       type: Schema.Types.ObjectId,

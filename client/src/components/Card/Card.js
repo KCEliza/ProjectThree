@@ -10,6 +10,7 @@ import "./style.css"
 // import API from "../../utils/API";
 
 
+
 const Cardfile = (props) => {
 
   return (
@@ -43,16 +44,17 @@ const Cardfile = (props) => {
                 
               </InputGroupAddon>
             </InputGroup>
+            <Button onClick={props.handleVote}><i className="fas fa-thumbs-up"></i></Button>
 
             <CardText>{props.comment}</CardText>
         
         </div>
-        
         </Card>
       </div>
   </div>
 
 );
+
 };
 
 export default Cardfile;
