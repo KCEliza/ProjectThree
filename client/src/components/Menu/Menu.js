@@ -6,15 +6,15 @@ import "./style.css";
 
 
 const Menu = props => (
-    <div className="sidebar col-md-2">
-      <div className="sidebar-header">
+      <div className="sidebar col-md-2" style={{ position: "fixed", top: 0, paddingTop: 80}}>
+        <div className="sidebar-header">
         <h3>I HAVE NO IDEA!</h3>
       </div>
       <div className="side-menu">
         <Nav vertical className="list-unstyled pb-3">
           <NavItem>
             <NavLink tag={Link} to={'/profile'}>
-            <i class="fas fa-project-diagram"></i> ALL IDEAS
+            <i className="fas fa-project-diagram"></i> ALL IDEAS
             </NavLink>
           </NavItem>
           <NavItem>

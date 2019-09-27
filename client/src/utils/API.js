@@ -31,14 +31,14 @@ export default {
   },
 
   submitComment: function(submitComment) {
-    return axios.post("/api/comment/new", submitComment);
+    return axios.post("/api/create/card", submitComment);
   },
 
   retrieveIdeas: function() {
     return axios.get("/api/create")
   },
 
-  // vote: function(vote) {
-  //   return axios.get("/api/vote", vote)
-  // },
+  vote: function(id, likes) {
+    return axios.put(`/api/vote/${id}`, { likes: likes });
+  }
 };

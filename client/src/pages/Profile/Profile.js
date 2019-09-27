@@ -16,72 +16,85 @@ class Profile extends Component {
         loading: true,
         ideas: [],
         filters: [],
-        likes: 0,
         displayedIdeas: [],
-        comment: {},
-        comments: []
+        comment:"",
+        allComments: []
     }
 
     // handleCardClick = (id) => {
     //     console.log(id)
     // }
 
-    handleCommentChange = (event) => {
-
-        // const name = event.target.name;
-        const comment = event.target.value;
-        console.log(comment, "COMMENT INPUT")
-        // console.log(name,"NAME")
+    handleInputChange = event => {
+        console.log("in handle input change")
+        const value = event.target.value;
+        const name = event.target.name;
+        console.log(value, "VALUE")
+        console.log(name, "NAME")
         this.setState({
-            comment
+            [name]: value
         });
     }
 
-    handleCommentSubmit = (event) => {
-        event.preventDefault();
+    handleCommentSubmit = (id) => {
+        // event.preventDefault();
         console.log("did it work")
+        console.log("card id", id);
+        console.log(this.state.comment);
+        
+        
         API.submitComment({
-            _id: this.state.id,
+            id: id,
             comment: this.state.comment
         }).then(res => {
-            this.setState({ comment: res.data.comment, comments: res.data.comment });
+            API.retrieveIdeas().then(creates => {
+                this.setState({
+                    ideas: creates.data,
+                    displayedIdeas: creates.data,
+                    comment: ""
+                })
 
-            console.log(res.data.comment);
+            })
         })
     };
 
 
+    
+    handleVote = (id, likes) => {
+          API.vote(id, likes + 1) 
+        .then(res => {
+            API.retrieveIdeas().then(creates => {
+                console.log("updated ideas", creates.data);
 
-    handleVote = () => {
-        let likes = [this.state.likes]
-        let likesCount = likes + 1
-
-        this.setState({
-            likes: likesCount
+                this.setState({
+                    ideas: creates.data,
+                    displayedIdeas: creates.data
+                }, () => {
+                    if (this.state.filters.length) {
+                        this.displayFiltered(this.state.filters);    
+                    }
+                })
+            })
         })
-        console.log("likes: ", this.state.likes)
-        console.log("likesCount: ", likesCount)
-
-        // API.vote({
-        //     likes: this.state.likes
-        // })
-    }
-
+        .catch(err => console.log(err))
+    };      
+      
+      
     handleFilter = (filter) => {
         let filters = [filter]
         this.displayFiltered(filters)
         this.setState({
             filters
         })
-        console.log("filtered ideas 1: ", filters)
 
     }
 
     displayFiltered = (array) => {
         let ideas = [...this.state.ideas]
 
-        // let displayedIdeas = ideas.filter(ideas => ideas.projectLevel.includes(filter)) works
-        let displayedIdeas = _.filter(ideas, { projectLevel: array[0] });
+            // let displayedIdeas = ideas.filter(ideas => ideas.projectLevel.includes(filter)) works
+            console.log("filter to be applied: " + array[0]);
+            let displayedIdeas = _.filter(ideas, {projectLevel: array[0]});
 
         this.setState({
             displayedIdeas
@@ -146,7 +159,6 @@ class Profile extends Component {
                 {this.state.loggedIn ? (
                     <>
                         <Menu />
-
                         <div className="profileBox col-md-10 float-right">
                             <h2 id="userTitle">Welcome {this.state.user.username}</h2>
                             <hr></hr>
@@ -154,34 +166,31 @@ class Profile extends Component {
                                 handleFilter={this.handleFilter}
                             />
                             {this.state.filters.map(filter => (
-                                <Button className="filter" onClick={this.removeFilter}>{filter}<i className="far fa-times-circle"></i></Button>
+                                <Button onClick={this.removeFilter}>{filter}<i className="far fa-times-circle"></i></Button>  
                             ))}
-                            <br></br>
-                            <br></br>
+                            <h4>All Projects: </h4>
 
-
-                            <div className="allProjects">
-                                <h4>All Projects: </h4>
-                                {this.state.displayedIdeas.map(idea => (
-                                    <CardFile
-                                        handleCommentChange={this.handleCommentChange}
-                                        handleCommentSubmit={this.handleCommentSubmit}
-                                        handleVote={this.handleVote}
-                                        name={idea.username}
-                                        title={idea.title}
-                                        description={idea.description}
-                                        projectLevel={idea.projectLevel}
-                                        projectDiff={idea.projectDiff}
-                                        tags={idea.tags}
-                                        comments={idea.comments}
-                                        // cardClick={this.handleCardClick}
-                                        id={idea.title}
-                                        key={idea.title}
-                                        likes={idea.likes}
-                                    >
-                                    </CardFile>
-                                ))}
-                            </div>
+                            {this.state.displayedIdeas.map(idea => (
+                                <CardFile
+                                    handleCommentSubmit={this.handleCommentSubmit}
+                                    handleVote = {() => this.handleVote(idea._id, idea.likes)}
+                                    name={idea.username}
+                                    title={idea.title}
+                                    description={idea.description}
+                                    projectLevel={idea.projectLevel}
+                                    projectDiff={idea.projectDiff}
+                                    tags={idea.tags}
+                                    comment={this.state.comment}
+                                    allComments={idea.comments}
+                                    handleInputChange={this.handleInputChange}
+                                    // cardClick={this.handleCardClick}
+                                    id={idea._id}
+                                    key={idea.title}
+                                    likes={idea.likes}
+                                >
+                                </CardFile>
+                            
+                            ))}
                         </div>
 
                     </>
