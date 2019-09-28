@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
 import { Link } from "react-router-dom";
+import "./style.css"
 
 function Login(props) {
     return (

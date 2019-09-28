@@ -64,7 +64,7 @@ class Submit extends Component {
                                 <div className="container text-center">
 
                                     <h1>please log in</h1>
-                                    <Link className="loginLink" to="/login"><Button className="loginBtn btn-large" color="info" >Login</Button></Link>
+                                    <Link id="login1" className="loginLink" to="/login"><Button className="loginBtn btn-large" >Login</Button></Link>
 
                                 </div>
                             </>

@@ -116,7 +116,7 @@ class SubmitIdea extends Component {
                 </FormGroup>
 
                 <FormGroup check>
-                    <div for="tags">Please check all that apply: </div>
+                    <div id="tagLabel" for="tags">Please check all that apply: </div>
             
                     <div>
                         {this.state.tags.map(tag => (
