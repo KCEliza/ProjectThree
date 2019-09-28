@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
 import tags from "./tags.json";
 import "./style.css";
@@ -116,7 +116,7 @@ class SubmitIdea extends Component {
                 </FormGroup>
 
                 <FormGroup check>
-                    <div for="tags">Please check all that apply: </div>
+                    <div id="tagLabel" for="tags">Please check all that apply: </div>
             
                     <div>
                         {this.state.tags.map(tag => (

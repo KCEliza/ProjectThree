@@ -57,7 +57,7 @@ class Filter extends React.Component {
 
   render() {
     return (
-      <ButtonDropdown className="dropDown" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+      <ButtonDropdown className="dropDown filterBtn" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
           Filter Options
         </DropdownToggle>

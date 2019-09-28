@@ -77,7 +77,7 @@ export default class Navigation extends Component {
                                                 <NavLink href="/profile/submit">Submit Idea</NavLink>
                                             </DropdownItem>
                                             <DropdownItem>
-                                                <NavLink href="/profile/myprojects">My Projects</NavLink>
+                                                <NavLink href="/profile/myprojects">Upcoming</NavLink>
                                             </DropdownItem>
                                             <DropdownItem>
                                                 <NavLink onClick={this.logout}>Logout</NavLink>
