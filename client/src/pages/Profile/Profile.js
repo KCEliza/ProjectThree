@@ -159,7 +159,7 @@ class Profile extends Component {
                 {this.state.loggedIn ? (
                     <>
                         <Menu />
-                        <div className="profileBox col-md-10 float-right">
+                        <div className="profileBox col-md-10 float-right" style={{ paddingTop: 150}}>
                             <h3 id="userTitle">Welcome {(this.state.user.username).toUpperCase()}</h3>
                             <hr></hr>
                             <Filter

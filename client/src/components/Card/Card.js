@@ -30,7 +30,7 @@ const Cardfile = (props) => {
           <div className="flip-card-back">
             <div className="superBack">
               <CardTitle>{props.title}</CardTitle>
-              <CardSubtitle>Created By: {props.name}</CardSubtitle>
+              <CardSubtitle>Created By: {props.username}</CardSubtitle>
               <hr></hr>
               <CardText>Description: {props.description}</CardText>
               <CardText>Level: {props.projectLevel}</CardText>
