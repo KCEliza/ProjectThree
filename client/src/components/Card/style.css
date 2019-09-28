@@ -1,20 +1,26 @@
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
   background-color: transparent;
   width: 300px;
   height: 300px;
-  margin: 35px 25px;
+  margin: 25px;
+  margin-top: 35px;
+  margin-bottom: 75px;
   float: left;
   border: 1px solid #f1f1f1;
-  border-radius: 12px;
+  border-radius: 12px !important;
   perspective: 1000px;
-  /* Remove this if you don't want the 3D effect */
 }
 
 .card-title {
   font-size: 20px;
   font-weight: bold;
   color: #512d38;
+}
+
+.frontTitle {
+  font-size: 25px;
+  font-weight: bold;
+  color: whitesmoke !important;
 }
 
 .card-subtitle {
@@ -27,7 +33,6 @@
   font-size: 18px;
 }
 
-/* This container is needed to position the front and back side */
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -35,44 +40,38 @@
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  border-radius: 12px !important;
 }
 
-  
-  /* Do a horizontal flip when you move the mouse over the flip box container */
 .flip-card:hover .flip-card-inner {
-  /* position: absolute; */
   transform: rotateY(180deg);
 }
   
-  /* Position the front and back side */
-  .flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-  }
-  
-  /* Style the front side (fallback if image is missing) */
-  .flip-card-front {
-    background-color: #87baab !important;
-    color: #512d38;
-    border-radius: 20px !important;
-    height: 100%;
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px !important;
 
-  }
-  
+}
+
+.flip-card-front {
+  background-color: #87baab !important;
+  color: #512d38;
+  border-radius: 12px !important;
+  height: 100%;
+}
 
 .card-body {
   background-color: #87baab
 }
 
-/* Style the back side */
 .flip-card-back {
-  background: #8e5974!important;
-  color:#ffe9f3;
+  background: #ffe9f3 !important;
+  color: #512d38;
   transform: rotateY(180deg);
 
-  border-radius: 20px !important;
   height: 100%;
 
  
@@ -81,8 +80,8 @@
 
 .superBack {
   overflow: scroll;
-  height: 300px;
-  border: 3px solid #8e5974;
+  height: 343px;
+  border: 2.5px solid #b27092;
 
 }
 
@@ -90,6 +89,7 @@
   background-color: #87baab;
 }
 .image {
+  margin-top: 7px;
   max-width: 150px;
   opacity: .2;
 }
@@ -98,11 +98,39 @@
 }
 
 #likeBtn {
-  float: left;
-  margin-left: 25px;
+  float: center;
+}
+.btn-secondary {
+  background-color: #87baab !important;
+}
+#likeText {
+  float: center;
 }
 
-#likeText {
-  float: right;
-  margin-right: 25px;
+.card {
+  border-radius: 12px !important;
+
+}
+
+.input-group {
+  margin-top: 9px !important;
+  margin-bottom: 9px !important;
+}
+
+.input-group-text {
+  background-color: #512d38 !important;
+  color: whitesmoke !important;
+}
+
+.input-group-text:hover {
+  cursor: pointer;
+}
+
+.commentText {
+  border-top: 2px dotted rgb(135, 186, 171, .5);
+}
+
+#accessLink {
+  color: #b27092 !important;
+  padding-bottom: 12px !important;
 }

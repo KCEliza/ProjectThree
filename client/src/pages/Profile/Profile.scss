@@ -3,16 +3,23 @@
     .profileBox {
         padding: 30px;
         height: 100%;
+        margin-bottom: 150px !important;
         background-color: whitesmoke;
-        // text-align: center;
-
+    }
+    
+    #userTitle {
+        color: #40242c;
     }
 
 
 .profilePage {
     height: 100%;
+    margin-bottom: 150px !important;
     // margin: 0 auto;
     // margin-top: 25px;
+    h4 {
+        color: #40242c;
+    }
 
     .noUser {
         width: 280px;
@@ -35,7 +42,7 @@
         #loadingIcon {
             height: 200px;
             width: 200px;
-            margin: 0 auto;
+            position: center;
             // margin-top: 25px;
         }
     }

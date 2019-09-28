@@ -160,7 +160,7 @@ class Profile extends Component {
                     <>
                         <Menu />
                         <div className="profileBox col-md-10 float-right">
-                            <h2 id="userTitle">Welcome {this.state.user.username}</h2>
+                            <h3 id="userTitle">Welcome {(this.state.user.username).toUpperCase()}</h3>
                             <hr></hr>
                             <Filter
                                 handleFilter={this.handleFilter}
@@ -168,7 +168,7 @@ class Profile extends Component {
                             {this.state.filters.map(filter => (
                                 <Button onClick={this.removeFilter}>{filter}<i className="far fa-times-circle"></i></Button>  
                             ))}
-                            <h4>All Projects: </h4>
+                            <h4>All Ideas: </h4>
 
                             {this.state.displayedIdeas.map(idea => (
                                 <CardFile

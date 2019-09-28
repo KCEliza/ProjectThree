@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
 import tags from "./tags.json";
 import "./style.css";
